@@ -157,3 +157,111 @@ Exemplos de linguagem que tipicamente usam essa abordagem: *Java (JVM), C# (Micr
      style 4 stroke:#0af,stroke-width:2px,color:#0af
      style 5 stroke:#9aa,stroke-width:2px,color:#9aa
 ```
+
+## Visão geral do capítulo Estrutura Sequencia
+
+**Estrutura Sequencial**:<br>
+Para enfatizar que os comandos do algoritmo **executam em sequência, de cima para baixo.** Um algoritmo deve obedecer uma **sequência lógica** adequada para cumprir seu papel.
+
+**Errado**:
+
+    soma = x + y;
+    x = sc.nextDouble();
+    y = sc.nextDouble();
+    Systemm.out.println("Soma =" + soma);
+    
+**Correto**:
+
+    x = sc.nextDouble();
+    y = sc.nextDouble();
+    soma = x + y;
+    Systemm.out.println("Soma =" + soma);
+
+## Expressões aritméticas
+
+São aquelas que quando calculadas o resultado será um valor numérico.<br>
+Ex.: 4 + 2 = 6
+
+### Operadores aritméticos
+
+|Operador|Significado|
+|-|-|
+|+|Adição|
+|-|Subtração|
+|*|Multiplicação|
+|/|Divisão|
+|%|Resto da divisão "mod"|
+
+Precedência:
+1) &lowast;, / e %
+2) &plus; e -
+
+## Variáveis e tipos básicos em Java
+
+Um programa de computador em execução lida com dados, e esses dados são armazenados em variáveis.
+
+### Variáveis
+Em programação, uma variável é uma porção de memória (RAM) utilizada para armazenar dados durante a execução dos programas.
+
+#### Declaração de variáveis
+
+**Sintaxe**:<br>
+
+    <tipo> <nome> = <valor inicial>;
+&lowast; valor inicial é opcional
+
+**Exemplos:**<br>
+
+    int idade = 25;
+    double altura = 1.68;
+    char genero = 'F';
+
+&lowast; *char* corresponde a um caracter unicode, podendo ser uma letra, um número, etc.
+
+```mermaid
+    flowchart LR
+    subgraph one [Memória RAM]
+        subgraph two [idade]
+            25[<font size=4>25]
+        end
+        subgraph three [altura]
+            168[<font size=4>1.68]
+        end
+        subgraph four [genero]
+            F[<font size=4>F]
+        end
+    end
+    style two stroke:#0af,stroke-width:2px,color:#0af,fill:#0af2
+    style three stroke:#0af,stroke-width:2px,color:#0af,fill:#0af2
+    style four stroke:#0af,stroke-width:2px,color:#0af,fill:#0af2
+    style 25 stroke:none,fill:none,color:#fff 
+    style 168 stroke:none,fill:none,color:#fff 
+    style F stroke:none,fill:none,color:#fff 
+```
+
+**Uma variável possui:**
+- Nome (ou identificador)
+- Tipo
+- Valor
+- Endereço
+
+
+### Tipos primitivos em Java
+
+|Descrição|Tipo|Tamanho|Valores|Valor padrão|
+|-|-|-|-|-|
+|tipos numéricos inteiros|**byte**|8 bits|-128 a 127|0|
+|tipos numéricos inteiros|**short**|16 bits|-32768 a 32767|0|
+|tipos numéricos inteiros|**int**|32 bits|-2147483648 a 2147483647|0|
+|tipos numéricos inteiros|**long**|64 bits|-9223372036854770000 a 9223372036854770000|0L|
+|tipos numéricos com ponto flutuante|**float**|32 bits|-1,4024E-37 a 3,4028E+38|0.0f|
+|tipos numéricos com ponto flutuante|**double**|64 bits|-4,94E-307 a 1,79E+308|0.0|
+|um caractere Unicode|**char**|16 bits|'\u0000' a '\uFFFF'|'\u0000'|
+|valor verdade|**boolean**|1 bits|{false, true}|false|
+
+Unicode - Ex.: 'a' = '\u0061';<br>
+[Referência](https://symbl.cc/en/)
+
+A quantidade de bits representa o número de valores possíveis diferentes que o tipo da variavel pode armazenar.
+
+Um bit pode armazenar 2 valores possíveis: 0 ou 1 - cada bit, 2 possibilidades. <br>Portanto 8 bits = 2⁸ = 256 possibilidades => em uma variavel de 8 bits poderia ser armazenado do valor 0 ao 255, por exemplo. Mas uma parte é reservada a números negativos, então -128 + 127 + 0 = 256.
