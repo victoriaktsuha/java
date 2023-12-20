@@ -768,3 +768,94 @@ Quando é utilizado um comando de linha diferente do `.nextLine()` e ocorre algu
             Bom dia
             Boa tarde
             Boa noite
+
+## Funções matemáticas em Java
+
+|Exemplo|Significado|
+|-|-|
+|`A = Math.sqrt(x);`|Variável A recebe a raiz quadrada de X|
+|`A = Math.pow(x, y);`|Variável A recebe o resultado de X elevado a Y|
+|`A = Math.abs(x);`|Variável A recebe o valor absoluto de X|
+
+    public class FuncoesMatematicas {
+        public static void main(String[] args) {
+            
+            double x = 3.0;
+            double y = 4.0;
+            double z = -5.0;
+            double A, B, C;
+            
+            A = Math.sqrt(x);
+            B = Math.sqrt(y);
+            C = Math.sqrt(25.0);
+            System.out.println("Raiz quadrada de " + x + " = " + A);
+            System.out.println("Raiz quadrada de " + y + " = " + B);
+            System.out.println("Raiz quadrada de 25 = " + C);
+            
+            A = Math.pow(x, y);
+            B = Math.pow(x, 2.0);
+            C = Math.pow(5.0, 2.0);
+            System.out.println(x + " elevado a " + y + " = " + A);
+            System.out.println(x + " elevado a " + y + " = " + B);
+            System.out.println("5 elevado ao quadrado = " + C);
+            
+            A = Math.abs(y);
+            B = Math.abs(z);
+            System.out.println("Valor absoluto de " + y + " = " + A);
+            System.out.println("Valor absoluto de " + z + " = " + B);
+        }
+    }
+
+    Output:
+    Raiz quadrada de 3.0 = 1.7320508075688772
+    Raiz quadrada de 4.0 = 2.0
+    Raiz quadrada de 25 = 5.0
+    3.0 elevado a 4.0 = 81.0
+    3.0 elevado a 4.0 = 9.0
+    5 elevado ao quadrado = 25.0
+    Valor absoluto de 4.0 = 4.0
+    Valor absoluto de -5.0 = 5.0
+
+### Incluindo funções em expressões maiores
+**Fórmula de Bháskara** (equação de 2º grau):<br>
+`x = -b ∓ √∆ / 2*a`<br>
+`∆ = b² - 4ac`
+
+    delta = Math.pow(b, 2.0) - 4*a*c;
+
+    x1 = (-b + Math.sqrt(delta)) / (2.0 * a);
+    x2 = (-b - Math.sqrt(delta)) / (2.0 * a);
+
+## Exercício 
+
+Fazer um programa para ler as medidas da largura e comprimento de um terreno retangular com uma casa decimal, bem como o valor do metro quadrado do terreno com duas casas decimais. Em seguida, o programa deve mostar o valor da área do terreno, bem como o valor do preço do terreno, ambos com duas casas decimais, conforme exemplo.
+
+**Exemplo:**<br>
+|Entrada|Saída|
+|-|-|
+|10.0|AREA = 300.00|
+|30.0|PRECO = 60000.00|
+|200.0||
+
+    import java.util.Scanner;
+
+    public class ExercicioTerreno {
+        public static void main(String[] args) {
+            
+            Scanner sc = new Scanner(System.in);
+            
+                double largura = sc.nextDouble();
+                double comprimento = sc.nextDouble();
+                double metroQd = sc.nextDouble();
+                
+                double area = largura * comprimento;
+                double preco = area * metroQd;
+                
+                System.out.printf("AREA = %.2f%n", area);
+                System.out.printf("PRECO = %.2f%n", preco);
+            
+            sc.close();
+            
+        }
+    }
+
