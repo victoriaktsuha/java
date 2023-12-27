@@ -449,7 +449,7 @@ Dado um trapézio, calcule a área:<br>
     35.0
 
 Boa prática:<br>
-Sempre indique o tipo do númeor, se a expressão for de ponto flutuante (não inteira).
+Sempre indique o tipo do número, se a expressão for de ponto flutuante (não inteira).
 
 Para **double** use:<br>
 `.0`<br>
@@ -859,3 +859,23 @@ Fazer um programa para ler as medidas da largura e comprimento de um terreno ret
         }
     }
 
+## Visão geral do capítulo Estrutura Condicional
+
+### Expressões Comparativas
+
+```mermaid
+    flowchart LR
+    A[Expressão]-->|resultado|B[Valor verdade]
+    C[5 > 10]-->|resultado|D[Falso]
+```
+
+#### Operadores comparativos
+
+| Operador | Significado |
+|-|-|
+| > | maior |
+| < | menor |
+| >= | maior ou igual |
+| <= | menor ou igual |
+| == | igual |
+| != | diferente |
