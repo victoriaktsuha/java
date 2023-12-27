@@ -280,89 +280,131 @@ public class BeeCrowdExecercises {
 		
 //	1021 - corrigido
 		  
-			double N;
-			int quociente, resto, nota, moeda;
-			
-			N = sc.nextDouble();
-			
-			// Vamos multiplicar N por 100 e forçar a conversão para int.
-			// Desse modo, por exemplo, 576.73 vai se tornar 57673
-
-			// Vamos tambem somar 0.5 antes de converter, para assegurar 
-			// que o numero seja devidamente arredondado, pois o tipo double
-			// as vezes da problema de arredondamento (por exemplo: se digitarmos
-			// 576.81 e multiplicarmos por 100, o resultado sera 57680.99999999,
-			// dai o casting resultaria em 57680 e nao 57681 como desejado)
-
-			resto = (int) (N * 100.0 + 0.5);
-
-			System.out.println("NOTAS:");
-
-			// como multiplicamos o valor por 100 acima, o valor de cada nota
-			// também deverá ser multiplicado por 100 a seguir
-			
-			nota = 100;
-			quociente = resto / (nota * 100);
-			System.out.println(quociente + " nota(s) de R$ " + nota + ".00");
-		    resto = resto % (nota * 100);
-
-			nota = 50;
-			quociente = resto / (nota * 100);
-			System.out.println(quociente + " nota(s) de R$ " + nota + ".00");
-		    resto = resto % (nota * 100);
-
-			nota = 20;
-			quociente = resto / (nota * 100);
-			System.out.println(quociente + " nota(s) de R$ " + nota + ".00");
-		    resto = resto % (nota * 100);
-
-			nota = 10;
-			quociente = resto / (nota * 100);
-			System.out.println(quociente + " nota(s) de R$ " + nota + ".00");
-		    resto = resto % (nota * 100);
-
-			nota = 5;
-			quociente = resto / (nota * 100);
-			System.out.println(quociente + " nota(s) de R$ " + nota + ".00");
-		    resto = resto % (nota * 100);
-
-			nota = 2;
-			quociente = resto / (nota * 100);
-			System.out.println(quociente + " nota(s) de R$ " + nota + ".00");
-		    resto = resto % (nota * 100);
-
-		    System.out.println("MOEDAS:");
-
-		    // o valor de cada moeda deverá ser representado em centavos
-		    
-			moeda = 100;
-			quociente = resto / moeda;
-			System.out.println(quociente + " moeda(s) de R$ 1.00");
-		    resto = resto % moeda;
-
-			moeda = 50;
-			quociente = resto / moeda;
-			System.out.println(quociente + " moeda(s) de R$ 0.50");
-		    resto = resto % moeda;
-
-			moeda = 25;
-			quociente = resto / moeda;
-			System.out.println(quociente + " moeda(s) de R$ 0.25");
-		    resto = resto % moeda;
-
-			moeda = 10;
-			quociente = resto / moeda;
-			System.out.println(quociente + " moeda(s) de R$ 0.10");
-		    resto = resto % moeda;
-
-			moeda = 5;
-			quociente = resto / moeda;
-			System.out.println(quociente + " moeda(s) de R$ 0.05");
-		    resto = resto % moeda;
-
-			System.out.println(resto + " moeda(s) de R$ 0.01");
-
-		
+		/*
+		 * double N; int quociente, resto, nota, moeda;
+		 * 
+		 * N = sc.nextDouble();
+		 * 
+		 * // Vamos multiplicar N por 100 e forçar a conversão para int. // Desse modo,
+		 * por exemplo, 576.73 vai se tornar 57673
+		 * 
+		 * // Vamos tambem somar 0.5 antes de converter, para assegurar // que o numero
+		 * seja devidamente arredondado, pois o tipo double // as vezes da problema de
+		 * arredondamento (por exemplo: se digitarmos // 576.81 e multiplicarmos por
+		 * 100, o resultado sera 57680.99999999, // dai o casting resultaria em 57680 e
+		 * nao 57681 como desejado)
+		 * 
+		 * resto = (int) (N * 100.0 + 0.5);
+		 * 
+		 * System.out.println("NOTAS:");
+		 * 
+		 * // como multiplicamos o valor por 100 acima, o valor de cada nota // também
+		 * deverá ser multiplicado por 100 a seguir
+		 * 
+		 * nota = 100; quociente = resto / (nota * 100); System.out.println(quociente +
+		 * " nota(s) de R$ " + nota + ".00"); resto = resto % (nota * 100);
+		 * 
+		 * nota = 50; quociente = resto / (nota * 100); System.out.println(quociente +
+		 * " nota(s) de R$ " + nota + ".00"); resto = resto % (nota * 100);
+		 * 
+		 * nota = 20; quociente = resto / (nota * 100); System.out.println(quociente +
+		 * " nota(s) de R$ " + nota + ".00"); resto = resto % (nota * 100);
+		 * 
+		 * nota = 10; quociente = resto / (nota * 100); System.out.println(quociente +
+		 * " nota(s) de R$ " + nota + ".00"); resto = resto % (nota * 100);
+		 * 
+		 * nota = 5; quociente = resto / (nota * 100); System.out.println(quociente +
+		 * " nota(s) de R$ " + nota + ".00"); resto = resto % (nota * 100);
+		 * 
+		 * nota = 2; quociente = resto / (nota * 100); System.out.println(quociente +
+		 * " nota(s) de R$ " + nota + ".00"); resto = resto % (nota * 100);
+		 * 
+		 * System.out.println("MOEDAS:");
+		 * 
+		 * // o valor de cada moeda deverá ser representado em centavos
+		 * 
+		 * moeda = 100; quociente = resto / moeda; System.out.println(quociente +
+		 * " moeda(s) de R$ 1.00"); resto = resto % moeda;
+		 * 
+		 * moeda = 50; quociente = resto / moeda; System.out.println(quociente +
+		 * " moeda(s) de R$ 0.50"); resto = resto % moeda;
+		 * 
+		 * moeda = 25; quociente = resto / moeda; System.out.println(quociente +
+		 * " moeda(s) de R$ 0.25"); resto = resto % moeda;
+		 * 
+		 * moeda = 10; quociente = resto / moeda; System.out.println(quociente +
+		 * " moeda(s) de R$ 0.10"); resto = resto % moeda;
+		 * 
+		 * moeda = 5; quociente = resto / moeda; System.out.println(quociente +
+		 * " moeda(s) de R$ 0.05"); resto = resto % moeda;
+		 * 
+		 * System.out.println(resto + " moeda(s) de R$ 0.01");
+		 */
+//	1035
+		 
+		/*
+		 * int A = sc.nextInt(); int B = sc.nextInt(); int C = sc.nextInt(); int D =
+		 * sc.nextInt();
+		 * 
+		 * if (B > C && D > A && C + D > A + B && C > 0 && D > 0 && A % 2 == 0) {
+		 * System.out.println("Valores aceitos"); } else {
+		 * System.out.println("Valores nao aceitos"); }
+		 */
+		 
+//	1036
+		 
+		/*
+		 * double A = sc.nextDouble(); double B = sc.nextDouble(); double C =
+		 * sc.nextDouble();
+		 * 
+		 * double delta = Math.pow(B, 2.0) - 4.0 * A * C;
+		 * 
+		 * if(A == 0 || delta < 0.0) { System.out.println("Impossivel calcular"); } else
+		 * { double R1 = (-B + Math.sqrt(delta)) / (2.0 * A); double R2 = (-B -
+		 * Math.sqrt(delta)) / (2.0 * A);
+		 * 
+		 * System.out.printf("R1 = %.5f%n",R1); System.out.printf("R2 = %.5f%n",R2);
+		 * 
+		 * }
+		 */
+		 
+//	1038
+		 
+		/*
+		 * int codigoItem = sc.nextInt(); int qntdItem = sc.nextInt(); double preco = 0;
+		 * 
+		 * switch(codigoItem) { case 1: preco = 4.00; break; case 2: preco = 4.50;
+		 * break; case 3: preco = 5.00; break; case 4: preco = 2.00; break; case 5:
+		 * preco = 1.50; break; }
+		 * 
+		 * double total = qntdItem * preco;
+		 * 
+		 * System.out.printf("Total: R$ %.2f%n", total);
+		 */
+		 
+//	1044 - corrigido
+		 
+		/*
+		 * int A = sc.nextInt(); int B = sc.nextInt();
+		 * 
+		 * if (A % B == 0 || B % A == 0) { System.out.println("Sao Multiplos"); } else {
+		 * System.out.println("Nao sao Multiplos"); }
+		 */
+		 
+//	1046
+		 
+		 int horaInicial = sc.nextInt();
+		 int horaFinal = sc.nextInt();
+		 int duracao;
+		 
+		if (horaInicial < horaFinal) {
+			duracao = horaFinal - horaInicial;
+		}
+		else {
+			duracao = 24 - horaInicial + horaFinal;
+		}
+			 
+		 System.out.println("O JOGO DUROU " + duracao + " HORA(S)");
 		
 		sc.close();
 

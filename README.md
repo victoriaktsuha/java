@@ -818,13 +818,20 @@ Quando é utilizado um comando de linha diferente do `.nextLine()` e ocorre algu
 
 ### Incluindo funções em expressões maiores
 **Fórmula de Bháskara** (equação de 2º grau):<br>
+`ax² + bx + c = 0`<br>
+
 `x = -b ∓ √∆ / 2*a`<br>
 `∆ = b² - 4ac`
 
-    delta = Math.pow(b, 2.0) - 4*a*c;
+    a * Math.pow(x, 2.0) + b * x + c = 0
 
     x1 = (-b + Math.sqrt(delta)) / (2.0 * a);
     x2 = (-b - Math.sqrt(delta)) / (2.0 * a);
+
+    delta = Math.pow(b, 2.0) - 4*a*c;
+
+*❕ ∆ Delta não pode ser negativo, caso contrário, a raiz quadrada será inexistente*<br>
+*❕ 'A' não pode ser '0'*
 
 ## Exercício 
 
@@ -879,3 +886,147 @@ Fazer um programa para ler as medidas da largura e comprimento de um terreno ret
 | <= | menor ou igual |
 | == | igual |
 | != | diferente |
+
+### Expressões Lógicas
+
+```mermaid
+    flowchart LR
+    A[Expressão]-->|resultado|B[Valor verdade]
+```
+#### Operadores lógicos
+
+| Operador | Significado |
+|-|-|
+| && | E |
+| &#124; &#124; | OU |
+| ! | NÃO |
+
+##### Tabela Verdade do operador &&
+
+| A | B |A && B|
+|-|-|-|
+| F | F |F|
+| F | V |F|
+| V | F |F|
+|V|V|V|
+
+### Estrutura condicional
+
+É uma **estrutura de controle** que permite definir que um certo **bloco de comandos** somente será executado dependendo de uma **condição**
+
+```mermaid
+    flowchart TB
+    A{Condição}-->|Verdadeiro|B[Bloco 1]
+    A-->|Falso|C[Bloco 2]
+```
+
+#### Sintaxe da estrutura condicional
+
+##### Simples
+
+    if ( <condição> ){
+        <comando 1>
+        <comando 2>
+    }
+
+*❕ não esquecer da endentação*
+
+##### Composta
+
+    if ( <condição> ){
+        <comando 1>
+        <comando 2>
+    }
+    else{
+        <comando 3>
+        <comando 4>
+    }
+<br>
+
+    if ( <condição 1> ){
+        <comando 1>
+        <comando 2>
+    }
+    else if ( <condição 2> ){
+        <comando 3>
+        <comando 4>
+    }else{
+        <comando 5>
+    }
+
+#### Sintaxe opcional: operadores de atribuição cumulativa
+
+Exemplo prático:<br>
+Uma operadora de telefonia cobra R$ 50.00 por um plano básico que dá direito a 100 minutos de telefone. Cada minuto que exceder a franquia de 100 minutos custa R$ 2.00. Fazer um programa para ler a quantidade de minutos que uma pessoa consumiu, daí mostrar o valor a ser pago.
+
+| Entrada | Saída |
+|-|-|
+|22|Valor a pagar: R$ 50.00|
+|103| Valor a pagar: R$ 56.00|
+
+
+    int minutos = sc.nextInt();
+    
+    double conta = 50.0;
+    if(minutos > 100) {
+        conta = conta + (minutos - 100) * 2.00;
+    }
+    System.out.printf("Valor da conta: R$ %.2f%n", conta);
+
+#### Operadores de atribuição cumulativa
+
+|Operador|Significado|
+|-|-|
+|a += b;|a = a + b;|
+|a -= b;|a = a - b;|
+|a *= b;|a = a * b;|
+|a /= b;|a = a / b;|
+|a %= b;|a = a % b;|
+
+Exemplo anterior com aplicação de operador cumulativo:
+
+    int minutos = sc.nextInt();
+    
+    double conta = 50.0;
+    if(minutos > 100) {
+        conta += (minutos - 100) * 2.00;
+    }
+    System.out.printf("Valor da conta: R$ %.2f%n", conta);
+
+#### Sintaxe opcional: estrutura switch-case
+
+Exemplo prático:<br>
+Fazer um programa para ler um valor inteiro de 1 a 7 representando um dia da semana (sendo 1=domingo). Escrever na tela o dia da semana correspondente.
+
+    int x = sc.nextInt();
+		String dia;
+		
+		switch (x){
+			case 1:
+				dia = "Domingo";
+				break;
+			case 2:
+				dia = "Segunda-Feira";
+				break;
+			case 3:
+				dia = "Terca-Feira";
+				break;
+			case 4:
+				dia = "Quarta-Feira";
+				break;
+			case 5:
+				dia = "Quinta-Feira";
+				break;
+			case 6:
+				dia = "Sexta-Feira";
+				break;
+			case 7:
+				dia = "Sabado";
+				break;
+			default:
+				dia = "valor invalido";
+				break;
+		}
+		
+		
+		System.out.println("Dia da semana: " + dia);
