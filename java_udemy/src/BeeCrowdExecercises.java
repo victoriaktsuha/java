@@ -367,6 +367,20 @@ public class BeeCrowdExecercises {
 		 * 
 		 * }
 		 */
+//	1037
+		 
+		 
+		/*
+		 * double valor = sc.nextDouble();
+		 * 
+		 * if(valor >= 0 && valor <= 25.00) { System.out.println("Intervalo [0,25]");
+		 * }else if(valor >= 25.01 && valor <= 50.00){
+		 * System.out.println("Intervalo (25,50]"); }else if(valor >= 50.01 && valor <=
+		 * 75.00) { System.out.println("Intervalo (50,75]"); }else if(valor >= 75.01 &&
+		 * valor <= 100.00) { System.out.println("Intervalo (75,100]"); }else {
+		 * System.out.println("Fora do intervalo"); }
+		 */
+ 
 		 
 //	1038
 		 
@@ -382,6 +396,42 @@ public class BeeCrowdExecercises {
 		 * System.out.printf("Total: R$ %.2f%n", total);
 		 */
 		 
+//	1040 - corrigido
+		 
+		/*
+		 * float n1 = sc.nextFloat(); float n2 = sc.nextFloat(); float n3 =
+		 * sc.nextFloat(); float n4 = sc.nextFloat();
+		 * 
+		 * float media = (n1*2 + n2*3 + n3*4 + n4*1) / 10;
+		 * 
+		 * System.out.printf("Media: %.1f%n", media);
+		 * 
+		 * if(media >= 7.0) { System.out.println("Aluno aprovado."); }else if(media >=
+		 * 5.0 && media <= 6.9) { System.out.println("Aluno em exame."); float notaExame
+		 * = sc.nextFloat(); System.out.printf("Nota do exame: %.1f%n", notaExame);
+		 * float mediaFinal = (media + notaExame) / 2; if(mediaFinal >= 5.0) {
+		 * System.out.println("Aluno aprovado.");
+		 * System.out.printf("Media final: %.1f%n", mediaFinal); }else {
+		 * System.out.println("Aluno reprovado.");
+		 * System.out.printf("Media final: %.1f%n", mediaFinal); } }else if(media < 5.0)
+		 * { System.out.println("Aluno reprovado."); }
+		 */
+		 
+//	1041
+		 
+		/*
+		 * float x = sc.nextFloat(); float y = sc.nextFloat();
+		 * 
+		 * if(x == 0.0 && y == 0.0) { System.out.println("Origem"); }else if(x > 0.0 &&
+		 * y > 0.0) { System.out.println("Q1"); }else if(x < 0.0 && y > 0.0) {
+		 * System.out.println("Q2"); }else if(x < 0.0 && y < 0.0) {
+		 * System.out.println("Q3"); }else if(x > 0.0 && y < 0.0) {
+		 * System.out.println("Q4"); }else if(x == 0.0 && y > 0.0 || x == 0.0 && y < 0.0
+		 * ) { System.out.println("Eixo Y"); }else if (x > 0.0 && y == 0.0 || x < 0.0 &&
+		 * y == 0.0) { System.out.println("Eixo X"); }
+		 */
+		 
+		 
 //	1044 - corrigido
 		 
 		/*
@@ -391,21 +441,99 @@ public class BeeCrowdExecercises {
 		 * System.out.println("Nao sao Multiplos"); }
 		 */
 		 
-//	1046
 		 
-		 int horaInicial = sc.nextInt();
-		 int horaFinal = sc.nextInt();
-		 int duracao;
+//	1045 - X
 		 
-		if (horaInicial < horaFinal) {
-			duracao = horaFinal - horaInicial;
-		}
-		else {
-			duracao = 24 - horaInicial + horaFinal;
-		}
-			 
-		 System.out.println("O JOGO DUROU " + duracao + " HORA(S)");
+		/*
+		 * double n1 = sc.nextDouble(); double n2 = sc.nextDouble(); double n3 =
+		 * sc.nextDouble();
+		 * 
+		 * double A, B, C; if (n1 > n2 && n1 > n3) { A = n1; if (n2 > n3) { B = n2; C =
+		 * n3; } else { B = n3; C = n2; } } else if (n2 > n3) { A = n2; if (n1 > n3) { B
+		 * = n1; C = n3; } else { B = n3; C = n1; } } else { A = n3; if (n1 > n2) { B =
+		 * n1; C = n2; } else { B = n2; C = n1; } }
+		 * 
+		 * if (A >= B+C) { System.out.println("NAO FORMA TRIANGULO"); } else { //
+		 * primeiro vamos testas as tres possibilidades em relacao a angulos if (A*A ==
+		 * B*B + C*C) { System.out.println("TRIANGULO RETANGULO"); } else if (A*A > B*B
+		 * + C*C) { System.out.println("TRIANGULO OBTUSANGULO"); } else {
+		 * System.out.println("TRIANGULO ACUTANGULO"); }
+		 * 
+		 * // agora vamos testar se pode ser equilatero ou isosceles if (A == B && B ==
+		 * C) { System.out.println("TRIANGULO EQUILATERO"); } else if (A == B || A == C
+		 * || B == C) { System.out.println("TRIANGULO ISOSCELES"); } }
+		 */
+
+		 
+		 
+//	1046 - corrigido
+		 
+		/*
+		 * int horaInicial = sc.nextInt(); int horaFinal = sc.nextInt(); int duracao;
+		 * 
+		 * if (horaInicial < horaFinal) { duracao = horaFinal - horaInicial; } else {
+		 * duracao = 24 - horaInicial + horaFinal; }
+		 * 
+		 * System.out.println("O JOGO DUROU " + duracao + " HORA(S)");
+		 */
 		
+//	1047 - corrigido
+			
+		/*
+		 * int hrInicial = sc.nextInt(); int minInicial = sc.nextInt(); int hrFinal =
+		 * sc.nextInt(); int minFinal = sc.nextInt(); // 24hrs = 1440 minutos // 1hr =
+		 * 60 minutos
+		 * 
+		 * // transformar horas em minutos int instanteInicial = hrInicial * 60 +
+		 * minInicial; int instanteFinal = hrFinal * 60 + minFinal;
+		 * 
+		 * int duracao; if(instanteInicial < instanteFinal) { duracao = instanteFinal -
+		 * instanteInicial; }else { duracao = (24 * 60 - instanteInicial) +
+		 * instanteFinal; }
+		 * 
+		 * int duracaoHoras = duracao / 60; int duracaoMinutos = duracao % 60;
+		 * 
+		 * System.out.println("O JOGO DUROU " + duracaoHoras + " HORA(S) E " +
+		 * duracaoMinutos + " MINUTO(S)");
+		 */
+
+// 	1049 - corrigido (uso de .equals())
+		 
+		/*
+		 * String tipo1 = sc.nextLine(); String tipo2 = sc.nextLine(); String tipo3 =
+		 * sc.nextLine();
+		 * 
+		 * if(tipo1.equals("vertebrado")) { if(tipo2.equals("ave")) {
+		 * if(tipo3.equals("carnivoro")) { System.out.println("aguia"); }else {
+		 * System.out.println("pomba"); } }else { if(tipo3.equals("onivoro")) {
+		 * System.out.println("homem"); }else { System.out.println("vaca"); } } }else {
+		 * if(tipo2.equals("inseto")){ if(tipo3.equals("hematofago")) {
+		 * System.out.println("pulga"); }else { System.out.println("lagarta"); } }else {
+		 * if(tipo3.equals("hematofago")) { System.out.println("sanguessuga"); }else {
+		 * System.out.println("minhoca"); } } }
+		 */
+		 
+//	1051 - X
+		 
+		 double salario = sc.nextDouble();
+		 double imposto;
+		 
+		 if(salario <= 2000.0) {
+			 imposto = 0.0;
+		 }else if(salario <= 3000.0) {
+			 imposto = (salario - 2000.0) * 0.08;
+		 }else if(salario <= 4500.00) {
+			 imposto = (salario - 3000.0) * 0.18 + 1000.0 * 0.08;
+		 }else {
+			 imposto = (salario - 4500.0) * 0.28 + 1500.0 * 0.18 + 1000.0 * 0.08;
+		 }	
+		 
+		 if(imposto == 0.0) {
+			 System.out.println("Isento");
+		 }else {
+			 System.out.printf("R$ %.2f%n", imposto);
+		 }
+
 		sc.close();
 
 	}
