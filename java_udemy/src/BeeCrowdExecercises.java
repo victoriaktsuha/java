@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.Map;
+import java.util.HashMap;
 
 public class BeeCrowdExecercises {
 	public static void main(String[] args) {
@@ -431,7 +433,39 @@ public class BeeCrowdExecercises {
 		 * y == 0.0) { System.out.println("Eixo X"); }
 		 */
 		 
+
+//	1042
 		 
+		/*
+		 * int n1 = sc.nextInt(); int n2 = sc.nextInt(); int n3 = sc.nextInt();
+		 * 
+		 * int A, B, C;
+		 * 
+		 * if (n1 < n2 && n1 < n3) { A = n1; if (n2 < n3) { B = n2; C = n3; } else { B =
+		 * n3; C = n2; } } else if (n2 < n3) { A = n2; if (n1 < n3) { B = n1; C = n3; }
+		 * else { B = n3; C = n1; } } else { A = n3; if (n1 < n2) { B = n1; C = n2; }
+		 * else { B = n2; C = n1; } }
+		 * 
+		 * System.out.println(A); System.out.println(B); System.out.println(C);
+		 * System.out.println(""); System.out.println(n1); System.out.println(n2);
+		 * System.out.println(n3);
+		 */
+		 
+//	1043
+		 
+		/*
+		 * float A = sc.nextFloat(); float B = sc.nextFloat(); float C = sc.nextFloat();
+		 * float base, lado1, lado2;
+		 * 
+		 * if(A > B && A > C) { base = A; lado1 = B; lado2 = C; }else if(B > A && B >C){
+		 * base = B; lado1 = A; lado2 = C; }else { base = C; lado1 = A; lado2 = B; }
+		 * 
+		 * if((lado1 + lado2) > base) { float perimetro = lado1 + lado2 + base;
+		 * System.out.printf("Perimetro = %.1f%n", perimetro); }else { float area = (A +
+		 * B)*C/2; System.out.printf("Area = %.1f%n", area); }
+		 */
+		 
+
 //	1044 - corrigido
 		 
 		/*
@@ -444,6 +478,7 @@ public class BeeCrowdExecercises {
 		 
 //	1045 - X
 		 
+		
 		/*
 		 * double n1 = sc.nextDouble(); double n2 = sc.nextDouble(); double n3 =
 		 * sc.nextDouble();
@@ -463,6 +498,7 @@ public class BeeCrowdExecercises {
 		 * C) { System.out.println("TRIANGULO EQUILATERO"); } else if (A == B || A == C
 		 * || B == C) { System.out.println("TRIANGULO ISOSCELES"); } }
 		 */
+		 
 
 		 
 		 
@@ -512,30 +548,123 @@ public class BeeCrowdExecercises {
 		 * if(tipo3.equals("hematofago")) { System.out.println("sanguessuga"); }else {
 		 * System.out.println("minhoca"); } } }
 		 */
+//	1050
+		 
+		/*
+		 * int DDD = sc.nextInt(); String cidade;
+		 * 
+		 * switch(DDD) { case 61: cidade = "Brasilia"; break; case 71: cidade =
+		 * "Salvador"; break; case 11: cidade = "Sao Paulo"; break; case 21: cidade =
+		 * "Rio de Janeiro"; break; case 32: cidade = "Juiz de Fora"; break; case 19:
+		 * cidade = "Campinas"; break; case 27: cidade = "Vitoria"; break; case 31:
+		 * cidade = "Belo Horizonte"; break; default: cidade = "DDD nao cadastrado"; }
+		 * 
+		 * System.out.println(cidade);
+		 */
 		 
 //	1051 - X
 		 
-		 double salario = sc.nextDouble();
-		 double imposto;
+		/*
+		 * double salario = sc.nextDouble(); double imposto;
+		 * 
+		 * if(salario <= 2000.0) { imposto = 0.0; }else if(salario <= 3000.0) { imposto
+		 * = (salario - 2000.0) * 0.08; }else if(salario <= 4500.00) { imposto =
+		 * (salario - 3000.0) * 0.18 + 1000.0 * 0.08; }else { imposto = (salario -
+		 * 4500.0) * 0.28 + 1500.0 * 0.18 + 1000.0 * 0.08; }
+		 * 
+		 * if(imposto == 0.0) { System.out.println("Isento"); }else {
+		 * System.out.printf("R$ %.2f%n", imposto); }
+		 */
+
+//	1052
 		 
-		 if(salario <= 2000.0) {
-			 imposto = 0.0;
-		 }else if(salario <= 3000.0) {
-			 imposto = (salario - 2000.0) * 0.08;
-		 }else if(salario <= 4500.00) {
-			 imposto = (salario - 3000.0) * 0.18 + 1000.0 * 0.08;
-		 }else {
-			 imposto = (salario - 4500.0) * 0.28 + 1500.0 * 0.18 + 1000.0 * 0.08;
-		 }	
+		/*
+		 * int valor = sc.nextInt(); String mes;
+		 * 
+		 * switch(valor) { case 1: mes = "January"; break; case 2: mes = "February";
+		 * break; case 3: mes = "March"; break; case 4: mes = "April"; break; case 5:
+		 * mes = "May"; break; case 6: mes = "June"; break; case 7: mes = "July"; break;
+		 * case 8: mes = "August"; break; case 9: mes = "September"; break; case 10: mes
+		 * = "October"; break; case 11: mes = "November"; break; case 12: mes =
+		 * "December"; break; default: mes = ""; }
+		 * 
+		 * System.out.println(mes);
+		 */
 		 
-		 if(imposto == 0.0) {
-			 System.out.println("Isento");
-		 }else {
-			 System.out.printf("R$ %.2f%n", imposto);
-		 }
+//	1060
+		  
+		/*
+		 * int valoresPositivos = 0; float arr[] = new float[6];
+		 * 
+		 * for(int i = 0; i <= 5; i++) { arr[i] = sc.nextFloat(); if(arr[i] > 0) {
+		 * valoresPositivos++; } }
+		 * 
+		 * System.out.println(valoresPositivos + " valores positivos");
+		 */
+		 
+//	1064
+		
+		/*
+		 * int valoresPositivos = 0; double media = 0; double soma = 0; float arr[] =
+		 * new float[6];
+		 * 
+		 * for(int i = 0; i < arr.length; i++) { arr[i] = sc.nextFloat();
+		 * 
+		 * if(arr[i] > 0) { valoresPositivos++; soma += arr[i]; } media = soma /
+		 * valoresPositivos; }
+		 * 
+		 * System.out.println(valoresPositivos + " valores positivos");
+		 * System.out.printf("%.1f%n",media);
+		 */
+		 
+//	1065
+		 
+		/*
+		 * int valoresPares = 0;
+		 * 
+		 * float arr[] = new float[5];
+		 * 
+		 * for(int i = 0; i < arr.length; i++) { arr[i] = sc.nextFloat();
+		 * 
+		 * if(arr[i] % 2 == 0) { valoresPares++; } }
+		 * 
+		 * System.out.println(valoresPares + " valores pares");
+		 */
+		 	 
+//	1066
+		 
+		/*
+		 * int valoresPares = 0; int valoresImpares = 0; int valoresPositivos = 0; int
+		 * valoresNegativos = 0;
+		 * 
+		 * float[] arr = new float[5];
+		 * 
+		 * for(int i = 0; i < arr.length; i++){ arr[i] = sc.nextInt();
+		 * 
+		 * if(arr[i] % 2 == 0){ valoresPares++; }else { valoresImpares++; }
+		 * 
+		 * if(arr[i] > 0 ){ valoresPositivos++; }else if(arr[i] < 0 && arr[i] != 0){
+		 * valoresNegativos++; } }
+		 * 
+		 * System.out.println(valoresPares + " valor(es) par(es)");
+		 * System.out.println(valoresImpares + " valor(es) impar(es)");
+		 * System.out.println(valoresPositivos + " valor(es) positivo(s)");
+		 * System.out.println(valoresNegativos + " valor(es) negativo(s)");
+		 */
 
-		sc.close();
+//	1070
+	       
+		 int X = sc.nextInt();
 
-	}
-
+	       for(int i = 0; i < 5; i++) {	 
+	    	   X++;
+	    	  if(X % 2 != 0) {    		  
+	    		  System.out.println(X);
+	    		  X += 1;
+	    	  }	    	   
+	       }
+		 	       
+	       sc.close();
+	 
+	    }
 }
