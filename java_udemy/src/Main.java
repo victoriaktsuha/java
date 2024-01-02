@@ -99,20 +99,27 @@ public class Main {
 	    
 		// Exemplos condicional
 		
-		int hora;
+		/*
+		 * int hora;
+		 * 
+		 * System.out.println("Quantas horas ?"); hora = sc.nextInt();
+		 * 
+		 * if(hora < 12) { System.out.println("Bom dia"); } else if(hora < 18) {
+		 * System.out.println("Boa tarde"); } else { System.out.println("Boa noite"); }
+		 */
 		
-		System.out.println("Quantas horas ?");
-		hora = sc.nextInt();
+		// Exemplos repetição 'while'
 		
-		if(hora < 12) {
-			System.out.println("Bom dia");
+		int x = sc.nextInt();
+		
+		int soma = 0;
+		
+		while (x != 0) {
+			soma = soma + x;
+			x = sc.nextInt();
 		}
-		else if(hora < 18) {
-			System.out.println("Boa tarde");
-		}
-		else {
-			System.out.println("Boa noite");
-		}
+		
+		System.out.println(soma);
 		
 		sc.close();
 

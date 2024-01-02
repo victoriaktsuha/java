@@ -173,38 +173,77 @@ public class Exercicios {
  * Fazer um programa para ler um valor inteiro de 1 a 7 representando um dia da semana (sendo 1=domingo). 
  * Escrever na tela o dia da semana correspondente.
  */	
-		int x = sc.nextInt();
-		String dia;
+//		int x = sc.nextInt();
+//		String dia;
+//		
+//		switch (x){
+//			case 1:
+//				dia = "Domingo";
+//				break;
+//			case 2:
+//				dia = "Segunda-Feira";
+//				break;
+//			case 3:
+//				dia = "Terca-Feira";
+//				break;
+//			case 4:
+//				dia = "Quarta-Feira";
+//				break;
+//			case 5:
+//				dia = "Quinta-Feira";
+//				break;
+//			case 6:
+//				dia = "Sexta-Feira";
+//				break;
+//			case 7:
+//				dia = "Sabado";
+//				break;
+//			default:
+//				dia = "valor invalido";
+//				break;
+//		}
+//		
+//		
+//		System.out.println("Dia da semana: " + dia);
 		
-		switch (x){
-			case 1:
-				dia = "Domingo";
-				break;
-			case 2:
-				dia = "Segunda-Feira";
-				break;
-			case 3:
-				dia = "Terca-Feira";
-				break;
-			case 4:
-				dia = "Quarta-Feira";
-				break;
-			case 5:
-				dia = "Quinta-Feira";
-				break;
-			case 6:
-				dia = "Sexta-Feira";
-				break;
-			case 7:
-				dia = "Sabado";
-				break;
-			default:
-				dia = "valor invalido";
-				break;
+//		===================================================================	
+		
+/*
+ * Faça um programa para ler um número indeterminado de dados, contendo cada um,
+ * a idade de um indivíduo. O último dado, que não entrará nos cálculos, contém
+ * um valor de idade negativa. Calcular e imprimir a idade média deste grupo de
+ * indivíduos. Se for entrado um valor negativo na primeira vez, mostrar a
+ * mensagem "impossivel calcular"
+ * -------------
+ * EXEMPLO ENTRADA:
+ * 31 27 46 -5
+ * -------------
+ * EXEMPLO SAÍDA:
+ * 34.67
+ * -------------
+ * EXEMPLO ENTRADA:
+ * -10
+ * -------------
+ * EXEMPLO SAIDA:
+ * impossivel calcular
+ * ---------------
+ */
+		int idade = sc.nextInt();
+		int soma = 0;
+		int cont = 0;
+		
+		while (idade >= 0){
+			soma = soma + idade;
+			cont = cont + 1;
+			idade = sc.nextInt();
 		}
 		
-		
-		System.out.println("Dia da semana: " + dia);
+		if(cont > 0) {
+			double media = (double) soma / cont;
+			System.out.printf("%.2f%n",media);
+		}else {
+			System.out.println("impossivel calcular");
+		}
 		
 //		===================================================================	
 		

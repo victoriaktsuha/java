@@ -1030,3 +1030,44 @@ Fazer um programa para ler um valor inteiro de 1 a 7 representando um dia da sem
 		
 		
 		System.out.println("Dia da semana: " + dia);
+
+### Estrutura repetitiva "while"
+
+É uma **estrutura de controle** que **repete** um bloco de comandos **enquanto** uma **condição** for verdadeira.<br>
+
+**Quando usar:** quando **não** se sabe previamente a quantidade de repetições que será realizada.
+
+**Problema exemplo:**
+
+Fazer um programa que lê números inteiros até que um zero seja lido. Ao final mostra a soma dos números lidos.
+
+|Entrada|Saída|
+|-|-|
+|5|11|
+|2|
+|4|
+|0|
+
+
+#### Sintaxe
+
+    while(condição){
+        comando 1
+        comando 2
+    }
+
+*true: executa e volta / false: pula fora*
+
+Exemplo prático:<br>
+Faça um programa para ler um número indeterminado de dados, contendo cada um, a idade de um indivíduo. O último dado, que não entrará nos cálculos, contém um valor de idade negativa. Calcular e imprimir a idade média deste grupo de indivíduos. Se for entrado um valor negativo na primeira vez, mostrar a mensagem "impossivel calcular"
+
+|Entrada|Saída|
+|-|-|
+|31|34.67|
+|27|
+|46|
+|-5|
+
+|Entrada|Saída|
+|-|-|
+|-10|impossivel calcular|

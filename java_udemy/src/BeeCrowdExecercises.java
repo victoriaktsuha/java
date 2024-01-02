@@ -654,16 +654,105 @@ public class BeeCrowdExecercises {
 
 //	1070
 	       
-		 int X = sc.nextInt();
+		/*
+		 * int X = sc.nextInt();
+		 * 
+		 * for(int i = 0; i < 5; i++) { X++; if(X % 2 != 0) { System.out.println(X); X
+		 * += 1; } }
+		 */
 
-	       for(int i = 0; i < 5; i++) {	 
-	    	   X++;
-	    	  if(X % 2 != 0) {    		  
-	    		  System.out.println(X);
-	    		  X += 1;
-	    	  }	    	   
-	       }
-		 	       
+	       
+//	1113
+	       
+		/*
+		 * int X = sc.nextInt(); int Y = sc.nextInt();
+		 * 
+		 * while (X != Y) { if(X < Y) { System.out.println("Crescente"); }else {
+		 * System.out.println("Decrescente"); } X = sc.nextInt(); Y = sc.nextInt(); }
+		 */
+	       
+//	1114
+		 
+		/*
+		 * int senha = sc.nextInt();
+		 * 
+		 * while (senha != 2002) { System.out.println("Senha Invalida"); senha =
+		 * sc.nextInt(); }
+		 * 
+		 * System.out.println("Acesso Permitido");
+		 */
+	       	      	         
+		 
+//	1115
+		 
+		/*
+		 * int X = sc.nextInt(); int Y = sc.nextInt();
+		 * 
+		 * while (X != 0 && Y != 0) { if(X > 0 && Y > 0) {
+		 * System.out.println("primeiro"); }else if(X < 0 && Y > 0) {
+		 * System.out.println("segundo"); }else if(X < 0 && Y < 0) {
+		 * System.out.println("terceiro"); }else { System.out.println("quarto"); } X =
+		 * sc.nextInt(); Y = sc.nextInt(); }
+		 */
+		 
+//	1117
+		 
+		/*
+		 * float nota1 = sc.nextFloat();
+		 * 
+		 * while (nota1 < 0.0 || nota1 > 10.0) { System.out.println("nota invalida");
+		 * nota1 = sc.nextFloat(); }
+		 * 
+		 * float nota2 = sc.nextFloat();
+		 * 
+		 * while (nota2 < 0.0 || nota2 > 10.0) { System.out.println("nota invalida");
+		 * nota2 = sc.nextFloat(); }
+		 * 
+		 * float soma = nota1 + nota2; float media = soma / 2;
+		 * System.out.printf("media = %.2f%n", media);
+		 */
+		 
+//	1134
+		 
+		/*
+		 * int codigo = sc.nextInt(); int countAlcool = 0; int countGasolina = 0; int
+		 * countDiesel = 0;
+		 * 
+		 * while(codigo != 4) { if(codigo == 1 ) { countAlcool += 1; }else if(codigo ==
+		 * 2) { countGasolina += 1; }else if(codigo == 3) { countDiesel += 1; } codigo =
+		 * sc.nextInt(); }
+		 * 
+		 * 
+		 * System.out.println("MUITO OBRIGADO"); System.out.println("Alcool: " +
+		 * countAlcool); System.out.println("Gasolina: " + countGasolina);
+		 * System.out.println("Diesel: " + countDiesel);
+		 */
+		 
+//	1154
+		 
+		/*
+		 * int idade = sc.nextInt(); int soma = 0; int count = 0;
+		 * 
+		 * while (idade > 0) { soma += idade; count += 1; idade = sc.nextInt(); }
+		 * 
+		 * if(count > 0) { double media = (double) soma / count;
+		 * System.out.printf("%.2f%n", media); }
+		 */
+		 
+		 
+//	1159 - corrigido
+		 
+		/*
+		 * int X = sc.nextInt();
+		 * 
+		 * while(X != 0) { if(X % 2 != 0) { X = X + 1; }
+		 * 
+		 * int soma = X + X + 2 + X + 4 + X + 6 + X + 8; // int soma = 5 * X + 20;
+		 * System.out.println(soma);
+		 * 
+		 * X = sc.nextInt(); }
+		 */	 
+		 	 
 	       sc.close();
 	 
 	    }
