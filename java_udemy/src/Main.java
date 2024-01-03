@@ -110,17 +110,26 @@ public class Main {
 		
 		// Exemplos repetição 'while'
 		
-		int x = sc.nextInt();
+		/*
+		 * int x = sc.nextInt();
+		 * 
+		 * int soma = 0;
+		 * 
+		 * while (x != 0) { soma = soma + x; x = sc.nextInt(); }
+		 * 
+		 * System.out.println(soma);
+		 */
 		
+		// Exemplos repetição 'for'
+		
+		int N = sc.nextInt();
 		int soma = 0;
 		
-		while (x != 0) {
-			soma = soma + x;
-			x = sc.nextInt();
+		for(int i = 0; i < N; i++) {
+			int x = sc.nextInt();
+			soma += x;
 		}
-		
 		System.out.println(soma);
-		
 		sc.close();
 
 	}	

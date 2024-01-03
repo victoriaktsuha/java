@@ -1051,7 +1051,7 @@ Fazer um programa que lê números inteiros até que um zero seja lido. Ao final
 
 #### Sintaxe
 
-    while(condição){
+    while ( condição ) {
         comando 1
         comando 2
     }
@@ -1071,3 +1071,61 @@ Faça um programa para ler um número indeterminado de dados, contendo cada um, 
 |Entrada|Saída|
 |-|-|
 |-10|impossivel calcular|
+
+    Scanner sc = new Scanner(System.in);
+
+    int x = sc.nextInt();        
+    int soma = 0;
+            
+    while (x != 0) { 
+        soma = soma + x; 
+        x = sc.nextInt(); 
+    }
+            
+    System.out.println(soma);
+
+    sc.close();
+		 
+
+### Estrutura repetitiva "for"
+
+É uma **estrutura de controle** que **repete** um bloco de comandos **para** um certo **intervalo de valores**
+
+**Quando usar:**<br>
+quando se sabe previamente a quantidade de repetições, ou o intervalo de valores.
+
+Exemplo prático:<br>
+Fazer um programa que lê um valor inteiro N e depois N números inteiros. Ao final, mostra a soma dos N números lidos.
+
+|Entrada|Saída|
+|-|-|
+|3|11|
+|5|
+|2|
+|4|
+
+#### Sintaxe
+
+    for ( início; condição; incremento ) {
+        comando 1
+        comando 2
+    }
+
+``início`` executa somente na primeira vez;<br>
+`condição` Se *true*, executa e volta; Se *false*, finaliza o bloco de repetição;<br>
+`incremento` executa toda vez que volta.
+    Scanner sc = new Scanner(System.in);
+
+    int N = sc.nextInt();
+    int soma = 0;
+    
+    for(int i = 0; i < N; i++) {
+        int x = sc.nextInt();
+        soma += x;
+    }
+
+    System.out.println(soma);
+
+    sc.close();
+
+### Estrutura repetitiva "do-while"

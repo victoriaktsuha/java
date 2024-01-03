@@ -660,7 +660,37 @@ public class BeeCrowdExecercises {
 		 * for(int i = 0; i < 5; i++) { X++; if(X % 2 != 0) { System.out.println(X); X
 		 * += 1; } }
 		 */
-
+//	1071
+		 
+		 int x = sc.nextInt();
+		 int y = sc.nextInt();
+		 
+		 int min, max;
+		 if(x < y) {
+			 min = x;
+			 max = y;
+		 }else {
+			 min = y;
+			 max = x;
+		 }
+		 
+		 int soma = 0;
+		 for(int i = min + 1; i < max; i++) {
+			 if(i % 2 != 0) {
+				 soma += i;
+			 }
+		 }
+		 
+		 System.out.println(soma);
+		 
+//	1078 
+		 
+		/*
+		 * int N = sc.nextInt();
+		 * 
+		 * for(int i = 1; i<=10; i++) { int produto = i * N; System.out.println(i +
+		 * " x " + N + " = " + produto); }
+		 */
 	       
 //	1113
 	       
@@ -752,7 +782,10 @@ public class BeeCrowdExecercises {
 		 * 
 		 * X = sc.nextInt(); }
 		 */	 
-		 	 
+
+		 
+
+		 
 	       sc.close();
 	 
 	    }
