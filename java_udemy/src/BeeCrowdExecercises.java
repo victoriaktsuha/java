@@ -651,6 +651,17 @@ public class BeeCrowdExecercises {
 		 * System.out.println(valoresPositivos + " valor(es) positivo(s)");
 		 * System.out.println(valoresNegativos + " valor(es) negativo(s)");
 		 */
+		 
+		 
+//	1067 - corrigido (variavel)
+		 
+		/*
+		 * int X = sc.nextInt();
+		 * 
+		 * for(int i = 1; i <= X; i++) { if(i % 2 != 0) { System.out.println(i); } }
+		 */
+		 
+		 
 
 //	1070
 	       
@@ -660,28 +671,44 @@ public class BeeCrowdExecercises {
 		 * for(int i = 0; i < 5; i++) { X++; if(X % 2 != 0) { System.out.println(X); X
 		 * += 1; } }
 		 */
+		 
 //	1071
+		/*
+		 * int x = sc.nextInt(); int y = sc.nextInt();
+		 * 
+		 * int min, max; if(x < y) { min = x; max = y; }else { min = y; max = x; }
+		 * 
+		 * int soma = 0; for(int i = min + 1; i < max; i++) { if(i % 2 != 0) { soma +=
+		 * i; } }
+		 * 
+		 * System.out.println(soma);
+		 */
+
+//	1072 - corrigido (ordem de saída)
 		 
-		 int x = sc.nextInt();
-		 int y = sc.nextInt();
+		/*
+		 * int N = sc.nextInt(); int countIn = 0; int countOut = 0;
+		 * 
+		 * for(int i = 0; i < N; i++) { int X = sc.nextInt();
+		 * 
+		 * if(X >= 10 && X <= 20) { countIn++; }else { countOut++; } }
+		 * 
+		 * System.out.println(countIn + " in"); System.out.println(countOut + " out");
+		 */
 		 
-		 int min, max;
-		 if(x < y) {
-			 min = x;
-			 max = y;
-		 }else {
-			 min = y;
-			 max = x;
-		 }
+//	1074
 		 
-		 int soma = 0;
-		 for(int i = min + 1; i < max; i++) {
-			 if(i % 2 != 0) {
-				 soma += i;
-			 }
-		 }
+		/*
+		 * int N = sc.nextInt();
+		 * 
+		 * for(int i = 0; i < N; i++) { int X = sc.nextInt();
+		 * 
+		 * if(X % 2 == 0 && X > 0) { System.out.println("EVEN POSITIVE"); }else if(X % 2
+		 * == 0 && X < 0) { System.out.println("EVEN NEGATIVE"); }else if(X % 2 != 0 &&
+		 * X > 0) { System.out.println("ODD POSITIVE"); }else if(X % 2 != 0 && X < 0) {
+		 * System.out.println("ODD NEGATIVE"); }else { System.out.println("NULL"); } }
+		 */
 		 
-		 System.out.println(soma);
 		 
 //	1078 
 		 
@@ -691,7 +718,75 @@ public class BeeCrowdExecercises {
 		 * for(int i = 1; i<=10; i++) { int produto = i * N; System.out.println(i +
 		 * " x " + N + " = " + produto); }
 		 */
-	       
+		 
+//	1079
+		 
+		/*
+		 * int N = sc.nextInt();
+		 * 
+		 * for(int i = 0; i < N; i++) { float valor1 = sc.nextFloat(); float valor2 =
+		 * sc.nextFloat(); float valor3 = sc.nextFloat();
+		 * 
+		 * float media = (valor1 * 2 + valor2 * 3 + valor3 * 5) / 10;
+		 * 
+		 * System.out.printf("%.1f%n", media); }
+		 */
+		
+		 
+//	1080 - X
+		 
+		/*
+		 * int maior = sc.nextInt(); int posicao = 1;
+		 * 
+		 * for(int i = 2; i <= 100; i++) { int valor = sc.nextInt();
+		 * 
+		 * if(valor > maior ) { maior = valor; posicao = i; } }
+		 * 
+		 * System.out.println(maior); System.out.println(posicao);
+		 */
+		 
+		 
+//	1094 - corrigido (resultado percentual)
+		 
+		 int N = sc.nextInt();
+
+		 int coelhos = 0;
+		 int ratos = 0;
+		 int sapos = 0;
+		 
+		 for(int i = 0; i < N; i++) {
+			 
+			 int Quantia = sc.nextInt();
+			 char Tipo = sc.next().charAt(0);
+			 			 
+			 			 
+			 if(Tipo == 'C') {
+				 coelhos += Quantia;
+			 }else if(Tipo == 'R') {			
+				 ratos += Quantia;
+			 }else {			
+				 sapos += Quantia;
+			 }
+			 
+		 }
+		 
+		 int soma = coelhos + ratos + sapos;
+		 
+		 double percentualCoelho = (double) coelhos / soma * 100.0;
+		 double percentualRato = (double) ratos / soma * 100.0;
+		 double percentualSapo = (double) sapos / soma * 100.0;
+		 
+		 System.out.println("Total: " + soma + " cobaias");
+		 System.out.println("Total de coelhos: " + coelhos);
+		 System.out.println("Total de ratos: " + ratos);
+		 System.out.println("Total de sapos: " + sapos);
+		 
+		 System.out.printf("Percentual de coelhos: %.2f %%%n", percentualCoelho);
+		 System.out.printf("Percentual de ratos: %.2f %%%n", percentualRato);
+		 System.out.printf("Percentual de sapos: %.2f %%%n", percentualSapo);
+		 
+		 
+		 
 //	1113
 	       
 		/*
@@ -725,6 +820,18 @@ public class BeeCrowdExecercises {
 		 * sc.nextInt(); Y = sc.nextInt(); }
 		 */
 		 
+//	1116
+		 
+		/*
+		 * int N = sc.nextInt();
+		 * 
+		 * for(int i = 0; i < N; i++) { int x = sc.nextInt(); int y = sc.nextInt();
+		 * double quociente = (double) x / y;
+		 * 
+		 * if(y == 0) { System.out.println("divisao impossivel"); }else {
+		 * System.out.printf("%.1f%n", quociente); } }
+		 */
+		 
 //	1117
 		 
 		/*
@@ -740,6 +847,22 @@ public class BeeCrowdExecercises {
 		 * 
 		 * float soma = nota1 + nota2; float media = soma / 2;
 		 * System.out.printf("media = %.2f%n", media);
+		 */
+		 
+//	1132 - corrigido (interpretação)
+		 
+		/*
+		 * int x = sc.nextInt(); int y = sc.nextInt();
+		 * 
+		 * int min, max;
+		 * 
+		 * if(x > y) { max = x; min = y; }else { max = y; min = x; }
+		 * 
+		 * int soma = 0;
+		 * 
+		 * for(int i = min; i <= max; i++) { if(i % 13 != 0 ) { soma = soma + i; } }
+		 * 
+		 * System.out.println(soma);
 		 */
 		 
 //	1134
@@ -758,6 +881,17 @@ public class BeeCrowdExecercises {
 		 * System.out.println("Diesel: " + countDiesel);
 		 */
 		 
+		 
+//	1153 - X
+		 
+		/*
+		 * int N = sc.nextInt(); int fatorial = 1;
+		 * 
+		 * for(int i = 1; i <= N; i++) { fatorial = fatorial * i; }
+		 * 
+		 * System.out.println(fatorial);
+		 */
+		 
 //	1154
 		 
 		/*
@@ -767,6 +901,15 @@ public class BeeCrowdExecercises {
 		 * 
 		 * if(count > 0) { double media = (double) soma / count;
 		 * System.out.printf("%.2f%n", media); }
+		 */
+		
+		 
+//	1157
+		 
+		/*
+		 * int N = sc.nextInt();
+		 * 
+		 * for(int i = 1; i <= N;i++) { if(N % i == 0) { System.out.println(i); } }
 		 */
 		 
 		 

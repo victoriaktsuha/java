@@ -122,14 +122,25 @@ public class Main {
 		
 		// Exemplos repetição 'for'
 		
-		int N = sc.nextInt();
-		int soma = 0;
+		/*
+		 * int N = sc.nextInt(); int soma = 0;
+		 * 
+		 * for(int i = 0; i < N; i++) { int x = sc.nextInt(); soma += x; }
+		 * System.out.println(soma);
+		 */
 		
-		for(int i = 0; i < N; i++) {
-			int x = sc.nextInt();
-			soma += x;
-		}
-		System.out.println(soma);
+		// Exemplos repetição 'do-while'
+				
+		char resp;
+		do {
+			System.out.print("Digite a temperatura em Celsius:");
+			double C = sc.nextDouble();
+			double F = 9.0 * C / 5.0 + 32.0;
+			System.out.printf("Equivalente em Fahrenheit: %.2f%n", F);
+			System.out.print("Deseja repetir (s/n)? ");
+			resp = sc.next().charAt(0);
+		} while (resp != 'n');
+		
 		sc.close();
 
 	}	

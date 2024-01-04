@@ -1129,3 +1129,33 @@ Fazer um programa que lê um valor inteiro N e depois N números inteiros. Ao fi
     sc.close();
 
 ### Estrutura repetitiva "do-while"
+
+Menos utiliada, mas em alguns casos se encaixa melhor ao problema.
+
+O bloco de comndos executa pelo menos uma vez, pois a condição é verificada no final.
+
+#### Sintaxe
+
+    do {
+        comando 1
+        comando 2
+    } while ( condição );
+
+
+**Problema exemplo:**
+
+Fazer um progrma para ler uma temperatura em Celsius e mostar o equivalente em Fahrenheit. Perguntar se o ucuário deseja repetir (s/n). Caso o usuário digite "s", repetir o programa.
+
+Fórmula: F = 9C / 5 + 32
+
+Exemplo:
+    
+    Digite a temperatura em Celsius: 30.0
+    Equivalente em Fahrenheit: 86.0
+    Deseja repetir (s/n)? s
+    Digite a temperatura em Celsius: 21.0
+    Equivalente em Fahrenheit: 69.8
+    Deseja repetir (s/n)? s
+    Digite a temperatura em Celsius: -10.5
+    Equivalente em Fahrenheit: 13.1
+    Deseja repetir (s/n)? n
