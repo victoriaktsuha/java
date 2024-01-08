@@ -1159,3 +1159,137 @@ Exemplo:
     Digite a temperatura em Celsius: -10.5
     Equivalente em Fahrenheit: 13.1
     Deseja repetir (s/n)? n
+
+
+## Vetores
+
+Um vetor corresponde a uma coleção de dados de tamanho fixo, indexada, unidimensional e homogênea
+
+-  Indexada: os elementos são acessados por meio de índices
+- Unidimensional: uma dimensão (pode ser acessado apenas por 1 índice)
+- Homogênea: todos os dados são do mesmo tipo
+
+||A|
+|-|-|
+|0|Maria|
+|1|João|
+|2|Carlos|
+|3|Ana|
+|4|Joaquim|
+
+Vetores também são chamados de **arranjos** unidimensionais (arrays).
+
+Em Java, a primeir aposição de um vetor é a posição 0.
+
+Um arranjo deve ser alocado previamente, antes de ser utilizado. Uma vez alocado, sua quantidade de elementos é fixa.
+
+### Como criar um vetor ?
+
+#### Declaração:
+
+    int[] A;
+    double[] B;
+    String[] C;
+
+_* tipo e nome_
+
+#### Instanciação:
+
+    A = new int[10];
+    B = new double[5];
+    C = new String[8];
+
+_* número de índices_
+
+||A|
+|-|-|
+|0||
+|1||
+|2||
+|3||
+|4||
+|5||
+|6||
+|7||
+|8||
+|9||
+
+||B|
+|-|-|
+|0||
+|1||
+|2||
+|3||
+|4||
+
+||C|
+|-|-|
+|0||
+|1||
+|2||
+|3||
+|4||
+|5||
+|6||
+|7||
+
+
+### Como acessar os elementos de um vetor ?
+
+    A[3] = 10;
+
+_* atribuição do valor inteiro 10 a posição 3 do vetor A_
+
+||A|
+|-|-|
+|0||
+|1||
+|2||
+|3|10|
+|4||
+|5||
+|6||
+|7||
+|8||
+|9||
+
+    for (int i = 0; i<5; i++){
+        B[i] = i + 10;
+    }
+
+_* estrutura repetitva preenche todo o vetor com iterações_
+
+||B|
+|-|-|
+|0|10|
+|1|11|
+|2|12|
+|3|13|
+|4|14|
+
+    C[1] = "Maria";
+
+_* A string "Maria" é atribuída ao índice 1 no vetor C_
+
+||C|
+|-|-|
+|0||
+|1|Maria|
+|2||
+|3||
+|4||
+|5||
+|6||
+|7||
+
+### Problema exemplo
+
+Fazer um programa para ler um número inteiro positivo N, depois ler N números quaisquer e armazená-los em um vetor. Em seguida, mostrar na telas todos os elementos do vetor.
+
+|Entrada|Saída|
+|-|-|
+|4|10.5|
+|10.5|4.2|
+|4.2|-7.1|
+|-7.1|15.0|
+|15.0||

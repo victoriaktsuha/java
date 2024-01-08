@@ -1037,23 +1037,20 @@ public class BeeCrowdExecercises {
 		 
 //	1158
 		 
-		 int n = sc.nextInt();
-		 
-		 int x = sc.nextInt();
-		 int y = sc.nextInt();
-		 
-		 int soma = 0;
-		 
-		 while(X % 3 == 0 && Y % 3 == 0) {
-		 
-			 for(int i = x; i < y; i++) {
-				 if(i % 3 == 0) {
-					 soma += i;
-				 }
-				 System.out.println(soma);
-			 }
-		 
-		 }
+		/*
+		 * int n = sc.nextInt();
+		 * 
+		 * int x = sc.nextInt(); int y = sc.nextInt();
+		 * 
+		 * int soma = 0;
+		 * 
+		 * while(X % 3 == 0 && Y % 3 == 0) {
+		 * 
+		 * for(int i = x; i < y; i++) { if(i % 3 == 0) { soma += i; }
+		 * System.out.println(soma); }
+		 * 
+		 * }
+		 */
 		 
 		 
 //	1159 - corrigido

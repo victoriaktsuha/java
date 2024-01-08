@@ -228,24 +228,142 @@ public class Exercicios {
  * impossivel calcular
  * ---------------
  */
-		int idade = sc.nextInt();
-		int soma = 0;
-		int cont = 0;
-		
-		while (idade >= 0){
-			soma = soma + idade;
-			cont = cont + 1;
-			idade = sc.nextInt();
-		}
-		
-		if(cont > 0) {
-			double media = (double) soma / cont;
-			System.out.printf("%.2f%n",media);
-		}else {
-			System.out.println("impossivel calcular");
-		}
+//		int idade = sc.nextInt();
+//		int soma = 0;
+//		int cont = 0;
+//		
+//		while (idade >= 0){
+//			soma = soma + idade;
+//			cont = cont + 1;
+//			idade = sc.nextInt();
+//		}
+//		
+//		if(cont > 0) {
+//			double media = (double) soma / cont;
+//			System.out.printf("%.2f%n",media);
+//		}else {
+//			System.out.println("impossivel calcular");
+//		}
 		
 //		===================================================================	
+		
+/*
+ * Faça um programa que leia N números reais e armazene-os em um vetor. 
+ * Em seguida, mostrar na tela o maior número do vetor (supor não haver empates).
+ * Mostrar também a posição do maior elemento.
+ * -------------
+ * EXEMPLO ENTRADA:
+ * 6 
+ * 8.0 4.0 10.0 14.0 13.0 7.0
+ * -------------
+ * EXEMPLO SAÍDA:
+ * 14.0
+ * 3
+ * -------------
+ */
+		
+//		int N = sc.nextInt();
+//		
+//		float[] vetor = new float[N];
+//		
+//		
+//		for(int i = 0; i < N; i++) {
+//			vetor[i] = sc.nextFloat();
+//		}
+//		
+//		float maior = vetor[0];
+//		int posicaoMaior = 0;
+//
+//		
+//		for(int i = 0; i < N; i++) {
+//			if(vetor[i] > maior) {
+//				maior = vetor[i];	
+//				posicaoMaior = i;
+//
+//			}
+//		}
+//		
+//		System.out.printf("%.1f%n", maior);
+//		System.out.println(posicaoMaior);
+		
+
+		
+//		===================================================================	
+				
+		
+/*
+ * Faça um programa que leia N números inteiros e armazene-os em um vetor. Em
+ * seguida, mostre na tela todos os números pares e a quantidade de números pares
+ * -------------
+ * EXEMPLO ENTRADA:
+ * 6
+ * 8 2 11 14 13 20
+ * -------------
+ * EXEMPLO SAÍDA:
+ * 8 2 14 20
+ * 4
+ * -------------
+ */
+//		int N = sc.nextInt();
+//		
+//		int[] vetor = new int[N];
+//		
+//		for(int i = 0; i < N; i++) {			
+//			vetor[i] = sc.nextInt();
+//		}
+//		
+//		int soma = 0;
+//		
+//		for(int i = 0; i < N; i++) {
+//			if(vetor[i] % 2 == 0) {
+//				System.out.printf("%d ", vetor[i]);
+//				soma++;
+//			}
+//		}
+//		
+//		System.out.println();		
+//		System.out.println(soma);		
+
+		
+//		===================================================================	
+		
+		
+/*
+ * Faça um programa para ler dois vetores A e B, contendo N elementos cada. 
+ * Em seguida, gere um terceiro vetor C onde cada elemento de C é a soma dos
+ * elementos correspondentes de A e B. Imprima o vetor C gerado.
+ *  -------------
+ * EXEMPLO ENTRADA:
+ * 6
+ * 8 2 11 14 13 20
+ * 5 10 3 1 10 7
+ * -------------
+ * EXEMPLO SAÍDA:
+ * 13 12 14 15 23 27
+ * -------------
+ */
+		
+//		int N = sc.nextInt();
+//		
+//		int[] vetorA = new int[N];
+//		int[] vetorB = new int[N];
+//		int[] vetorC = new int[N];
+//		
+//		for(int i = 0; i < N; i++) {
+//			vetorA[i] = sc.nextInt();
+//		}
+//		
+//		for(int i = 0; i < N; i++) {
+//			vetorB[i] = sc.nextInt();
+//		}
+//		
+//		for(int i = 0; i < N; i++) {
+//			vetorC[i] = vetorA[i] + vetorB[i];
+//		}
+//		
+//		for(int i = 0; i < N; i++) {
+//			System.out.printf("%d ",vetorC[i]);
+//		}
 		
 		sc.close();
 				
