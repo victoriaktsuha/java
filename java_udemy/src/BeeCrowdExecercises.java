@@ -5,6 +5,8 @@ import java.util.HashMap;
 public class BeeCrowdExecercises {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		StringBuilder sb = new StringBuilder();
+		
 //	1001
 
 		/*
@@ -748,44 +750,59 @@ public class BeeCrowdExecercises {
 		 
 //	1094 - corrigido (resultado percentual)
 		 
-		 int N = sc.nextInt();
+		/*
+		 * int N = sc.nextInt();
+		 * 
+		 * int coelhos = 0; int ratos = 0; int sapos = 0;
+		 * 
+		 * for(int i = 0; i < N; i++) {
+		 * 
+		 * int Quantia = sc.nextInt(); char Tipo = sc.next().charAt(0);
+		 * 
+		 * 
+		 * if(Tipo == 'C') { coelhos += Quantia; }else if(Tipo == 'R') { ratos +=
+		 * Quantia; }else { sapos += Quantia; }
+		 * 
+		 * }
+		 * 
+		 * int soma = coelhos + ratos + sapos;
+		 * 
+		 * double percentualCoelho = (double) coelhos / soma * 100.0; double
+		 * percentualRato = (double) ratos / soma * 100.0; double percentualSapo =
+		 * (double) sapos / soma * 100.0;
+		 * 
+		 * System.out.println("Total: " + soma + " cobaias");
+		 * System.out.println("Total de coelhos: " + coelhos);
+		 * System.out.println("Total de ratos: " + ratos);
+		 * System.out.println("Total de sapos: " + sapos);
+		 * 
+		 * System.out.printf("Percentual de coelhos: %.2f %%%n", percentualCoelho);
+		 * System.out.printf("Percentual de ratos: %.2f %%%n", percentualRato);
+		 * System.out.printf("Percentual de sapos: %.2f %%%n", percentualSapo);
+		 */
 
-		 int coelhos = 0;
-		 int ratos = 0;
-		 int sapos = 0;
 		 
-		 for(int i = 0; i < N; i++) {
-			 
-			 int Quantia = sc.nextInt();
-			 char Tipo = sc.next().charAt(0);
-			 			 
-			 			 
-			 if(Tipo == 'C') {
-				 coelhos += Quantia;
-			 }else if(Tipo == 'R') {			
-				 ratos += Quantia;
-			 }else {			
-				 sapos += Quantia;
-			 }
-			 
-		 }
+//	1101 - corrigido
 		 
-		 int soma = coelhos + ratos + sapos;
-		 
-		 double percentualCoelho = (double) coelhos / soma * 100.0;
-		 double percentualRato = (double) ratos / soma * 100.0;
-		 double percentualSapo = (double) sapos / soma * 100.0;
-		 
-		 System.out.println("Total: " + soma + " cobaias");
-		 System.out.println("Total de coelhos: " + coelhos);
-		 System.out.println("Total de ratos: " + ratos);
-		 System.out.println("Total de sapos: " + sapos);
-		 
-		 System.out.printf("Percentual de coelhos: %.2f %%%n", percentualCoelho);
-		 System.out.printf("Percentual de ratos: %.2f %%%n", percentualRato);
-		 System.out.printf("Percentual de sapos: %.2f %%%n", percentualSapo);
-		 
-		 
+		/*
+		 * int m = sc.nextInt(); int n = sc.nextInt();
+		 * 
+		 * while(m > 0 && n > 0) { int min, max;
+		 * 
+		 * if(m > n) { max = m; min = n; }else { max = n; min = m; }
+		 * 
+		 * int soma = 0;
+		 * 
+		 * for(int i = min; i <= max; i++) {
+		 * 
+		 * soma += i; System.out.print(i + " ");
+		 * 
+		 * } System.out.println("Sum=" + soma);
+		 * 
+		 * m = sc.nextInt(); n = sc.nextInt();
+		 * 
+		 * }
+		 */
 		 
 //	1113
 	       
@@ -881,6 +898,110 @@ public class BeeCrowdExecercises {
 		 * System.out.println("Diesel: " + countDiesel);
 		 */
 		 
+//	1142
+		 
+		/*
+		 * int N = sc.nextInt(); int valor1 = 0; int valor2 = 1; int valor3 = 2; String
+		 * valor4 = "PUM";
+		 * 
+		 * for(int i = 0; i < N; i++) { valor1++; valor2++; valor3++;
+		 * 
+		 * System.out.printf("%d %d %d %s%n", valor1, valor2, valor3, valor4);
+		 * 
+		 * valor1 += 3; valor2 += 3; valor3 += 3;
+		 * 
+		 * }
+		 */
+
+		 
+//	1143
+		 
+		/*
+		 * int N = sc.nextInt();
+		 * 
+		 * int valor1 = 1; int valor2 = 1; int valor3 = 1;
+		 * 
+		 * for(int i = 0; i < N; i++) {
+		 * 
+		 * System.out.printf("%d %d %d%n", valor1, valor2, valor3);
+		 * 
+		 * valor1++; valor2 = valor1 * valor1; valor3 = valor1 * valor2;
+		 * 
+		 * }
+		 */
+		 
+		 
+//	1144
+		 
+		/*
+		 * int N = sc.nextInt();
+		 * 
+		 * int valor1 = 1; int valor2 = 1; int valor3 = 1;
+		 * 
+		 * for(int i = 0; i<N; i++) {
+		 * 
+		 * System.out.printf("%d %d %d%n", valor1, valor2, valor3);
+		 * 
+		 * valor2++; valor3++;
+		 * 
+		 * System.out.printf("%d %d %d%n", valor1, valor2, valor3);
+		 * 
+		 * valor1++; valor2 = valor1 * valor1; valor3 = valor1 * valor2; }
+		 */
+
+		 
+//	1145 - X	 
+		 
+//		 int x = sc.nextInt();
+//		 int y = sc.nextInt();
+//		 
+//		 for(int i = 1; i <= y; i++) {
+//			 
+//			System.out.print(i);			 
+//			 
+//		 }
+		 
+		 
+//	1146 - ?? (Time Limit Exceeded, mesmo corrigido)
+		 
+//		 int x = sc.nextInt();
+		 
+//		 do {
+//			 for(int i = 1; i <= x; i++) {
+//				 if(i != x) {
+//					 System.out.print(i + " ");
+//				 }else {
+//					 System.out.print(i + "\n");
+//				 }	
+//			 }
+//			 x = sc.nextInt();
+//			 
+//		 }while(x != 0);
+		 
+//		 while(x != 0) {			 
+//			 for(int n = 1; n <= x; n++) {
+//				 if(n != x) {
+//					 System.out.printf("%d ", n);	
+//				 }else {
+//					 System.out.println(n);
+//				 }
+//			 }
+//			 x = sc.nextInt();
+//		 }
+		 
+			/*
+			 * while(x != 0) { for(int n = 1; n < x; n++) { System.out.print(n + " "); }
+			 * System.out.println(x); x = sc.nextInt(); }
+			 */
+		 
+//		 while(x > 0) {			 
+//			 for(int n = 1; n < x; n++) {				 
+//				sb.append(x + System.lineSeparator());
+//			 }			 
+//			 x = sc.nextInt();
+//		 }		 
+//		 System.out.println(sb.append(x + System.lineSeparator()));
+		 
 		 
 //	1153 - X
 		 
@@ -911,6 +1032,28 @@ public class BeeCrowdExecercises {
 		 * 
 		 * for(int i = 1; i <= N;i++) { if(N % i == 0) { System.out.println(i); } }
 		 */
+
+		 
+		 
+//	1158
+		 
+		 int n = sc.nextInt();
+		 
+		 int x = sc.nextInt();
+		 int y = sc.nextInt();
+		 
+		 int soma = 0;
+		 
+		 while(X % 3 == 0 && Y % 3 == 0) {
+		 
+			 for(int i = x; i < y; i++) {
+				 if(i % 3 == 0) {
+					 soma += i;
+				 }
+				 System.out.println(soma);
+			 }
+		 
+		 }
 		 
 		 
 //	1159 - corrigido
