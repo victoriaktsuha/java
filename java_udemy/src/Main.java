@@ -249,6 +249,32 @@ public class Main {
 		 * }
 		 */
 		
+		
+		// Exemplos matriz
+		
+		// M - linhas
+		//N - colunas
+		int M = sc.nextInt();
+		int N = sc.nextInt();
+		
+		
+		int[][] mat = new int[M][N];
+		
+		//precisa de um for dentro do outro para percorrer tanto linhas quantos colunas; variavel 'i' para linhas e variavel 'j' para colunas
+		for(int i = 0; i < M; i++) {
+			for(int j = 0; j < N; j++) {
+				mat[i][j] = sc.nextInt();
+			}
+		}
+		
+		for(int i = 0; i < M; i++) {
+			for(int j = 0; j < N; j++) {
+				System.out.print(mat[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+		
 		sc.close();
 
 	}

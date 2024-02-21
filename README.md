@@ -1293,3 +1293,62 @@ Fazer um programa para ler um número inteiro positivo N, depois ler N números 
 |4.2|-7.1|
 |-7.1|15.0|
 |15.0||
+
+## Matrizes
+
+Uma matriz corresponde a uma coleção de dados de tamanho fixo, indexada, bidimensional e homogênea.
+
+- Indexada: os elementos são acessados por meio de índices
+
+- Bidimensional: duas dimensões
+
+- Homogênea: todos os dados são do mesmo tipo
+
+
+Matrizes também são chamadas de  **arranjos bidimensionais**
+
+Em Java, a primeira posição de uma matriz é a posição 0, 0 (linha 0, coluna 0)
+
+Um arranjo dever ser alocado previamente, antes de ser utilizado. Uma vez alocado, sua quantidade de elementos é fixa.
+
+||0|1|2|
+|-|-|-|-|
+|0||||
+|1||||
+|2||||
+|3||||
+|4||||
+|||A||
+
+
+### Como criar uma matriz ? 
+
+**Declaração**
+
+    double[][] A;
+
+**Instanciação**
+
+    A = new double[3][4];
+
+### Como acessar os elementos de uma matriz ? 
+
+    A[1][2] = 10;
+
+
+||0|1|2|3|
+|-|-|-|-|-|
+|0|||||
+|1|||||
+|2||10|||
+|||A|||
+
+**Problema exemplo:**
+
+Fazer um programa para ler dois números inteiros positivos M e N, depois ler uma matriz de M linhas e N colunas contendo números inteiros. Em seguida, mostrar na tela a matriz lida conforme exemplo.
+
+|Entrada|Saída|
+|-|-|
+|2 3|6 3 10|
+|6 3 10|8 12 5|
+|8 12 5||

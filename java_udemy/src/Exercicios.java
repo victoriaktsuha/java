@@ -248,7 +248,7 @@ public class Exercicios {
 //		===================================================================	
 		
 /*
- * Faça um programa que leia N números reais e armazene-os em um vetor. 
+ * 1) Faça um programa que leia N números reais e armazene-os em um vetor. 
  * Em seguida, mostrar na tela o maior número do vetor (supor não haver empates).
  * Mostrar também a posição do maior elemento.
  * -------------
@@ -292,7 +292,7 @@ public class Exercicios {
 				
 		
 /*
- * Faça um programa que leia N números inteiros e armazene-os em um vetor. Em
+ * 2) Faça um programa que leia N números inteiros e armazene-os em um vetor. Em
  * seguida, mostre na tela todos os números pares e a quantidade de números pares
  * -------------
  * EXEMPLO ENTRADA:
@@ -329,10 +329,10 @@ public class Exercicios {
 		
 		
 /*
- * Faça um programa para ler dois vetores A e B, contendo N elementos cada. 
+ * 3) Faça um programa para ler dois vetores A e B, contendo N elementos cada. 
  * Em seguida, gere um terceiro vetor C onde cada elemento de C é a soma dos
  * elementos correspondentes de A e B. Imprima o vetor C gerado.
- *  -------------
+ * -------------
  * EXEMPLO ENTRADA:
  * 6
  * 8 2 11 14 13 20
@@ -364,6 +364,383 @@ public class Exercicios {
 //		for(int i = 0; i < N; i++) {
 //			System.out.printf("%d ",vetorC[i]);
 //		}
+		
+		
+//		===================================================================	
+		
+/*
+ * 4) Fazer um programa para ler um vetor de N números reais. Em seguida, mostrar
+ * na tela a média aritmética de todos elementos. Depois mostrar todos os
+ * elementos do vetor que estejam abaixo da média.
+ * -------------
+ * EXEMPLO ENTRADA:
+ * 4
+ * 10.0 15.5 13.2 9.8
+ * -------------
+ * EXEMPLO SAÍDA:
+ * 12.125
+ * 10.0
+ * 9.8
+ * -------------
+ */
+		
+//		int N = sc.nextInt();
+//		
+//		double[] vetor = new double[N]; 
+//			
+//		for(int i = 0; i < N; i++) {
+//			vetor[i] = sc.nextDouble();
+//		}
+//		
+//		double soma = 0;
+//		
+//		for(int i = 0; i < N; i++) {
+//			soma =  soma + vetor[i];
+//		}
+//		
+//		double media = soma / N;
+//		
+//		System.out.println(media);
+//		
+//		for(int i = 0; i < N; i++) {
+//			if(vetor[i] < media) {
+//				System.out.println(vetor[i]);
+//			}
+//		}
+		
+		
+//		===================================================================
+		
+/*
+ * 5) Fazer um programa para ler um vetor de N números inteiros. Em seguida,
+ * mostrar na tela a média aritmética somente dos números pares lidos.
+ * -------------
+ * EXEMPLO ENTRADA:
+ * 6
+ * 8 2 11 14 13 20
+ * -------------
+ * EXEMPLO SAÍDA:
+ * 11.0
+ * -------------
+ */
+		
+//		int N = sc.nextInt();
+//		
+//		int[] vetor =  new int[N];
+//		
+//		for(int i = 0; i < N; i++) {
+//			vetor[i] = sc.nextInt();
+//		}
+//		
+//		int soma = 0;
+//		int count = 0;
+//		
+//		for(int i = 0; i < N; i++) {
+//			if(vetor[i] % 2 == 0) {
+//				soma = soma + vetor[i];
+//				count++;
+//			}
+//		}
+//		
+//		double media = (double) soma / count;
+//		
+//		System.out.println(media);
+		
+		
+//		===================================================================
+		
+		
+/*
+ * 6) Fazer um programa para ler um conjunto de nomes de pessoas e suas respectivas
+ * idades. Depois, mostrar na tela o nome da pessoa mais velha.
+ * -------------
+ * EXEMPLO ENTRADA:
+ * 5
+ * Joao 16
+ * Maria 21
+ * Teresa 15
+ * Carlos 23
+ * Paulo 17
+ * -------------
+ * EXEMPLO SAÍDA:
+ * Pessoa mais velha: Carlos
+ * -------------
+ */		
+		
+//		int N = sc.nextInt();
+//		
+//		String[] nomes = new String[N];
+//		int[] idades = new int[N];
+//		
+//		for(int i = 0; i< N; i++) {
+//			nomes[i] = sc.next();
+//			idades[i] = sc.nextInt();
+//		}
+//		
+//		int maior = 0;
+//		int posicao = 0;
+//		
+//		for(int i = 0; i< N; i++) {
+//			if(idades[i] > maior) {
+//				maior = idades[i];
+//				posicao++;
+//			}
+//		}
+//		
+//		// System.out.println(maior);
+//		// System.out.println(posicao);
+//		
+//		String pessoaMaisVelha = nomes[posicao];		
+//
+//		System.out.println("Pessoa mais velha: " + pessoaMaisVelha);
+				
+//		===================================================================
+		
+/*
+ * 7) Fazer um programa para ler um conjunto de N nomes de alunos, bem como as
+ * notas que eles tiraram no 1º e 2º semestres. Cada uma dessas informações deve
+ * ser armazenada em um vetor. Depois, imprimir os nomes dos alunos aprovados,
+ * considerando aprovados aqueles cuja média das notas seja maior ou igual a
+ * seis.
+ * -------------
+ * EXEMPLO ENTRADA:
+ * 4
+ * Joao 7.0 8.5
+ * Maria 9.2 6.5
+ * Carlos 5.0 6.0
+ * Teresa 5.5 6.5
+ * -------------
+ * EXEMPLO SAÍDA:
+ * Alunos aprovados:
+ * Joao
+ * Maria
+ * Teresa
+ * -------------
+ */
+//		int N = sc.nextInt();
+//		
+//		String[] alunos = new String[N];
+//		double[] nota1Sem = new double[N];
+//		double[] nota2Sem = new double[N];
+//		
+//		double media = 0;
+//		int posicao = 0;
+//		
+//		for(int i = 0; i < N;i++) {
+//			alunos[i] = sc.next();
+//			nota1Sem[i] = sc.nextFloat();
+//			nota2Sem[i] = sc.nextFloat();
+//			
+//		}
+//
+//		
+//		
+//	  for(int i = 0; i < N;i++) { 
+//		  media = (nota1Sem[i] + nota2Sem[i]) / 2;
+//		  
+//		  if(media >= 6.0) { 
+//			  System.out.println(alunos[i]);
+//		  } 
+//	  }
+		 		
+//		===================================================================
+		
+/*
+ * 8) Tem-se um conjunto de dados contendo a altura e o sexo (M, F) de N
+ * pessoas. Fazer um programa que calcule e escreva: 
+ * - a maior e a menor altura do grupo 
+ * - a média de altura das mulheres 
+ * - o número de homens
+ */	
+		
+//		int N = sc.nextInt();
+//		
+//		double[] alturas = new double[N];
+//		char[] generos = new char[N];
+//		
+//		for(int i = 0; i < N;i++) { 
+//		  alturas[i] = sc.nextDouble();
+//		  generos[i] = sc.next().charAt(0);
+//		}
+//		
+//		double menorAltura = 0;
+//		double maiorAltura = 0;
+//		double media = 0;
+//		int mulheres = 0;
+//		int homens = 0;
+//		
+//		for(int i = 0; i < N;i++) { 
+//			if(alturas[i] > maiorAltura) {
+//				maiorAltura = alturas[i];
+//			}  
+//		}
+//		
+//		menorAltura = maiorAltura;
+//		
+//		for(int i = 0; i < N;i++) { 
+//			if(alturas[i] < menorAltura) {
+//				menorAltura = alturas[i];
+//			}  
+//		}
+//		
+//		for(int i = 0; i < N;i++) { 
+//			if(generos[i] == 'F') {
+//				mulheres++;				
+//			} 
+//			media = (media + alturas[i]) / mulheres;
+//		}
+//		
+//		for(int i = 0; i < N;i++) { 
+//			if(generos[i] == 'M') {
+//				homens++;			
+//			}  
+//		}
+//		
+//		System.out.printf("Menor altura = %.2f%n", menorAltura);
+//		System.out.printf("Maior altura = %.2f%n", maiorAltura);
+//		System.out.printf("Media das alturas das mulheres = %.2f%n", media);
+//		System.out.println("Numero de homens = " + homens);
+
+//		===================================================================
+		
+/*
+ * Um comerciante deseja fazer o levantamento do lucro das mercadorias que ele
+ * comercializa. Para isto, mandou digitar um conjunto de N mercadorias, cada
+ * uma contendo nome, preço de compra e preço de venda das mesmas. Fazer um
+ * programa que leia tais dados e determine e escreva quantas mercadorias
+ * proporcionaram: 
+ * - lucro < 10% 
+ * - 10% <= lucro <= 20% 
+ * - lucro> 20% 
+ * Determine e escreva também o valor total de compra e de venda de todas as mercadorias,
+ * assim como o lucro total.
+ */		
+		
+//		int N = sc.nextInt();
+//		
+//		String[] produto = new String[N];
+//		double[] precoCompra = new double[N];
+//		double[] precoVenda = new double[N];
+//		
+//		for(int i = 0; i < N; i++) {
+//			produto[i] = sc.next();
+//			precoCompra[i] = sc.nextDouble();
+//			precoVenda[i] = sc.nextDouble();
+//		}
+//		
+//			
+//		int lucroDeMenos10 = 0;
+//		for(int i = 0; i < N; i++) {
+//			if(precoVenda[i] < precoCompra[i] * 0.10 + precoCompra[i]) {
+//				lucroDeMenos10++;
+//			}
+//		}
+//		
+//		
+//		int lucroEntre10E20 = 0;
+//		for(int i = 0; i < N; i++) {
+//			if(precoVenda[i] >= precoCompra[i] * 0.10 + precoCompra[i] && precoVenda[i] <= precoCompra[i] * 0.20 + precoCompra[i]) {
+//				lucroEntre10E20++;
+//			}
+//		}
+//		
+//		int lucroAcimaDe20 = 0;
+//		for(int i = 0; i < N; i++) {
+//			if(precoVenda[i] > precoCompra[i] * 0.20 + precoCompra[i]) {
+//				lucroAcimaDe20++;
+//			}
+//		}
+//		
+//		double valorTotalCompra = 0;
+//		for(int i = 0; i < N; i++) {
+//			valorTotalCompra += precoCompra[i]; 
+//		}
+//		
+//		double valorTotalVenda = 0;
+//		for(int i = 0; i < N; i++) {
+//			valorTotalVenda += precoVenda[i]; 
+//		}
+//		
+//		double lucroTotal = 0;
+//		for(int i = 0; i < N; i++) {
+//			lucroTotal = valorTotalVenda - valorTotalCompra;
+//		}
+//		
+//		System.out.println("Lucro abaixo de 10%: " + lucroDeMenos10);
+//		System.out.println("Lucro entre 10% e 20%: " + lucroEntre10E20);
+//		System.out.println("Lucro acima de 20%: " + lucroAcimaDe20);
+//		System.out.printf("Valor total de compra: %.2f%n", valorTotalCompra);
+//		System.out.printf("Valor total de venda: %.2f%n", valorTotalVenda);
+//		System.out.printf("Lucro total: %.2f%n", lucroTotal);
+
+		
+		
+/*
+ * Fazer um programa que leia um numero inteiro N e uma matriz quadrada de ordem
+ * N contendo numeros inteiros. Em seguida, mostrar diagonal (0,0 / 1,1 / 2,2 ) principal e a
+ * quantidade de valores negativos da matriz.
+ */
+		
+//		int N = sc.nextInt();
+//		
+//		int[][] mat = new int[N][N];
+//		
+//		for(int i = 0; i < N; i++) {
+//			for(int j = 0; j < N; j++) {
+//				mat[i][j] = sc.nextInt();			
+//			}
+//		}
+//		
+//		System.out.println("DIAGONAL PRINCIPAL:");
+//		
+//		for(int i = 0; i < N; i++){
+//			System.out.print(mat[i][i] + " ");
+//		}
+//		System.out.println();
+//		
+//		int cont = 0;
+//		for(int i = 0; i < N; i++) {
+//			for(int j = 0; j < N; j++) {
+//				if(mat[i][j] < 0) {
+//					cont++;
+//				}
+//			}
+//		}
+//		
+//		System.out.println("QUANTIDADE DE NEGATIVOS = " + cont);
+		
+/*
+ * Fazer um programa para ler dois números inteiros M e N. Em seguida, ler uma
+ * matriz de M linhas e N colunas contendo números double. Gerar um vetor de
+ * modo que cada elemento do vetor seja a soma dos elementos da linha
+ * correspondente da matriz. Mostrar o vetor gerado.
+ */
+		
+		int M = sc.nextInt();
+		int N = sc.nextInt();
+		
+		double[][] mat = new double[M][N];
+		
+		for(int i = 0; i < M; i++) {
+			for(int j = 0; j < N; j++) {
+				mat[i][j] = sc.nextDouble();
+			}
+		}
+		
+		double[] vet = new double[M];
+		
+		for(int i = 0; i < M; i++) {
+			double soma = 0.0;
+			for(int j = 0; j < N; j++) {
+				soma = soma + mat[i][j];
+			}
+			vet[i] = soma;
+		}
+		
+		
+		for(int i = 0; i < M; i++) {
+			System.out.printf("%.1f%n", vet[i]);
+		}
 		
 		sc.close();
 				
