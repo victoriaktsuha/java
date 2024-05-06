@@ -1,0 +1,57 @@
+[NOTAS] Java COMPLETO Programação Orientada a Objetos + Projetos
+
+Entendendo versões Java
+
+SE (Standard Edition) - versão padrão
+LTS (Long Term Support) - versão mais utilizada por empresas por ter suporte por muitos anos
+
+versões LTS
+8  - Mar 2014 ~ Dec 2030 *
+11 - Sep 2018 ~ Not Available
+17 - Sep 2021 ~ Sep 2029
+21 - Sep 2023 ~ Sep 2031
+25 - Sep 2025 ~ Sep 2033
+
+Java
+- é uma linguagem de programação
+- plataforma de desenvolvimento e execução
+	- bibliotecas API
+	- ambientes de execução
+
+Problemas resolvidos e motivo de seu sucesso:
+- Ponteiros / gerenciamento  de memória - utilizava a linguagem C/C++ onde definia-se manualmente quais variáveis eram ponteiro e quais eram valor, fazendo com que essas linguagens fossem de baixo nível, gerando dificuldade ao programador e softwares mais sucetiveis a erros
+- Portabilidade falha: reescrever parte do código ao mudar de SO; Embora existe padrão e compiladores para várias plataformas, o dev tinha que reescrever parte do código para as diversas plataformas/SO
+- Utilização em dispositivos diversos
+- Custo
+
+Criada pela Sun Microsystems no meio da década de 1990
+
+Adquirida pela Oracle Corporation em 2010
+
+Aspectos notáveis
+- Código compilado para bytecode e executado em máquina virtual (JVM)
+- Portável, segura, robusta
+- Roda em vários tipos de dispositivos
+- Domina o mercado corporativo desde o fim do século 20
+- Padrão Android por muitos anos (recentemente também utiliza-se Kotlin)
+
+Edições
+- Java ME - Java Micro Edition - dispositivos embarcados e móveis - IoT
+- Java Se - Java Standard Edition - core - desktop e servidores
+- Java EE - Java Enterprise Edition - aplicações corporativas
+
+Plataforma Java SE
+- JVM - Java Virtual Machine - necessário para executar sistemas Java
+
+Compilação e interpretação
+- Linguagens compiladas: C, C++ 
+(rápidas e menos sucetivel a bugs por serem compiladas antes mas de difícil portabilidade)
+- Linguagens interpretadas: PHP, JavaScript 
+(tem um interpretador para cada sistema, são mais lentas pois a interpretação é feita JIT (just in time), ou seja, no momento que está sendo executado, mais sucetivel a bugs pois a tipagem é mais fraca e não há um compilador que garanta um código assertivo, mas tem boa portabilidade e manutenção)
+- Linguagens pré-compiladas + VM: Java, C#
+(une o melhor das duas modalidades anteriores: o código será pré-compilado garantindo a sintaxe correta e resultando no bytecode, compilado JIT e rodando em uma VM para o sistema operacional específico)
+
+Estrutura de um aplicação Java
+Java é uma linguagem orientada a objetos e a unidade lógica básica de um programa orientado a objetos é a classe. Todo código Java tem que estar dentro de classes. Após a classe, existe o contexto de package, agrupamento lógico de classes relacionadas. Exemplo de packages são entities (produto, cliente, pedido), services (email, pedido, log) e repositories(banco de dados)). Após o package, existe o conceito de módulo, introduzido a partir do Java 9, que é um agrupamento lógico de pacotes relacionados. Exemplo de módulo seria um 'financeiro' contendo entidades, serviços e repositórios relacionados a pagamentos, contabilidade, etc. O 'runtime' ou 'build' representa um agrupamento físico de arquivos, sendo uma unidade que pode ser instalado para rodar em demais dispositivos. Após o modulo, tem a aplicação, que pe o agrupamento de módulos relacionados. Um exemplo seria im sistyema de comercio eletronico, composto por vários módulos, que por sua vez, é composto por packages, que é composto por classes.
+Aplicação > modules > packages > classes
+
