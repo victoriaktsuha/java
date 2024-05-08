@@ -55,11 +55,13 @@ Estrutura de um aplicação Java
 Java é uma linguagem orientada a objetos e a unidade lógica básica de um programa orientado a objetos é a classe. Todo código Java tem que estar dentro de classes. Após a classe, existe o contexto de package, sendo um agrupamento lógico de classes relacionadas. Exemplo de packages são entities (produto, cliente, pedido), services (email, pedido, log) e repositories(banco de dados)). Após o package, existe o conceito de módulo, introduzido a partir do Java 9, sendo um agrupamento lógico de pacotes relacionados. Exemplo de módulo seria um 'financeiro' contendo entidades, serviços e repositórios relacionados a pagamentos, contabilidade, etc. O 'runtime' ou 'build' representa um agrupamento físico de arquivos, sendo uma unidade que pode ser instalado para rodar em demais dispositivos. Após o modulo, tem a aplicação, sendo um agrupamento de módulos relacionados. Um exemplo seria um sistema de comercio eletronico, composto por vários módulos, que por sua vez, é composto por packages, que é composto por classes.
 Aplicação > modules > packages > classes
 
-Expressões Aritméticas
+-- Estrutura Sequencial --
+
+*Expressões Aritméticas
 Quando calculadas, o resultado é um valor númerico. 
 Ex.: 4 + 5 = 9
 
-Operadores Aritméticos
+*Operadores Aritméticos
 Adição +
 Subtração -
 Multiplicação *
@@ -70,17 +72,17 @@ Precedência
 1º: (o que está em parenteses), *, / e %
 2º: + e -
 
-Variáveis e tipos básicos
+*Variáveis e tipos básicos
 Os dados que um software em execução deve lidar são armazenados em variáveis, que são armazenadas na memória RAM
 
-Declaração de variáveis
+*Declaração de variáveis
 Sintaxe: <tipo> <nome> = <valor inicial>;
 int idade = 25; (valor inteiro)
 double altura = 1.68; (valor com ponto flutuante)
 char genero = 'F'; (caracter unicode)
 Uma variável possui nome, tipo, valor e endereço
 
-Tipos primitivos em Java
+*Tipos primitivos em Java
 Numérico inteiro: byte (8bits - até 127), short (16bits - > 32k), int (32bits - a > 2 bilhoes), long (64bits - > 9 quintilhões), 
 Numérico com ponto flutuante: float (32bits), double (64bits), 
 Um caractere Unicode: char (16 bits), 
@@ -98,14 +100,98 @@ int _5minutos;
 int salarios;
 int salarioDoFuncionario;
 
-Operações básicas de programação
+*Operações básicas de programação
 Entrada de dados: usuário, através de um dispositivo de entrada como teclado, insere dados dentro do programa dentro de variáveis (ou leitura de dados);
 Processamento de dados: realização de cálculos através da atribuição;
 Saída de dados: o programa informa (ou escreve) dados para o usuário através de dispositivos de saída, como o monitor
 
+*Processamento de Dados
+Feito pelo comando de atribuição
+<variável> = <expressão>;
 
-Estrutura Sequencial
+A expressão é calculada e o resultado armazenado na variável
 
-Estrutura Condicional
+Exemplo:
 
-Estrutura Repetitivas
+int x, y;
+
+x = 5;
+y = 2 * x;
+
+System.out.println(x); => 5
+System.out.println(y); => 10.0
+
+Casting
+Conversão explícita (forçada) de valores
+
+Exemplo:
+
+int a, b;
+double resultado;
+
+a = 5;
+b = 2;
+
+(sem casting)
+resultado = a / b; => 2.0
+- entende-se que a divisão é entre 2 números inteiros, então o resultado será "arredondado", removendo valores decimais
+
+(com casting)
+resultado = (double) a / b; => 2.5
+
+Exemplo:
+
+double a;
+int b;
+
+a = 5.0;
+
+(sem casting)
+b = a; => nessa linha já apresenta erro
+System.out.println(b); => Incompatible types: possible lossy conversion from double to int 
+
+(com casting)
+b = (int) a;
+System.out.println(b); => 5
+
+
+*Entrada de dados em Java
+Para entrada de dados local, vamos criar um objeto do tipo "Scanner" da seguinte forma:
+
+1º - importar
+import java.util.Scanner;
+
+2º - iniciar com:
+Scanner sc = new Scanner(System.in);
+
+3º - incluir variável onde a entrada será armazenada
+String x;
+x = sc.next(); => após essa linha, deverá ser digitado no console
+
+4º - finalizar com:
+sc.close();
+
+Exemplo:
+
+import java.util.Scanner;
+
+public class Main{
+	public static void main(String[] args){
+
+	Scanner sc = new Scanner(System.in);
+	
+	String x;
+	x = sc.next();
+	*no console, digitar: "Olá"
+
+	System.out.println(x); => Olá
+	
+	}
+}
+
+Para tipos 'String', utilizar 'next();'
+Para tipos 'int' , utilizar 'nextInt();'
+Para tipos 'double' ou 'float', utilizar 'nextDouble();'
+Para tipos 'char', utilizar 'next().charAt(0);' O '0' é a posição do caracter que será armazenado
+Para ler 'String' até a quebra de linha, ou seja, uma frase inteira com espaços até o enter, utilizar 'nextLine();'
+
