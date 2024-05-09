@@ -195,3 +195,138 @@ Para tipos 'double' ou 'float', utilizar 'nextDouble();'
 Para tipos 'char', utilizar 'next().charAt(0);' O '0' é a posição do caracter que será armazenado
 Para ler 'String' até a quebra de linha, ou seja, uma frase inteira com espaços até o enter, utilizar 'nextLine();'
 
+*Funções matemáticas
+
+A = Math.sqrt(x);
+- Variavel A recebe a raiz quadrada de X
+
+A = Math.pow(x, y);
+- Variável A recebe o resultado de X elevado a Y
+
+A = Math.abs(x);
+- Variável A recebe o valor absoluto de X
+
+*Expressões comparativas
+Expressões onde dois itens são comparados e o resultado é um valor verdade, ou seja, verdadeiro ou falso
+Usado em C, C++, Java e C#
+
+Operadores:
+> maior
+< menor
+>= maior ou igual
+<= menor ou igual
+== igual
+!= diferente
+
+Exemplo:
+
+x = 5;
+
+x > 0 (V)
+x == 3 (F)
+10 <= 30 (V)
+x != 2 (V)
+
+*Expressões lógicas
+Usado em C, C++, Java e C#
+
+Operadores:
+&& E - todas as condições devem ser verdadeiras
+|| OU - pelo menos uma condição deve ser verdadeira
+! Não - inverte a condição
+
+Exemplo &&:
+
+x = 5;
+
+x <= 20 && x == 10 (F)
+
+x > 0 && x != 3 (V)
+
+x <= 20 && x == 10 && x != 3 (F)
+
+
+Exemplo ||:
+
+x == 10 || x <= 20 (V)
+
+x > 0 || x != 3 (V)
+
+X <= 0 || X != 3 || x != 5 (V)
+
+
+Exemplo !:
+
+x = 5;
+
+!(x == 10) (V)
+
+!(x >= 2) (F)
+
+!(x <= 20 && x == 10) (V)
+
+
+*Estrutura condicional
+É uma estrutura de controle que permite definir que um certo bloco de comandos somente será executado dependendo de uma condição - if-else pode ser encadeado se necessário
+
+if(<condição 1>){
+	<comando 1>
+	<comando 2>
+}else{
+	if(<condição 2>){
+		<comando 3>
+		<comando 4>
+	}else{
+		<comando 5>
+		<comando 6>
+	}
+
+}
+
+
+*Operadores de atribuição cumulativa
+
+a = a + b; => a += b;
+a = a - b; => a -= b;
+a = a * b; => a *= b;
+a = a / b; => a /= b;
+a = a % b; => a %= b; 
+
+*Sintaxe opcional - switch-case
+Quando se tem várias opções de fluxo a serem tratadas com base no valor de uma variável, ao invés de várias estruturas if-else encadeadas, alguns preferem utilizar a estrutura switch-case.
+
+	int x = sc.nextInt();
+	String dia;
+		
+	switch (x){
+		case 1:
+			dia = "Domingo";
+			break;
+		case 2:
+			dia = "Segunda-Feira";
+			break;
+		case 3:
+			dia = "Terca-Feira";
+			break;
+		case 4:
+			dia = "Quarta-Feira";
+			break;
+		case 5:
+			dia = "Quinta-Feira";
+			break;
+		case 6:
+			dia = "Sexta-Feira";
+			break;
+		case 7:
+			dia = "Sabado";
+			break;
+		default:
+			dia = "valor invalido";
+			break;
+	}
+		
+		
+	System.out.println("Dia da semana: " + dia);
+
+
+
