@@ -37,7 +37,7 @@ Aspectos notáveis
 
 Edições
 - Java ME - Java Micro Edition - dispositivos embarcados e móveis - IoT
-- Java Se - Java Standard Edition - core - desktop e servidores
+- Java SE - Java Standard Edition - core - desktop e servidores
 - Java EE - Java Enterprise Edition - aplicações corporativas
 
 Plataforma Java SE
@@ -52,6 +52,380 @@ Compilação e interpretação
 (une o melhor das duas modalidades anteriores: o código será pré-compilado garantindo a sintaxe correta e resultando no bytecode, compilado JIT e rodando em uma VM para o sistema operacional específico)
 
 Estrutura de um aplicação Java
-Java é uma linguagem orientada a objetos e a unidade lógica básica de um programa orientado a objetos é a classe. Todo código Java tem que estar dentro de classes. Após a classe, existe o contexto de package, agrupamento lógico de classes relacionadas. Exemplo de packages são entities (produto, cliente, pedido), services (email, pedido, log) e repositories(banco de dados)). Após o package, existe o conceito de módulo, introduzido a partir do Java 9, que é um agrupamento lógico de pacotes relacionados. Exemplo de módulo seria um 'financeiro' contendo entidades, serviços e repositórios relacionados a pagamentos, contabilidade, etc. O 'runtime' ou 'build' representa um agrupamento físico de arquivos, sendo uma unidade que pode ser instalado para rodar em demais dispositivos. Após o modulo, tem a aplicação, que pe o agrupamento de módulos relacionados. Um exemplo seria im sistyema de comercio eletronico, composto por vários módulos, que por sua vez, é composto por packages, que é composto por classes.
+Java é uma linguagem orientada a objetos e a unidade lógica básica de um programa orientado a objetos é a classe. Todo código Java tem que estar dentro de classes. Após a classe, existe o contexto de package, sendo um agrupamento lógico de classes relacionadas. Exemplo de packages são entities (produto, cliente, pedido), services (email, pedido, log) e repositories(banco de dados)). Após o package, existe o conceito de módulo, introduzido a partir do Java 9, sendo um agrupamento lógico de pacotes relacionados. Exemplo de módulo seria um 'financeiro' contendo entidades, serviços e repositórios relacionados a pagamentos, contabilidade, etc. O 'runtime' ou 'build' representa um agrupamento físico de arquivos, sendo uma unidade que pode ser instalado para rodar em demais dispositivos. Após o modulo, tem a aplicação, sendo um agrupamento de módulos relacionados. Um exemplo seria um sistema de comercio eletronico, composto por vários módulos, que por sua vez, é composto por packages, que é composto por classes.
 Aplicação > modules > packages > classes
+
+-- Estrutura Sequencial --
+
+*Expressões Aritméticas
+Quando calculadas, o resultado é um valor númerico. 
+Ex.: 4 + 5 = 9
+
+*Operadores Aritméticos
+Adição +
+Subtração -
+Multiplicação *
+Divisão /
+Resto da divisão ("mod") %
+
+Precedência
+1º: (o que está em parenteses), *, / e %
+2º: + e -
+
+*Variáveis e tipos básicos
+Os dados que um software em execução deve lidar são armazenados em variáveis, que são armazenadas na memória RAM
+
+*Declaração de variáveis
+Sintaxe: <tipo> <nome> = <valor inicial>;
+int idade = 25; (valor inteiro)
+double altura = 1.68; (valor com ponto flutuante)
+char genero = 'F'; (caracter unicode)
+Uma variável possui nome, tipo, valor e endereço
+
+*Tipos primitivos em Java
+Numérico inteiro: byte (8bits - até 127), short (16bits - > 32k), int (32bits - a > 2 bilhoes), long (64bits - > 9 quintilhões), 
+Numérico com ponto flutuante: float (32bits), double (64bits), 
+Um caractere Unicode: char (16 bits), 
+Valor verdade: booblean (1 bit)
+* bit = 2 valores possíveis - 0 ou 1 => 8 bits = 2^8 = 256 possibilidades
+String: cadeia de caracteres (palavras ou textos)
+
+Nome de variáveis
+- Deve começar com letra ou _
+- Não pode ter espaço em branco
+- Não usar acentos ou til
+- Sugestão: use o padrão "camel case"
+Exemplo:
+int _5minutos;
+int salarios;
+int salarioDoFuncionario;
+
+*Operações básicas de programação
+Entrada de dados: usuário, através de um dispositivo de entrada como teclado, insere dados dentro do programa dentro de variáveis (ou leitura de dados);
+Processamento de dados: realização de cálculos através da atribuição;
+Saída de dados: o programa informa (ou escreve) dados para o usuário através de dispositivos de saída, como o monitor
+
+*Processamento de Dados
+Feito pelo comando de atribuição
+<variável> = <expressão>;
+
+A expressão é calculada e o resultado armazenado na variável
+
+Exemplo:
+
+int x, y;
+
+x = 5;
+y = 2 * x;
+
+System.out.println(x); => 5
+System.out.println(y); => 10.0
+
+Casting
+Conversão explícita (forçada) de valores
+
+Exemplo:
+
+int a, b;
+double resultado;
+
+a = 5;
+b = 2;
+
+(sem casting)
+resultado = a / b; => 2.0
+- entende-se que a divisão é entre 2 números inteiros, então o resultado será "arredondado", removendo valores decimais
+
+(com casting)
+resultado = (double) a / b; => 2.5
+
+Exemplo:
+
+double a;
+int b;
+
+a = 5.0;
+
+(sem casting)
+b = a; => nessa linha já apresenta erro
+System.out.println(b); => Incompatible types: possible lossy conversion from double to int 
+
+(com casting)
+b = (int) a;
+System.out.println(b); => 5
+
+
+*Entrada de dados em Java
+Para entrada de dados local, vamos criar um objeto do tipo "Scanner" da seguinte forma:
+
+1º - importar
+import java.util.Scanner;
+
+2º - iniciar com:
+Scanner sc = new Scanner(System.in);
+
+3º - incluir variável onde a entrada será armazenada
+String x;
+x = sc.next(); => após essa linha, deverá ser digitado no console
+
+4º - finalizar com:
+sc.close();
+
+Exemplo:
+
+import java.util.Scanner;
+
+public class Main{
+	public static void main(String[] args){
+
+	Scanner sc = new Scanner(System.in);
+	
+	String x;
+	x = sc.next();
+	*no console, digitar: "Olá"
+
+	System.out.println(x); => Olá
+	
+	}
+}
+
+Para tipos 'String', utilizar 'next();'
+Para tipos 'int' , utilizar 'nextInt();'
+Para tipos 'double' ou 'float', utilizar 'nextDouble();'
+Para tipos 'char', utilizar 'next().charAt(0);' O '0' é a posição do caracter que será armazenado
+Para ler 'String' até a quebra de linha, ou seja, uma frase inteira com espaços até o enter, utilizar 'nextLine();'
+
+*Funções matemáticas
+
+A = Math.sqrt(x);
+- Variavel A recebe a raiz quadrada de X
+
+A = Math.pow(x, y);
+- Variável A recebe o resultado de X elevado a Y
+
+A = Math.abs(x);
+- Variável A recebe o valor absoluto de X
+
+*Expressões comparativas
+Expressões onde dois itens são comparados e o resultado é um valor verdade, ou seja, verdadeiro ou falso
+Usado em C, C++, Java e C#
+
+Operadores:
+> maior
+< menor
+>= maior ou igual
+<= menor ou igual
+== igual
+!= diferente
+
+Exemplo:
+
+x = 5;
+
+x > 0 (V)
+x == 3 (F)
+10 <= 30 (V)
+x != 2 (V)
+
+*Expressões lógicas
+Usado em C, C++, Java e C#
+
+Operadores:
+&& E - todas as condições devem ser verdadeiras
+|| OU - pelo menos uma condição deve ser verdadeira
+! Não - inverte a condição
+
+Exemplo &&:
+
+x = 5;
+
+x <= 20 && x == 10 (F)
+
+x > 0 && x != 3 (V)
+
+x <= 20 && x == 10 && x != 3 (F)
+
+
+Exemplo ||:
+
+x == 10 || x <= 20 (V)
+
+x > 0 || x != 3 (V)
+
+X <= 0 || X != 3 || x != 5 (V)
+
+
+Exemplo !:
+
+x = 5;
+
+!(x == 10) (V)
+
+!(x >= 2) (F)
+
+!(x <= 20 && x == 10) (V)
+
+
+-- Estrutura condicional --
+
+É uma estrutura de controle que permite definir que um certo bloco de comandos somente será executado dependendo de uma condição - if-else pode ser encadeado se necessário
+
+if(<condição 1>){
+	<comando 1>
+	<comando 2>
+}else{
+	if(<condição 2>){
+		<comando 3>
+		<comando 4>
+	}else{
+		<comando 5>
+		<comando 6>
+	}
+
+}
+
+
+*Operadores de atribuição cumulativa
+
+a = a + b; => a += b;
+a = a - b; => a -= b;
+a = a * b; => a *= b;
+a = a / b; => a /= b;
+a = a % b; => a %= b; 
+
+*Sintaxe opcional - switch-case
+Quando se tem várias opções de fluxo a serem tratadas com base no valor de uma variável, ao invés de várias estruturas if-else encadeadas, alguns preferem utilizar a estrutura switch-case.
+
+	int x = sc.nextInt();
+	String dia;
+		
+	switch (x){
+		case 1:
+			dia = "Domingo";
+			break;
+		case 2:
+			dia = "Segunda-Feira";
+			break;
+		case 3:
+			dia = "Terca-Feira";
+			break;
+		case 4:
+			dia = "Quarta-Feira";
+			break;
+		case 5:
+			dia = "Quinta-Feira";
+			break;
+		case 6:
+			dia = "Sexta-Feira";
+			break;
+		case 7:
+			dia = "Sabado";
+			break;
+		default:
+			dia = "valor invalido";
+			break;
+	}
+		
+		
+	System.out.println("Dia da semana: " + dia);
+
+
+*Expressão condicional ternária
+
+Estrutura opcional ao if-else quando se desejar decidir um valor com base em uma condição
+
+Sintaxe:
+(condição) ? valor_se_verdadeiro: valor_se_falso
+
+Exemplos:
+(2 > 4) ? 50 : 80 => 80
+(10 != 3) ? "Maria" : "João" => "Maria"
+
+ANTES
+double preco = 34.5;
+double desconto;
+if (preco < 20.0){
+	desconto = preco * 0.1;
+}
+else{
+	desconto = preco * 0.05;
+}
+DEPOIS
+double preco = 34.5;
+double desconto = (preco < 20.0) ? preco * 0.1 : preco * 0.05;
+
+*Escopo e inicialização
+
+- Escopo de uma variável: é a região do programa onde a variável é válida, ou seja, onde ela pode ser referenciada
+- Uma variável não pode ser usada se não for iniciada
+
+Exemplo:
+
+double price;
+System.out.println(price); 
+=> apresentaria erro pois a variavel x não foi iniciada, ou seja, não recebeu valor inicial
+
+
+double price = 400.00;
+if(price < 200.00){
+	double discount = price * 0.1;
+}
+System.out.println(discount); 
+=> apresentaria ERRO pois a variavel discount foi declarada e iniciada apenas dentro da estrutura condicional 'if', estando fora do escopo do método 'main' 
+Qualquer estrutura condicional tem seu próprio escopo, e as variaveis declaradas dentro delas só existirão enquanto essa estrutura está sendo executada
+
+-- Estruturas Repetitivas--
+
+*Estrutura repetitiva 'enquanto' (while)
+
+É uma estrutura de controle que repete um bloco de comandos enquanto uma condição for verdadeira. Quando usar: quando não sabe previamente a quantidade de repetições que será realizadas. Enquanto a condição for atendida, a estrutura continuará sendo executada. Assim que a condição não for mais satisfeita, o programa encerra a execução.
+
+Sintaxe:
+
+while (condicao) {
+	comando 1
+	comando 2
+}
+
+Exemplo:
+
+int x = sc.nextInt();
+while (x != 0){
+	x = sc.nextInt();
+}
+
+*Estrutura repetitiva 'para' (for)
+
+É uma estrutura de controle que repete um bloco de comandos para um certo intervalo de valores. Quando usar: quando se sabe previamente a quantidade de repetições, ou o intervalo de valores.
+
+Sintaxe:
+
+for( Ínicio ; Condição ; Incremento ){
+	comando 1
+	comando 2
+}
+
+Ínicio - executa somente a primeira vez
+Condição - se verdadeiro, executa e volta; se falso, encerra
+Incremento - executa toda vez depois de voltar
+
+Exemplos:
+
+int N = sc.nextInt();
+
+int soma = 0;
+for(int i = 0; i < N; i++){
+	int x = sc.nextInt();
+	soma = soma + x;
+}
+
+Exemplo contagem progressiva:
+for(int i = 0; i < 5; i++){
+	System.out.println("Valor de i: " + i); 
+}
+
+Exemplo contagem regressiva:
+for(int i = 4; i >= 0; i--){
+	System.out.println("Valor de i: " + i); 
+}
 

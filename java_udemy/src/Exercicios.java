@@ -542,14 +542,40 @@ public class Exercicios {
  * 3 
  * 6
  */
-		int N = sc.nextInt();
+//		int N = sc.nextInt();
+//		
+//		for(int i = 1; i <= N; i++) {
+//			
+//			if(N % i == 0) {
+//				System.out.println(i);
+//			}
+//		}
 		
-		for(int i = 1; i <= N; i++) {
-			
-			if(N % i == 0) {
-				System.out.println(i);
-			}
-		}
+//		===================================================================			
+/*
+ * Fazer um programa para ler um número inteiro positivo N. O programa deve
+ * então mostrar na tela N linhas, começando de 1 até N. Para cada linha,
+ * mostrar o número da linha, depois o quadrado e o cubo do valor, conforme
+ * exemplo. 
+ * -----------------
+ * EXEMPLO ENTRADA: 
+ * 5
+ * -----------------
+ * EXEMPLO SAÍDA:  
+ * 1 1 1 
+ * 2 4 8 
+ * 3 9 27 
+ * 4 16 64 
+ * 5 25 125
+ * -----------------
+ * 
+ */
+//		int N = sc.nextInt();
+//		
+//		
+//		for(int i = 1; i <= N; i++) {
+//			System.out.printf("%s, %s, %s%n", i, (int)Math.pow(i, 2), (int)Math.pow(i, 3));
+//		}
 		
 //		===================================================================	
 		
