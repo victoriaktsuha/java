@@ -244,6 +244,312 @@ public class Exercicios {
 //		}else {
 //			System.out.println("impossivel calcular");
 //		}
+
+//		===================================================================	
+		
+/*
+ * Escreva um programa que repita a leitura de uma senha até que ela seja
+ * válida. Para cada leitura de senha incorreta informada, escrever a mensagem
+ * "Senha Invalida". Quando a senha for informada corretamente deve ser impressa
+ * a mensagem "Acesso Permitido" e o algoritmo encerrado. Considere que a senha
+ * correta é o valor 2002.
+ * --------------- 
+ * EXEMPLO ENTRADA:
+ * 2200 
+ * 1020 
+ * 2022 
+ * 2002
+ * ----------------
+ * EXEMPLO SAIDA:
+ * Senha Invalida 
+ * Senha Invalida 
+ * Senha Invalida 
+ * Acesso Permitido
+ * ----------------
+ */
+
+//		int senha = sc.nextInt();
+//		
+//		while (senha != 2002) {
+//			System.out.println("Senha invalida");
+//			senha = sc.nextInt();
+//		}
+//		
+//		System.out.println("Acesso permitido");
+		
+//		===================================================================			
+/*
+ * Escreva um programa para ler as coordenadas (X,Y) de uma quantidade
+ * indeterminada de pontos no sistema cartesiano. Para cada ponto escrever o
+ * quadrante a que ele pertence. O algoritmo será encerrado quando pelo menos
+ * uma de duas coordenadas for NULA (nesta situação sem escrever mensagem
+ * alguma). 
+ * ----------------
+ * EXEMPLO ENTRADA: 
+ * 2 2 
+ * 3 -2 
+ * -8 -1 
+ * -7 1 
+ * 0 2
+ * -----------------
+ * EXEMPLO SAIDA: 
+ * primeiro 
+ * quarto
+ * segundo
+ * terceiro 
+ * -----------------
+ */
+		
+//		int x = sc.nextInt();
+//		int y = sc.nextInt();
+//		
+//		if(x < 0 && y < 0) {
+//			System.out.println("terceiro");
+//		}else if(x < 0 && y > 0) {
+//			System.out.println("segundo");
+//		}else if(x > 0 && y > 0) {
+//			System.out.println("primeiro");
+//		}else {
+//			System.out.println("quarto");
+//		}
+		
+//		===================================================================			
+/*
+ * Um Posto de combustíveis deseja determinar qual de seus produtos tem a
+ * preferência de seus clientes. Escreva um algoritmo para ler o tipo de
+ * combustível abastecido (codificado da seguinte forma: 1.Álcool 2.Gasolina
+ * 3.Diesel 4.Fim). Caso o usuário informe um código inválido (fora da faixa de
+ * 1 a 4) deve ser solicitado um novo código (até que seja válido). O programa
+ * será encerrado quando o código informado for o número 4. Deve ser escrito a
+ * mensagem: "MUITO OBRIGADO" e a quantidade de clientes que abasteceram cada
+ * tipo de combustível, conforme exemplo. 
+ * -----------------
+ * EXEMPLO ENTRADA: 
+ * 8 
+ * 1 
+ * 7 
+ * 2 
+ * 2 
+ * 4
+ * -----------------
+ * EXEMPLO SAÍDA: 
+ * MUITO OBRIGADO 
+ * Alcool: 1 
+ * Gasolina: 2 
+ * Diesel: 0
+ * -----------------
+ */			
+//		String combustivel;
+//		int alcool = 0;
+//		int gasolina = 0;
+//		int diesel = 0;
+//		int orderNumber = sc.nextInt();
+//
+//		while(orderNumber != 4) {
+//			switch(orderNumber) {
+//				case 1:
+//					alcool++;
+//					break;
+//				case 2:
+//					gasolina++;
+//					break;
+//				case 3: 
+//					diesel++;
+//					break;
+//			}
+//			orderNumber = sc.nextInt();
+//		}
+//		
+//		System.out.println("MUITO OBRIGADO");
+//		System.out.printf("Alcool: %s%n", alcool);
+//		System.out.printf("Gasolina: %s%n", gasolina);
+//		System.out.printf("Diesel: %s%n", diesel);
+
+//		===================================================================	
+/*
+ * Leia um valor inteiro X (1 <= X <= 1000). Em seguida mostre os ímpares de 1
+ * até X, um valor por linha, inclusive o X, se for o caso.
+ * ---------------
+ * EXEMPLO ENTRADA: 
+ * 8
+ * ---------------
+ * EXEMPLO SAÍDA:
+ * 1
+ * 3
+ * 5
+ * 7
+ * --------------- 
+ */
+//		int x = sc.nextInt();
+//		
+//		for(int i = 0; i < x; i++) {
+//			if((i % 2) != 0) {
+//				System.out.println(i);
+//			}
+//		}
+		
+//		===================================================================	
+		
+/*
+ * Leia um valor inteiro N. Este valor será a quantidade de valores inteiros X
+ * que serão lidos em seguida. Mostre quantos destes valores X estão dentro do
+ * intervalo [10,20] e quantos estão fora do intervalo, mostrando essas
+ * informações conforme exemplo (use a palavra "in" para dentro do intervalo, e
+ * "out" para fora do intervalo). 
+ * ----------------
+ * EXEMPLO ENTRADA:
+ * 5 
+ * 14 
+ * 123 
+ * 10 
+ * -25 
+ * 32 
+ * ----------------
+ * EXEMPLO SAIDA:  
+ * 2 in 
+ * 3 out
+ * ----------------
+ */
+		
+//		int N = sc.nextInt();
+//		
+//		int in = 0;
+//		int out = 0;
+//		
+//		for(int i = 0; i < N; i++) {
+//			int x = sc.nextInt();
+//			if(x >= 10 && x <= 20) {
+//				in++;
+//			}else {
+//				out++;
+//			}
+//		}
+//		
+//		System.out.printf("%s in%n", in);
+//		System.out.printf("%s out%n", out);
+		
+//		===================================================================	
+		
+/*
+ * Leia 1 valor inteiro N, que representa o número de casos de teste que vem a
+ * seguir. Cada caso de teste consiste de 3 valores reais, cada um deles com uma
+ * casa decimal. Apresente a média ponderada para cada um destes conjuntos de 3
+ * valores, sendo que o primeiro valor tem peso 2, o segundo valor tem peso 3 e
+ * o terceiro valor tem peso 5. 
+ * ----------------
+ * EXEMPLO ENTRADA:
+ * 3 
+ * 6.5 4.3 6.2 
+ * 5.1 4.2 8.1 
+ * 8.0 9.0 10.0 
+ * -----------------
+ * EXEMPLO SAÍDA:
+ * 5.7 
+ * 6.3 
+ * 9.3
+ * -----------------
+ */
+//		int N = sc.nextInt();
+//		
+//		double valor1, valor2, valor3;
+//		
+//		double media = 0;
+//		for(int i = 0; i < N; i++) {
+//			valor1 = sc.nextDouble();
+//			valor2 = sc.nextDouble();
+//			valor3 = sc.nextDouble();
+//			
+//			media = ((valor1*2) + (valor2*3) + (valor3*5)) / 10;	
+//			
+//			System.out.printf("%.1f%n", media);
+//		}
+		
+//		===================================================================			
+/*
+ * Fazer um programa para ler um número N. Depois leia N pares de números e
+ * mostre a divisão do primeiro pelo segundo. Se o denominador for igual a zero,
+ * mostrar a mensagem "divisao impossivel". 
+ * ---------------
+ * EXEMPLO ENTRADA: 
+ * 3 
+ * 3 -2 
+ * -8 0 
+ * 0 8
+ * ----------------
+ * EXEMPLO SAÍDA: 
+ *  -1.5 
+ *  divisao impossivel 
+ *  0.0
+ * -----------------
+ */
+		
+//		int N = sc.nextInt();
+//		
+//		for(int i = 0; i < N; i++) {
+//			int valor1 = sc.nextInt();
+//			int valor2 = sc.nextInt();
+//					
+//			if(valor2 == 0) {
+//				System.out.println("Divisão Impossível");
+//			}else {
+//				double divisao = (double) valor1 / valor2;
+//				System.out.printf("%.1f%n", divisao);
+//			}
+//		}
+		
+//		===================================================================	
+		
+/*
+ * Ler um valor N. Calcular e escrever seu respectivo fatorial. Fatorial de N =
+ * N * (N-1) * (N-2) * (N-3) * ... * 1. Lembrando que, por definição, fatorial
+ * de 0 é 1. 
+ * ---------------
+ * EXEMPLO ENTRADA: 
+ * 4
+ * 1
+ * 5
+ * 0
+ * ----------------
+ * EXEMPLO SAÍDA: 
+ * 24 
+ * 1
+ * 120
+ * 1
+ * ----------------
+ */
+		
+//		int N = sc.nextInt();
+//		int fatorial = 1;
+//		
+//		
+//		for(int i = 1; i <= N; i++ ) {
+//			fatorial *= i;
+//		}
+//		
+//		
+//		System.out.println(fatorial);
+
+//		===================================================================
+/*
+ * Ler um número inteiro N e calcular todos os seus divisores. 
+ * -------------
+ * EXEMPLO ENTRADA:
+ * 6
+ * ------------
+ * EXEMPLO SAÍDA:  
+ * 1 
+ * 2 
+ * 3 
+ * 6
+ */
+		int N = sc.nextInt();
+		
+		for(int i = 1; i <= N; i++) {
+			
+			if(N % i == 0) {
+				System.out.println(i);
+			}
+		}
 		
 //		===================================================================	
 		
@@ -716,31 +1022,31 @@ public class Exercicios {
  * correspondente da matriz. Mostrar o vetor gerado.
  */
 		
-		int M = sc.nextInt();
-		int N = sc.nextInt();
-		
-		double[][] mat = new double[M][N];
-		
-		for(int i = 0; i < M; i++) {
-			for(int j = 0; j < N; j++) {
-				mat[i][j] = sc.nextDouble();
-			}
-		}
-		
-		double[] vet = new double[M];
-		
-		for(int i = 0; i < M; i++) {
-			double soma = 0.0;
-			for(int j = 0; j < N; j++) {
-				soma = soma + mat[i][j];
-			}
-			vet[i] = soma;
-		}
-		
-		
-		for(int i = 0; i < M; i++) {
-			System.out.printf("%.1f%n", vet[i]);
-		}
+//		int M = sc.nextInt();
+//		int N = sc.nextInt();
+//		
+//		double[][] mat = new double[M][N];
+//		
+//		for(int i = 0; i < M; i++) {
+//			for(int j = 0; j < N; j++) {
+//				mat[i][j] = sc.nextDouble();
+//			}
+//		}
+//		
+//		double[] vet = new double[M];
+//		
+//		for(int i = 0; i < M; i++) {
+//			double soma = 0.0;
+//			for(int j = 0; j < N; j++) {
+//				soma = soma + mat[i][j];
+//			}
+//			vet[i] = soma;
+//		}
+//		
+//		
+//		for(int i = 0; i < M; i++) {
+//			System.out.printf("%.1f%n", vet[i]);
+//		}
 		
 		sc.close();
 				
