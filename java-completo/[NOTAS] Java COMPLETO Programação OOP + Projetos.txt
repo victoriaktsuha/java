@@ -429,3 +429,61 @@ for(int i = 4; i >= 0; i--){
 	System.out.println("Valor de i: " + i); 
 }
 
+*Estrutura repetitiva 'faça-enquanto' (do-while)
+
+Menos utilizada, mas em alguns casos se encaixa melhor ao problema. O bloco de comandos executa pelo menos uma vez, pois a condição é verificada no final.
+
+Sintaxe:
+
+do{
+	comando 1
+	comando 2
+} while ( condicao );
+
+Primeiro é executao o bloco de comandos, então depois a condição é verificada e enquanto for verdadeira, o bloco continuará a ser executado. Caso contrario, encerra o processo.
+
+
+-- Outros tópicos básicos Java --
+
+*Restrições e convenções para nomes
+
+- não pode começar com digito - apenas letra ou _
+- não usar acento ou til
+- não pode ter espaço
+- camelCase - pacotes, atributos, métodos, variáveis e parametros
+- PascalCase - apenas classes
+
+*Operadores bitwise
+Realizam operações lógicas bit a bit em valores; NÃO CONFUDIR com operadores de lógica (&&, ||, !)
+
+& - operação "E" bit a bit => só será verdadeiro (1) se todos forem verdadeiro
+| - operação "OU" bit a bit => só será falso (0) se todos forem falso
+^ - operação "OU-exclusivo" bit a bit => será falso (0) se todos forem falso ou todos forem verdadeiro, e será verdadeiro (1) se pelo menos um for verdadeiro 
+
+
+Sabemos que cada número inteiro tem uma representação binária internamente no computador. Pra saber, pode ser utilizada a calculadora de programador no computador, que mostrará o equivalente de um inteiro como hexadecimal, octadecimal e binário. 
+
+Exemplo:
+
+*os números acima serão comparados bit a bit, ou seja, em sua forma binária, comparando o primeiro com o primeiro, o segundo com o segundo, etc. Nesse caso, o resultado também será binário onde o 0 representará falso e o 1 verdadeiro.
+
+int n1 = 89; => bin 0101 1001
+int n2 = 60; => bin 0011 1100
+
+System.out.println(n1 & n2); => 24 => bin 0001 1000 
+System.out.println(n1 | n2); => 125 => bin 0111 1101 
+System.out.println(n1 ^ n2); => 101 => bin 0110 0101 
+
+Esse tipo de operação se aplica em programação de baixo nível como um microcontrolador, programação de interface com rede, arduino, etc.
+Exemplo de verificação bit de um endereço de rede, onde queremos verificar se o 6° bit é 0 ou 1 (lembrando que conta-se da direita para esquerda) -> aplica-se uma máscara, que é um número onde 6° bit é 1 e o restante 0, resultando no decimal 32
+
+(89) 0101 1001
+(32) 0010 0000
+
+&: 0000 0000 (0)
+
+(113) 0111 0001
+(32) 0010 0000
+
+&: 0010 0000 (32) <
+

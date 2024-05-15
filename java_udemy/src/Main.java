@@ -160,7 +160,6 @@ public class Main {
 		 * seguida, mostrar na tela todos os números negativos lidos.
 		 */
 
-		
 		/*
 		 * int N = sc.nextInt();
 		 * 
@@ -171,14 +170,13 @@ public class Main {
 		 * for(int i = 0; i < N; i++) { if(vetor[i] < 0) { System.out.println(vetor[i]);
 		 * } }
 		 */
-		 
-		
+
 		/*
 		 * Faça um programa que leia N números reais e armazene-os em um vetor. Em
 		 * seguida imprima todos os elementos do vetor e mostre na tela a soma e a média
 		 * dos elementos do vetor.
 		 */
-		
+
 		/*
 		 * int N = sc.nextInt();
 		 * 
@@ -196,15 +194,14 @@ public class Main {
 		 * 
 		 * System.out.printf("%.2f%n", media);
 		 */
-		
-		
+
 		/*
 		 * Fazer um programa para ler um número N, depois nome (apenas uma palavra sem
 		 * espaços), idade e altura de N pessoas, conforme exemplo. Depois, mostrar na
 		 * tela a altura média das pessoas, e mostrar também a porcentagem de pessoas
 		 * com menos de 16 anos.
 		 */
-		
+
 		/*
 		 * int N = sc.nextInt();
 		 * 
@@ -227,13 +224,12 @@ public class Main {
 		 * double x = cont * 100.0 / N;
 		 * System.out.printf("Pessoas com menos de 16 anos: %.1f%%%n", x);
 		 */
-		
-		
+
 		/*
 		 * Fazer um programa para ler um valor N e depois o nome de N pessoas. Em
 		 * seguida, mostrar seus nomes.
 		 */
-		
+
 		/*
 		 * int N = sc.nextInt();
 		 * 
@@ -243,37 +239,57 @@ public class Main {
 		 * 
 		 * System.out.println("Nomes lidos:");
 		 * 
-		 * //for each pode substituir for 
-		 * for(String nome : nomes) {
-		 * 	System.out.println(nome); 
-		 * }
+		 * //for each pode substituir for for(String nome : nomes) {
+		 * System.out.println(nome); }
+		 */
+
+		// Exemplos matriz
+
+		// M - linhas
+		// N - colunas
+//		int M = sc.nextInt();
+//		int N = sc.nextInt();
+//		
+//		
+//		int[][] mat = new int[M][N];
+//		
+//		//precisa de um for dentro do outro para percorrer tanto linhas quantos colunas; variavel 'i' para linhas e variavel 'j' para colunas
+//		for(int i = 0; i < M; i++) {
+//			for(int j = 0; j < N; j++) {
+//				mat[i][j] = sc.nextInt();
+//			}
+//		}
+//		
+//		for(int i = 0; i < M; i++) {
+//			for(int j = 0; j < N; j++) {
+//				System.out.print(mat[i][j] + " ");
+//			}
+//			System.out.println();
+//		}
+
+		// Exemplo Operação bitwise
+		
+		/*
+		 * int n1 = 89; int n2 = 60;
+		 * 
+		 * System.out.println(n1 & n2); 
+		 * System.out.println(n1 | n2);
+		 * System.out.println(n1 ^ n2);
+		 * 
+		 * 
 		 */
 		
+		//Testar se o 6º bit vale 1
 		
-		// Exemplos matriz
+		//int mask = 32; //pois 32 tem o 1 como 6° bit
+		int mask = 0b100000; //declaração de número binario
+		int n = sc.nextInt();
 		
-		// M - linhas
-		//N - colunas
-		int M = sc.nextInt();
-		int N = sc.nextInt();
-		
-		
-		int[][] mat = new int[M][N];
-		
-		//precisa de um for dentro do outro para percorrer tanto linhas quantos colunas; variavel 'i' para linhas e variavel 'j' para colunas
-		for(int i = 0; i < M; i++) {
-			for(int j = 0; j < N; j++) {
-				mat[i][j] = sc.nextInt();
-			}
+		if((n & mask) != 0) {
+			System.out.println("6th bit is true");
+		}else{
+			System.out.println("6th bit is false");
 		}
-		
-		for(int i = 0; i < M; i++) {
-			for(int j = 0; j < N; j++) {
-				System.out.print(mat[i][j] + " ");
-			}
-			System.out.println();
-		}
-		
 		
 		sc.close();
 
