@@ -1,3 +1,4 @@
+package estudos;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -282,17 +283,82 @@ public class Main {
 		//Testar se o 6º bit vale 1
 		
 		//int mask = 32; //pois 32 tem o 1 como 6° bit
-		int mask = 0b100000; //declaração de número binario
-		int n = sc.nextInt();
+//		int mask = 0b100000; //declaração de número binario
+//		int n = sc.nextInt();
+//		
+//		if((n & mask) != 0) {
+//			System.out.println("6th bit is true");
+//		}else{
+//			System.out.println("6th bit is false");
+//		}
 		
-		if((n & mask) != 0) {
-			System.out.println("6th bit is true");
-		}else{
-			System.out.println("6th bit is false");
-		}
+		//Funçõess para string
 		
+//		String original = "abcde FGHIJ ABC abc DEFG    ";
+//		
+//		String s01 = original.toLowerCase(); 
+//		String s02 = original.toUpperCase(); 
+//		String s03 = original.trim(); 
+//		String s04 = original.substring(2); //será criada uma nova string utilizando o conteúdo a partir do caractere na posição informada, 2 
+//		String s05 = original.substring(2, 9); //será criada uma nova string utilizando o conteúdo a partir do caractere na primeira posição informada, 2, ATÉ a segunda posição informada, 9
+//		String s06 = original.replace('a', 'x'); //o primeiro caractere informado, 'a', todos os 'a's minúsculos, serão trocados pelo segundo caractere informado, 'x'
+//		String s07 = original.replace("abc", "xy");
+//		int i = original.indexOf("bc"); //recupera a posição a primeira ocorrencia do parametro, 1, em relação ao que foi informado, "bc"
+//		int j = original.lastIndexOf("bc");//recupera a posição da última ocorrencia do parametro, 17, em relação ao que foi informado, "bc"
+//		
+//		System.out.println("Original: -" + original + "-");
+//		System.out.println("toLowerCase: -" + s01 + "-");
+//		System.out.println("toUpperCase: -" + s02 + "-");
+//		System.out.println("trim: -" + s03 + "-");
+//		System.out.println("substring(2): -" + s04 + "-");
+//		System.out.println("substring(2, 9): -" + s05 + "-");
+//		System.out.println("substring('a', 'x'): -" + s06 + "-");
+//		System.out.println("substring(\"abc\", \"xy\"): -" + s07 + "-");
+//		System.out.println("indexOf(\"bc\"): " + i);
+//		System.out.println("lastIndexOf(\"bc\"): " + j);
+		
+//		String s = "potato apple lemon";
+//		
+//		String[] vect = s.split(" ");
+//		
+//		System.out.println(vect[0]);
+//		System.out.println(vect[1]);
+//		System.out.println(vect[2]);
+		
+		// Funções
+		
+//		System.out.println("Digite 3 números:");
+//		int a = sc.nextInt();
+//		int b = sc.nextInt();
+//		int c = sc.nextInt();
+//		
+//		int higher = max(a, b, c);
+//		
+//		showResult(higher);
+				
 		sc.close();
 
 	}
+	
+	public static int max(int x, int y, int z) {
+		int aux = 0;
+		
+		if (x > y && x > z) {
+			aux = x;
+		} else if (y > z) {
+			aux = y;
+		} else {
+			aux = z;
+		}
+		return aux;
+	}
+	//public para que essa função fique disponivel para outras classes
+	//static para que a função possa ser chamada independente de se criar um objeto
+	//int para o tipo de dado que a função retorna
+	
+	public static void showResult(int value) {
+		System.out.println("Maior = " + value);
+	}
+	//void pois a função não retorna um valor que possa ser armazenado. Nesse caso, ela apenas imprime no console
 
 }
