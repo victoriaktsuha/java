@@ -650,3 +650,305 @@ Triangle x, y;
 		*Durante a exectação do programa, podemos fazer uma alocação dinâmica de memória através do 'new' utilizado para instanciar um objeto, que será armazenado no Heap		
 		-> Heap - aqui são criados objetos dinâmicos através da alocação dinâmica de memória feita através do 'new'
 		*as variáveis x e y, mesmo que objetos no heap, também estarão no Stack, mas armazenando um endereço de memória do objeto criado no Heap
+
+*Criando um método para obtermos os benefícios de reaproveitamento e delegação
+
+Com o uso da Classe, agora nós temos uma variável composta do tipo "Triangle" para representar cada triângulo:
+
+Triangle x, y;
+x = new Triangle();
+y = new Triangle();
+
+Agora vamos melhorar nossa classe acrescentando nela um método para calcular a área.
+
+Projeto da classe (UML)
+- Diagrama de classes: 1º nome da classe, 2º atributos da classe e 3º métodos da classe
+
+Quais são os benefícios de se calcular a área de um triângulo por meio de um método dentro da classe Triangle ?
+- Reaproveitamento de código: nós eliminamos o código repetido (cálculo das áreas dos triângulos x e y) no programa principal.
+- Delegação das responsabilidades: quem deve ser responsável por saber como calcular a área de um triângulo é o próprio triângulo. A lógica do cálculo da área não deve estar em outro lugar.
+
+*Começando a resolver um segundo problema exemplo
+
+Fazer um programa para ler os dados de um produto em estoque (nome, preço e qauntidade no estoque.) Em seguida:
+- Mostrar os dados do produto (nome, preço, quantidade no estoque, valor total no estoque)
+- Realizar uma entrada no estoque e mostrar novamente os dados do produto
+- Realizar uma saída no estoque e mostrar novamente os dados do produto
+
+Para resolver este problema, você deve criar uma classe conforme projeto ao lado:
+
+------------------------------------
+Product
+------------------------------------
+- Name: string
+- Price: double
+- Quantity: int
+------------------------------------
++ TotalValueInStock():double
++ AddProducts(quantity:int):void
++ RemoveProducts(quantity:int):void
+------------------------------------
+
+*Object e toString
+- Toda classe java é uma subclasse da classe Object
+	- Qualquer variável que você tiver no seu programa, ela vai ser um tipo - ex.: Triangle, Product - e cada um desses também é do tipo Object, e o tipo Object tem alguns métodos padrão.
+
+- Object possui os seguintes métodos:
+	- getClass - retorna o tipo do objeto
+	- equals - compara se o objeto é igual ao outro
+	- hashCode - retorna um código hash do objeto
+	- toString - converte o objeto para string
+
+
+Utilizando o exercicio anterior como exemplo, como a classe Product também é um Object, estamos sobrepondo a classe padrão toString. Então todos os retornos que estiverem aqui dentro, serão automaticamente impressos no console quando o objeto do tipo Product estiver em um contexto de System.out.print, podendo já ser formatado corretamente aqui para depois só ser 'chamado'.
+
+public String toString() {
+	return name
+	+ ", $ "
+	+ String.format("%.2f", price) //formatação para imprimir 2 casas decimais
+	+ ", "
+	+ quantity
+	+ " units, Total: $ "
+	+ String.format("%.2f",totalValueInStock());
+}
+
+*Exercícios
+
+1) Fazer um programa para ler os valores da largura e altura de um retângulo. Em seguida, mostrar na tela o valor de sua área, perímetro e diagonal. User uma classe como mostardo no UML abaixo:
+
+-----------------------
+Rectangle
+-----------------------
+- Width: double
+- Height: double
+-----------------------
++ Area(): double
++ Perimeter(): double
++ Diagonal(): double
+-----------------------
+
+Exemplo:
+Enter rectangle width and height:
+3.00
+4.00
+AREA = 12.00
+PERIMETER = 14.00
+DIAGONAL = 5.00
+
+2) Fazer um programa para ler os dados de um funcionário (nome, salário bruto e imposto). Em seguida, mostrar os dados do funcionário (nome e salário líquido). Em seguida, aumentar o salário do funcionário com base em uma porcentagem dada (somente o salário bruto é afetado pela porcentagem) e mostar novamente os dados do funcionário. Use a classe projetada abaixo:
+
+-------------------------------------------
+Employee
+-------------------------------------------
+- Name: String
+- GrossSalary: souble
+- Tax: double
+-------------------------------------------
++ NetSalary(): double
++ IncreaseSalary(percentage: double): void
+-------------------------------------------
+
+Exemplo:
+Name: Joao Silva
+Gross Salary: 6000.00
+Tax: 1000.00
+
+Employee: Joao Silva, $ 5000.00
+
+Which percentage to increase salary ? 10.0
+
+Updated data: Joao Silva, $ 5600.00
+
+3) Fazer um programa para ler o nome de um aluno e as três notas que ele obteve nos três trimestres do ano (primeiro trimestre vale 30 e o segundo e terceiro valem 35 cada). Ao final, mostrar qual a nota final do aluno no ano. Dizer também se o aluno está aprovado (PASS) ou não (FAILED) e, em caso negativo, quantos pontos faltam para o aluno obter o mínimo para ser aprovado (que é 60% da nota). Você deve criar uma classe Student para resolver este problema. *elaborar diagrama de classe
+
+Exemplos:
+-------------------
+Entrada:
+Alex Green
+27.00
+31.00
+32.00
+
+Saída:
+FINAL GRADE = 90.00
+PASS
+--------------------
+Entrada:
+Alex Green
+17.00
+20.00
+15.00
+
+Saída:
+FINAL GRADE = 52.00
+FAILED
+MISSING 8.00 POINTS
+---------------------
+
+*Membros Estáticos
+
+Uma classe possui membros, que são os atributos e métodos.
+
+Os membros estáticos, também chamados de membros de classe - em oposição a membros e instância.
+São membros que fazem sentido independentemente de objetos. Não precisam de objetos para serem chamados. São chamados a partir do próprio nome da classe.
+No exemplo dos triângulos, x é uma instância e y é outra instância e é possível 'chamar' os membros mesmo em instancias diferentes, ou seja, independente do objeto. 
+
+Aplicações comuns:
+- classes utilitárias (Math.sqrt())
+- declaração de constantes
+
+Uma classe que possui somente membros estáticos, pode ser uma classe estática também. Esta classe não poderá ser instanciada.
+
+Problema exemplo
+Fazer um programa para ler um valor numérico qualquer, e daí mostrar quanto seria o valor de um circunferência e do volume de uma esfera para um raio daquele valor. Informar também o valor de PI com duas casas decimais.
+
+Exemplo:
+Enter radius: 3.0
+Circumference: 18.84
+Volume: 113.04
+PI value: 3.14
+
+Resolução em 3 versões:
+1: métodos na própria classe do programa - dentro de um método estático você não pode chamar membros de instância da mesma classe
+2: classe Calculator com membros de instância - principio de delegação - precisa de um objeto (new) para utilizar o membros das classe
+3: classe Calculator com método estático - referencia a classe direto (classe utilitária)
+
+Não podemos chamar um método que não é estático dentro de outro que é estático. Como o método 'main' é sempre 'static', então os demais métodos e variáveis também devem ser.
+
+Exemplo de método não-estático
+No exercício dos triângulos, o método Area() não é estático pois cada triangulo possui a sua area, o resultado não poderia ser o mesmo.
+
+Exemplo de método estático
+Já no caso da calculadora, os valores dos cálculos não mudam para 'calculadoras' (objetos) diferentes, ou seja, são cálculos estáticos. O valor de PI também é estático. 
+
+*Exercícios de fixação
+Faça um programa para ler a cotação do dólar, e depois um valor em dólares a ser comprado por uma pessoa em reais. Informar quantos reais a pessoa vai pagar pelos dólares, considerando ainda que a pessoa terá que pagar 6% de IOF sobre o valor em dólar. Criar uma classe CurrencyConverter para ser responsável pelos cálculos.
+
+Exemplo:
+What is the dollar price ? 3.10
+How many dollars will be bought ? 200.00
+Amount to be paid in reais = 657.20 
+
+?? Quando classes são consideradas utilitárias e quando são consideradas entidades ?
+Classes são consideradas utilitárias quando seus membros são estáticos ?
+
+--Construtores, palavra this, sobrecarga, encapsulamento --
+
+*Construtores
+
+- É uma operação especial da classe, que executa no momento da instanciação do objeto
+
+- Usos comuns:
+	- Iniciar valores dos atributos
+	- Permitir ou obrigar que o objeto receba dados / dependências no momento de sua instanciação (injeção da dependência)
+
+- Se um construtor customizado não for especificado, a classe disponibiliza o construtor padrão: Product p = new Product();
+
+- É possível especificar mais de um construtor na mesma classe (sobrecarga)
+
+public class Product {
+	public String name;
+	public double price;
+	public int quantity;
+	
+	//construtor - executa no momento da instanciação do objeto
+	public Product(String name, double price, int quantity) {
+		//'this' para se referir ao atributo do objeto, não ao do parâmetro
+		this.name = name;
+		this.price = price;
+		this.quantity = quantity;
+	}
+}
+
+*Palavra this
+
+É uma referência para o próprio objeto
+
+- Usos comuns:
+	- Diferenciar atributos de variáveis locais
+	- Passar o próprio objeto como argumento na chamada de um método ou construtor
+
+Exemplo:
+- Program (main)
+Product product = new Product("TV", 1500.0, 0);
+	- Os valores passados aos parametros ao instanciar a classe, estão atualmente no escopo do construtor, que está na memória do computador.
+
+- Product (entity)
+public class Product {
+	public String name;
+	public double price;
+	public int quantity;
+	
+	public Product(String name, double price, int quantity) {
+		this.name = name;
+		this.price = price;
+		this.quantity = quantity;
+	}
+}
+	- Os valores passados aos parametros do construtor anteriormente serão copiados para para os atributos do objeto, que está diretamente armazenada na memória.
+
+*Sobrecarga
+
+É um recurso que uma classe possui de oferecer mais de uma operação com o mesmo nome, porém com diferentes listas de parâmetros.
+
+//1º construtor
+public Product(String name, double price, int quantity) {
+		this.name = name;
+		this.price = price;
+		this.quantity = quantity;
+	}
+
+//2º construtor opcional
+public Product(String name, double price) {
+		this.name = name;
+		this.price = price;
+	}
+
+Pode ser declarada uma versão padrão, sem parâmetros:
+public Product() {}
+
+*Encapsulamento
+- É um princípio que consiste em esconder detalhes de implementação de uma classe, expondo apenas operações seguras e que mantenham os objetos em um estado consistente.
+- Regra de ouro: o objeto deve sempre estar em um estado consistente, e a própria classe deve garantir isso.
+
+Analogia:
+Um aparelho eletrônico esconde todos os circuitos e componentes internos e vai disponibilizar ao usuário apenas operações/interações que não vão corromper a integridade do aparelho
+
+Regra geral básica:
+- Um objeto não deve expor nenhum atributo (modificador de acesso private)
+- Os atributos devem ser acessados por meio de métodos get e set (padrão JavaBeans)
+
+Padrão para implementação de getters e setters
+
+
+private String name;
+private double price;
+(private indica que não deve ser acessado por outras classes - para acessar e alterar os atributos, utilizar os métodos abaixo)
+
+public String getName(){
+	return name;
+}
+
+public void setName(String name){
+	this.name = name;
+}
+
+public double getPrice(){
+	return price;
+}
+
+public void setPrice(double price){
+	this.price = price;
+}
+
+*Gerando automaticamente construtores, getters e setters com Eclipse
+- Botão direito > Source > Generate Constructor using Fields
+- Botão direito > Source > Generate Getters and Setters
+
+*Modificadores de acesso
+
+- private: o membro só pode ser acessado na própria classe
+- (nada): o membro só pode ser acessado nas classes do mesmo pacote
+- protected: o membro só pode ser acessado no mesmo pacote, bem como em subclasses de pacotes diferentes
+- public: o membro é acessado por todas as classes (ao menos que ele resida em um módulo diferente que não exporte o pacote onde ele está)
+https://i.sstatic.net/SVk2a.png

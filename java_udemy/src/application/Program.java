@@ -1,10 +1,17 @@
 package application;
 import java.util.Scanner;
 
-import entities.Triangle;
+import entities.Product;
 
 public class Program {
 
+	/**
+	 * @param args
+	 */
+	
+	//versão 1 de métodos estáticos
+	//public final double PI = 3.14159; // 'final' para constantes, e o padrão de nomes para constante é letra maiúscula
+	
 	public static void main(String[] args) {
 		
 		//Locale.setDefault(Locale.US);
@@ -56,15 +63,22 @@ public class Program {
 		 * distintas para representar cada triângulo: double xA, xB, xC, yA, yB, yC;
 		 * Para melhorar isso, vamos usar uma classe para representar um triângulo.
 		 * 
-		 * Classe: É um tipo estruturado que pode conter (membros): - Atributos
-		 * (dados/campos) - Métodos (funções/operações)
+		 * Classe: É um tipo estruturado que pode conter (membros): 
+		 * - Atributos (dados/campos) 
+		 * - Métodos (funções/operações)
 		 * 
-		 * A classe também pode prover muitos outros recursos, tais como: - Construtores
-		 * - Sobrecarga - Encapsulamento - Herança - Polimorfismo
+		 * A classe também pode prover muitos outros recursos, tais como: 
+		 * - Construtores
+		 * - Sobrecarga 
+		 * - Encapsulamento 
+		 * - Herança 
+		 * - Polimorfismo
 		 * 
-		 * Exemplos: - Entidades: Produto, Cliente, Triangulo - Serviços:
-		 * ProdutoService, ClienteService, EmailService, StorageService - Controladores:
-		 * ProdutoController, ClienteController - Utilitários: Calculadora, Compactador
+		 * Exemplos: 
+		 * - Entidades: Produto, Cliente, Triangulo 
+		 * - Serviços: ProdutoService, ClienteService, EmailService, StorageService 
+		 * - Controladores: ProdutoController, ClienteController 
+		 * - Utilitários: Calculadora, Compactador
 		 * 
 		 * Portanto, criaremos uma classe pública chamada 'Triangle' que conterá 3
 		 * atributos também públicos de tipo double
@@ -88,37 +102,46 @@ public class Program {
 		
 		//Resolução com classe Triangle
 		
-		Triangle x, y;
-		x = new Triangle();
-		y = new Triangle();
+//		Triangle x, y;
+//		x = new Triangle();
+//		y = new Triangle();
 		
 		//Para acessar e armazenar os valores nos atributos do objeto x:
-		System.out.println("Digite as medidas do triângulo X:");
-		x.a = sc.nextDouble();
-		x.b = sc.nextDouble();
-		x.c = sc.nextDouble();
+//		System.out.println("Digite as medidas do triângulo X:");
+//		x.a = sc.nextDouble();
+//		x.b = sc.nextDouble();
+//		x.c = sc.nextDouble();
 		
 		//Para acessar e armazenar os valores nos atributos do objeto y:
-		System.out.println("Digite as medidas do triângulo Y:");
-		y.a = sc.nextDouble();
-		y.b = sc.nextDouble();
-		y.c = sc.nextDouble();
+//		System.out.println("Digite as medidas do triângulo Y:");
+//		y.a = sc.nextDouble();
+//		y.b = sc.nextDouble();
+//		y.c = sc.nextDouble();
 		
-		double p = (x.a + x.b + x.c) / 2.0;
-		double areaX = Math.sqrt(p * (p - x.a) * (p - x.b) * (p - x.c));
+		//Criando um método para obtermos os benefícios de reaproveitamento e delegação
 		
-		p = (y.a + y.b + y.c) / 2.0;
-		double areaY = Math.sqrt(p * (p - y.a) * (p - y.b) * (p - y.c));
+		/*
+		 * Agora vamos melhorar nossa classe acrescentando nela um método para calcular a área. 
+		 * Quais são os benefícios de se calcular a área de um triângulo por meio de um método dentro da classe Triangle ? 
+		 * - Reaproveitamento de código: nós eliminamos o código repetido (cálculo das áreas dos triângulos x e y) no
+		 * programa principal. 
+		 * - Delegação das responsabilidades: quem deve ser responsável por saber como calcular a área de um triângulo é o próprio
+		 * triângulo. A lógica do cálculo da área não deve estar em outro lugar.
+		 */
 		
-		System.out.printf("Área do triângulo X: %.4f%n", areaX);
-		
-		System.out.printf("Área do triângulo Y: %.4f%n", areaY);
-		
-		if(areaX > areaY) {
-			System.out.println("Maior área: X");
-		}else {
-			System.out.println("Maior área: Y");
-		}
+		//utilizando método area
+//		double areaX = x.area();
+//		double areaY = y.area();
+//		
+//		System.out.printf("Área do triângulo X: %.4f%n", areaX);
+//		
+//		System.out.printf("Área do triângulo Y: %.4f%n", areaY);
+//		
+//		if(areaX > areaY) {
+//			System.out.println("Maior área: X");
+//		}else {
+//			System.out.println("Maior área: Y");
+//		}
 		
 		//classe é a definição do tipo e objeto é a instanciação da classe
 		
@@ -140,8 +163,435 @@ public class Program {
 		 
 		 */
 		
+		//Começando a resolver um segundo problema exemplo
+		
+		/*
+		 * Fazer um programa para ler os dados de um produto em estoque (nome, preço e quantidade no estoque.) Em seguida: 
+		 * - Mostrar os dados do produto (nome, preço, quantidade no estoque, valor total no estoque) 
+		 * - Realizar uma entrada no estoque e mostrar novamente os dados do produto 
+		 * - Realizar uma saída no estoque e mostrar novamente os dados do produto
+		 * 
+		 * Para resolver este problema, você deve criar uma classe conforme projeto abaixo:
+		 * 
+		 * ------------------------------------ 
+		 * Product
+		 * ------------------------------------ 
+		 * - Name: string 
+		 * - Price: double 
+		 * - Quantity: int 
+		 * ------------------------------------ 
+		 * + TotalValueInStock():double 
+		 * + AddProducts(quantity:int):void 
+		 * + RemoveProducts(quantity:int):void 
+		 * ------------------------------------ 
+		 */
+		
+		/*Object e toString
+		*- Toda classe java é uma subclasse da classe Object
+		*	- Qualquer variável que você tiver no seu programa, ela vai ser um tipo - ex.: Triangle, Product - 
+		*e cada um desses também é do tipo Object, e o tipo Object tem alguns métodos padrão.
+		*
+		*- Object possui os seguintes métodos:
+		*	- getClass - retorna o tipo do objeto
+		*	- equals - compara se o objeto é igual ao outro
+		*	- hashCode - retorna um código hash do objeto
+		*	- toString - converte o objeto para string
+		*/
+		
+//		Product product = new Product();
+//		
+//		System.out.println("Enter product data: ");
+//		
+//		System.out.print("Name: ");
+//		product.name = sc.nextLine();
+//		System.out.print("Price: ");
+//		product.price = sc.nextDouble();
+//		System.out.print("Quantity in stock: ");
+//		product.quantity = sc.nextInt();				
+//		
+//		System.out.println();
+//		System.out.println("Product data: " + product);
+//		
+//		System.out.println();
+//		System.out.println("Enter the number of products to be added in stock: ");
+//		int quantity = sc.nextInt();
+//		product.addProducts(quantity);
+//		
+//		System.out.println();
+//		System.out.println("Updated data: " + product);
+//		
+//		System.out.println();
+//		System.out.println("Enter the number of products to be removed from stock: ");
+//		quantity = sc.nextInt();
+//		product.removeProducts(quantity);
+//		
+//		System.out.println();
+//		System.out.println("Updated data: " + product);
+//		
+		// Exercícios
+		
+		/*
+		 * 1) Fazer um programa para ler os valores da largura e altura de um retângulo.
+		 * Em seguida, mostrar na tela o valor de sua área, perímetro e diagonal. 
+		 * Usar uma classe como mostrado no UML abaixo:
+		 * 
+		 * ----------------------- 
+		 * Rectangle 
+		 * ----------------------- 
+		 * - Width: double 
+		 * - Height: double 
+		 * ----------------------- 
+		 * + Area(): double 
+		 * + Perimeter(): double
+		 * + Diagonal(): double 
+		 * -----------------------
+		 * 
+		 * Exemplo: 
+		 * Enter rectangle width and height: 
+		 * 3.00 
+		 * 4.00 
+		 * AREA = 12.00 
+		 * PERIMETER = 14.00 
+		 * DIAGONAL = 5.00 
+		 */
+		
+//		Rectangle rectangle = new Rectangle();
+//		
+//		System.out.println("Enter rectangle width and height:");
+//		
+//		rectangle.width = sc.nextDouble();
+//		rectangle.height = sc.nextDouble();
+//		
+//		System.out.println(rectangle);
+		
+		/*
+		 * 2) Fazer um programa para ler os dados de um funcionário (nome, salário bruto e imposto). 
+		 * Em seguida, mostrar os dados do funcionário (nome e salário líquido). 
+		 * Em seguida, aumentar o salário do funcionário com base em uma porcentagem dada 
+		 * (somente o salário bruto é afetado pela porcentagem) e
+		 * mostar novamente os dados do funcionário. Use a classe projetada abaixo:
+		 * 
+		 * ------------------------------------------- 
+		 * Employee
+		 * ------------------------------------------- 
+		 * - Name: String 
+		 * - GrossSalary: double 
+		 * - Tax: double 
+		 * ------------------------------------------- 
+		 * + NetSalary(): double 
+		 * + IncreaseSalary(percentage: double): void
+		 * -------------------------------------------
+		 * 
+		 * Exemplo: 
+		 * 
+		 * Name: Joao Silva  
+		 * Gross salary: 6000.00 
+		 * Tax: 1000.00
+		 * 
+		 * Employee: Joao Silva, $ 5000.00
+		 * 
+		 * Which percentage to increase salary ? 10.0
+		 * 
+		 * Updated data: Joao Silva, $ 5600.00
+		 * 
+		 */
+		
+//		Employee employee = new Employee();
+//		
+//		System.out.print("Name: ");
+//		employee.name = sc.nextLine();
+//		System.out.print("Gross Salary: ");
+//		employee.grossSalary = sc.nextDouble();
+//		System.out.print("Tax: ");
+//		employee.tax = sc.nextDouble();
+//		System.out.println();
+//				
+//		System.out.println("Employee: " + employee);
+//		System.out.println();
+//		System.out.print("Which percentage to increase salary ? ");
+//		double percentage = sc.nextDouble();
+//		employee.increasySalary(percentage);
+//		System.out.println();
+//		
+//		System.out.println("Updated data: " + employee);
+		
+		/*
+		 * 3) Fazer um programa para ler o nome de um aluno e as três notas que ele
+		 * obteve nos três trimestres do ano (primeiro trimestre vale 30 e o segundo e
+		 * terceiro valem 35 cada). Ao final, mostrar qual a nota final do aluno no ano.
+		 * Dizer também se o aluno está aprovado (PASS) ou não (FAILED) e, em caso
+		 * negativo, quantos pontos faltam para o aluno obter o mínimo para ser aprovado
+		 * (que é 60% da nota). Você deve criar uma classe Student para resolver este
+		 * problema. *elaborar diagrama de classe
+		 * 
+		 * ----------------------------
+		 * Student
+		 * ----------------------------
+		 * - Name: String
+		 * - Nota1: double
+		 * - Nota2: double
+		 * - Nota3: double
+		 * ----------------------------
+		 * + Media(): double
+		 * + Faltante(): double
+		 * ----------------------------
+		 * 
+		 * Exemplos: 
+		 * ------------------- 
+		 * Entrada: 
+		 * Alex Green 
+		 * 27.00
+		 * 31.00
+		 * 32.00
+		 * 
+		 * Saída: 
+		 * FINAL GRADE = 90.00 
+		 * PASS 
+		 * -------------------- 
+		 * Entrada: 
+		 * Alex Green
+		 * 17.00 
+		 * 20.00 
+		 * 15.00
+		 * 
+		 * Saída: 
+		 * FINAL GRADE = 52.00 
+		 * FAILED 
+		 * MISSING 8.00 POINTS 
+		 * ---------------------
+		 */
+		
+//		Student student = new Student();
+//		
+//		student.name = sc.nextLine();
+//		student.nota1 = sc.nextDouble();
+//		student.nota2 = sc.nextDouble();
+//		student.nota3 = sc.nextDouble();
+//		
+//		double media = student.media();
+//		
+//		System.out.printf("FINAL GRADE = %.2f%n", media);
+ 
+		/* minha solução - sem o método faltante()
+		if(media < 60) {
+			System.out.println("FAILED");
+			System.out.println("MISSING " + String.format("%.2f", 60 - media) + " POINTS");
+		}else {
+			System.out.println("PASS");
+		}
+		*/
+		
+//		if(media < 60.0) {
+//			System.out.println("FAILED");
+//			System.out.printf("MISSING %.2f POINTS%n", student.faltante());
+//		}else {
+//			System.out.println("PASS");
+//		}
+		
+		/**
+		 * Membros Estáticos I
+		 * 
+		 * Uma classe possui membros, que são os atributos e métodos.
+		 * 
+		 * Os membros estáticos, também chamados de membros de classe - em oposição a
+		 * membros e instância. São membros que fazem sentido independentemente de
+		 * objetos. Não precisam de objetos para serem chamados. São chamados a partir
+		 * do próprio nome da classe. 
+		 * No exemplo dos triângulos, x é uma instância e y é
+		 * outra instância e é possível 'chamar' os membros mesmo em instancias
+		 * diferentes, ou seja, independente do objeto.
+		 * 
+		 * Aplicações comuns: 
+		 * - classes utilitárias (Math.sqrt()) 
+		 * - declaração de
+		 * constantes
+		 * 
+		 * Uma classe que possui somente membros estáticos, pode ser uma classe estática
+		 * também. Esta classe não poderá ser instanciada.
+		 * 
+		 * Problema exemplo 
+		 * Fazer um programa para ler um valor numérico qualquer, e daí
+		 * mostrar quanto seria o valor de um circunferência e do volume de uma esfera
+		 * para um raio daquele valor. Informar também o valor de PI com duas casas
+		 * decimais.
+		 * 
+		 * Exemplo: 
+		 * Enter radius: 3.0 
+		 * Circumference: 18.84 
+		 * Volume: 113.04 
+		 * PI value: 3.14
+		 * 
+		 * Resolução em 3 versões: 
+		 * 1: métodos na própria classe do programa - dentro de
+		 * um método estático você não pode chamar membros de instância da mesma classe
+		 * 2: classe Calculator com membros de instância - principio da delegação - precisa de um objeto (new) para utilizar o membros das classe
+		 * 3: classe Calculator com método estático - referencia a classe direto (classe utilitária)
+		 */
+		
+		//versão 2 métodos estáticos
+		//Calculator calc = new Calculator();
+		
+//		System.out.print("Enter radius: ");
+//		double radius = sc.nextDouble();
+		
+		//versão 1 métodos estáticos
+		//double c = circumference(radius);
+		//double v = volume(radius);
+		
+		//versão 2 métodos estáticos
+		//double c = calc.circumference(radius);
+		//double v = calc.volume(radius);
+		
+		//versão 3 métodos estáticos
+//		double c = Calculator.circumference(radius);
+//		double v = Calculator.volume(radius);
+//		
+//		System.out.printf("Circumference: %.2f%n", c);
+//		System.out.printf("Volume: %.2f%n", v);
+		
+		//versão 1 métodos estáticos
+		//System.out.printf("PI value: %.2f%n", PI);
+		
+		//versão 2 métodos estáticos
+		//System.out.printf("PI value: %.2f%n", calc.PI);
+		
+		//versão 3 métodos estáticos
+//		System.out.printf("PI value: %.2f%n", Calculator.PI);
+		
+		/*
+		 * Faça um programa para ler a cotação do dólar, e depois um valor em dólares a
+		 * ser comprado por uma pessoa em reais. Informar quantos reais a pessoa vai
+		 * pagar pelos dólares, considerando ainda que a pessoa terá que pagar 6% de IOF
+		 * sobre o valor em dólar. Criar uma classe CurrencyConverter para ser
+		 * responsável pelos cálculos.
+		 * 
+		 * Exemplo: 
+		 * What is the dollar price ? 3.10 
+		 * How many dollars will be bought ? 200.00 
+		 * Amount to be paid in reais = 657.20
+		 */
+		
+		
+//		System.out.print("What is the dollar price? ");
+//		double dollarPrice = sc.nextDouble();		
+//		System.out.print("How many dollars will be bought? ");
+//		double dollarAmount = sc.nextDouble();
+//		double convertion = CurrencyConverter.convertion(dollarPrice, dollarAmount);
+//		System.out.printf("Amount to be paid in reais = ", convertion);
+		
+		
+		/*
+		 * Construtores
+		 * 
+		 * - É uma operação especial da classe, que executa no momento da instanciação
+		 * do objeto
+		 * 
+		 * - Usos comuns: 
+		 * - Iniciar valores dos atributos 
+		 * - Permitir ou obrigar que o objeto receba dados / dependências no momento de sua instanciação (injeção da
+		 * dependência)
+		 * 
+		 * - Se um construtor customizado não for especificado, a classe disponibiliza o
+		 * construtor padrão: Product p = new Product();
+		 * 
+		 * - É possível especificar mais de um construtor na mesma classe (sobrecarga)
+		 */
+		
+		//Proposta de melhoria para o exercício da class Product - this/construtor
+		
+		/* Quando executamos o comando abaixo, instanciamos um produto "product" com seus atributos "vazios":
+		 * Na memória, os atributos dessa instancia (name, price, quantity) estão zerados.
+		 * Entretanto, faz sentido um produto que não tem nome e não tem preço ?
+		 * Com o intuito de evitar a existência de produtos sem nome e sem preço, é possível fazer
+		 * com que seja obrigatória a iniciação desse valores ?
+		 */
+				
+		//Primeiro é informado os dados através do scanner para que os parametros obrigatórios sejam recebidos pelo produto (objeto) depois
+//		System.out.println("Enter product data: ");
+//		
+//		System.out.print("Name: ");
+//		String name = sc.nextLine();
+//		System.out.print("Price: ");
+//		double price = sc.nextDouble();
+//		System.out.print("Quantity in stock: ");
+//		int quantity = sc.nextInt();	
+//		
+//		
+//		Product product = new Product(name, price, quantity);
+//		
+//		System.out.println();
+//		System.out.println("Product data: " + product);
+//		
+//		System.out.println();
+//		System.out.println("Enter the number of products to be added in stock: ");
+//		quantity = sc.nextInt();
+//		product.addProducts(quantity);
+//		
+//		System.out.println();
+//		System.out.println("Updated data: " + product);
+//		
+//		System.out.println();
+//		System.out.println("Enter the number of products to be removed from stock: ");
+//		quantity = sc.nextInt();
+//		product.removeProducts(quantity);
+//		
+//		System.out.println();
+//		System.out.println("Updated data: " + product);
+		
+		//Segunda proposta de melhoria para o exercício da class Product - sobrecarga
+		
+		/* Vamos criar um construtor opcional, o qual recebe apenas nome e preço do produto.
+		 * A quantidade em estoque deste novo produto, por padrão, deverá então ser iniciada
+		 * com o valor zero.
+		 * Também é possível incluir um construtor padrão
+		 */
+		
+		System.out.println("Enter product data: ");
+		
+		System.out.print("Name: ");
+		String name = sc.nextLine();
+		System.out.print("Price: ");
+		double price = sc.nextDouble();	
+				
+		Product product = new Product(name, price);
+		
+		//encapsulamento
+		product.setName("Computer");
+		System.out.println("Updated name: " + product.getName());
+		product.setPrice(1200.00);
+		System.out.println("Updated price: " + product.getPrice());
+		
+		System.out.println();
+		System.out.println("Product data: " + product);
+		
+		System.out.println();
+		System.out.println("Enter the number of products to be added in stock: ");
+		int quantity = sc.nextInt();
+		product.addProducts(quantity);
+		
+		System.out.println();
+		System.out.println("Updated data: " + product);
+		
+		System.out.println();
+		System.out.println("Enter the number of products to be removed from stock: ");
+		quantity = sc.nextInt();
+		product.removeProducts(quantity);
+		
+		System.out.println();
+		System.out.println("Updated data: " + product);
+		
 		sc.close();
 		
 	}
+	
+	// funções versão 1 de métodos estáticos
+	//	public static double circumference(double radius) {
+	//		return 2.0 * PI * radius;
+	//	}
+	//
+	//	public static double volume(double radius) {
+	//		return 4.0 * PI * Math.pow(radius, 3) / 3.0;
+	//	}
+	
 
 }
