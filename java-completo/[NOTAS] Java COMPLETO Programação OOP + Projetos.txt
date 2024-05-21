@@ -952,3 +952,92 @@ public void setPrice(double price){
 - protected: o membro só pode ser acessado no mesmo pacote, bem como em subclasses de pacotes diferentes
 - public: o membro é acessado por todas as classes (ao menos que ele resida em um módulo diferente que não exporte o pacote onde ele está)
 https://i.sstatic.net/SVk2a.png
+
+-- Comportamento de memória, arrays, listas --
+
+*Tipos referência vs. tipos valor
+
+- Classes são tipos referência
+Variáveis cujo tipo são classes não devem ser entendidas como caixas, mas sim como "tentáculos" (ponteiros) para caixas, pois a classe/variável (memoria > stack) irá armazenar o endereço/referência onde está o objeto (memoria > heap)
+
+Exemplo:
+
+Product p1, p2; (p1 e p2 são criados em memoria > stack)
+
+p1 = new Product("TV", 900.00, 0); (p1 ainda em stack passa a apontar para o objeto "new Product("TV", 900.00, 0)" em memoria > heap)
+p2 = p1; => p2 passa a apontar para onde p1 aponta
+
+- Valor "null"
+
+Tipos referência aceitam o valor "null", que indica que a variável aponta para nada.
+
+Product p1, p2; (p1 e p2 são criados em memoria > stack)
+
+p1 = new Product("TV", 900.00, 0); =>p1 ainda em stack passa a apontar para o objeto "new Product("TV", 900.00, 0)" em memoria > heap
+p2 = null; => p2 não recebe nenhum armazena nenhum endereço/referência, então não aponta para nenhum objeto.
+
+
+- Tipos primitivos são tipos valor
+Em Java, tipos primitivos são tipos valor. Tipos valor são CAIXAS e não ponteiros.
+
+Exemplo:
+
+double x, y;  (x e y são criados em memoria > stack)
+
+x = 10; => o valor 10 será armazenado ainda em memoria > stack, na "caixa" x
+y = x; => y recebe uma cópia de x, ainda em memoria > stack, na "caixa" y
+
+
+- Tipos primitivos e inicialização
+
+Exemplo:
+
+int p;
+System.out.println(p); // erro: varivável não iniciada
+
+p = 10;;
+System.out.println(p);
+
+
+- Valores padrão
+Quando alocamos (new) qualquer tipo estruturado (classe ou array), são atribuidos valores padrão aos seus elementos: números = 0, boolean = false, char = carctere código 0, objeto = null
+
+
+*Desalocação de memória - garbage collector e escopo local
+
+- Garbage collector
+É um processo que automatiza o gerenciamento de memoria de um prorama em execução (heap)
+Ele monitora objetos alocados dinamicamente pelo programa (no heap), desalocando aqueles que não estão mais sendo utilizados.
+Objetos alocados dinamicamente, quando não possuem referência para eles serão desalocados pelo garbage collector em um futuro próximo
+
+- Desalocação por escopo
+Se tipos primitivos, é criado escopo dentro da stack (por métdos, if, etc), podendo existir escopo dentro de escopo. Assim que o escopo é finalizado, ele deixa de existir na stack e consequentemente também a variável deixa de existir na stack.
+Variáveis locais são desalocadas imediatamente assim que seu escopo local sai de execução
+
+
+*Vetores
+- Revisão de conceito de vetor
+- Declaração e instanciação
+- Manipulação de vetor de elementos tipo valor (tipo primitivo)
+- Manipulação de vetor de elementos tipo referência (classe)
+- Acesso aos elementos
+- Propriedade length
+
+Em programação, "vetor" é o nome dado a arranjos unidimensionais.
+Arranjo (array) é uma estrutura de dados: Homogênea (dados do mesmo tipo), Ordenada (elementos acessados por meio de posições) e Alocada de uma vez só, em um bloco contíguo de memória.
+Vantagens: acesso imediato aos elementos pela sua posição.
+Desvantagens: tamanho fixo, dificuldade para se realizar inserções e deleções.
+
+Problema exemplo 1 - vetor tipo valor (tipo primitivo)
+Fazer um programa para ler um número inteiro N e a altura de N pessoas. Armazene as N alturas em um vetor. Em seguida, mostrar a altura média dessas pessoas. => a variavel N, na stack, armazenará o numero int N, a variavel vect será ponteiro para os vetores, e os vetores, no heap, armazenarão os números do tipo double digitados no laço for, sendo os vetores do tipo valor (primitivo)
+
+Problema exemplo 2 
+Fazer um programa para ler um número inteiro N e os dados (nome e preço) de N produtos. Armazene os N produtos em um vetor. Em seguida, mostrar preço médio dos produtos. => a variavel N, na stack, armazenará o numero int N, a variavel vect será ponteiro para os vetores, e os vetores, no heap, serão inicialmente criados nulos por valor padrão, e serão ponteiros para um objeto que instanciam a classe Product durante o laço for, sendo os vetores então do tipo referência (classe)
+
+- Prefira utilizar "length" em um laço for para vetores, afim que não depender da primeira variável 'n':
+
+	int n = sc.nextInt();		
+	Product[] vect = new Product[n];
+		
+	for(int i = 0; i < vect.length; i++) {}
+

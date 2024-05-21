@@ -1,7 +1,7 @@
 package application;
 import java.util.Scanner;
 
-import entities.BankAccount;
+import entities.Rent;
 
 public class Program {
 
@@ -625,50 +625,139 @@ public class Program {
 		 * ------------------------------
 		 */
 		
-		BankAccount account;
-		
-		System.out.print("Enter account number: ");
-		int number = sc.nextInt();
-		System.out.print("Enter account holder: ");
-		sc.nextLine(); //esse nextLine é para consumir a quebra de linha do nextInt anterior e poder ser digitado mais de um nome
-		String holder = sc.nextLine();
-		System.out.print("Is there an initial deposit (y/n)?: ");
-		char res = sc.next().charAt(0);
-		if(res == 'y') {
-			System.out.print("Enter initial deposit value: ");
-			double initialDeposit = sc.nextDouble();
-			account = new BankAccount(number, holder, initialDeposit);
-		}else {
-			account = new BankAccount(number, holder);
-		}
-				
-		
-		System.out.println();
-		System.out.println("Account data: ");
-		System.out.println(account);
-		System.out.println();
-		
-		System.out.print("Enter a deposit value: ");
-		double depositValue = sc.nextDouble();
-		account.deposit(depositValue);
-		System.out.println("Updated account data:");
-		System.out.println(account);
-		System.out.println();
-		
-		System.out.print("Enter a withdraw value: ");
-		double withdrawValue = sc.nextDouble();
-		account.withdraw(withdrawValue);
-		System.out.println("Updated account data:");
-		System.out.println(account);
+//		BankAccount account;
+//		
+//		System.out.print("Enter account number: ");
+//		int number = sc.nextInt();
+//		System.out.print("Enter account holder: ");
+//		sc.nextLine(); //esse nextLine é para consumir a quebra de linha do nextInt anterior e poder ser digitado mais de um nome
+//		String holder = sc.nextLine();
+//		System.out.print("Is there an initial deposit (y/n)?: ");
+//		char res = sc.next().charAt(0);
+//		if(res == 'y') {
+//			System.out.print("Enter initial deposit value: ");
+//			double initialDeposit = sc.nextDouble();
+//			account = new BankAccount(number, holder, initialDeposit);
+//		}else {
+//			account = new BankAccount(number, holder);
+//		}
+//				
+//		
+//		System.out.println();
+//		System.out.println("Account data: ");
+//		System.out.println(account);
+//		System.out.println();
+//		
+//		System.out.print("Enter a deposit value: ");
+//		double depositValue = sc.nextDouble();
+//		account.deposit(depositValue);
+//		System.out.println("Updated account data:");
+//		System.out.println(account);
+//		System.out.println();
+//		
+//		System.out.print("Enter a withdraw value: ");
+//		double withdrawValue = sc.nextDouble();
+//		account.withdraw(withdrawValue);
+//		System.out.println("Updated account data:");
+//		System.out.println(account);
 		
 
+		// Vetores tipo valor (tipo primitivo)
+		
+		/*
+		 * Em programação, "vetor" é o nome dado a arranjos unidimensionais. 
+		 * Arranjo (array) é uma estrutura de dados: Homogênea (dados do mesmo tipo), Ordenada
+		 * (elementos acessados por meio de posições) e Alocada de uma vez só, em um
+		 * bloco contíguo de memória. 
+		 * Vantagens: acesso imediato aos elementos pela sua posição. 
+		 * Desvantagens: tamanho fixo, dificuldade para se realizar inserções e deleções.
+		 * 
+		 * Problema exemplo 1
+		 * Fazer um programa para ler um número inteiro N e a altura de N pessoas.
+		 * Armazene as N alturas em um vetor. Em seguida, mostrar a altura média dessas pessoas.
+		 */
+			
+		
+//			int N = sc.nextInt();
+//			
+//			double[] vect = new double[N];
+//			
+//			for(int i = 0; i < N; i++) {				
+//				vect[i] = sc.nextDouble();
+//			}
+//			
+//			double sum = 0.0;
+//			
+//			for(int i = 0; i < N; i++) {				
+//				sum += vect[i];
+//			}
+//			
+//			double avg = sum / N;
+//			
+//			System.out.printf("AVERAGE HEIGHT: %.2f", avg);
+		
+		/*
+		 * Problema exemplo 2 Fazer um programa para ler um número inteiro N e os dados
+		 * (nome e preço) de N produtos. Armazene os N produtos em um vetor. Em seguida,
+		 * mostrar preço médio dos produtos.
+		 */
+		
+//		int n = sc.nextInt();		
+//		Product[] vect = new Product[n];
+//		
+//		for(int i = 0; i < vect.length; i++) {
+//			sc.nextLine();
+//			String name = sc.next();
+//			double price = sc.nextDouble();
+//			vect[i] = new Product(name, price);
+//		}
+//		
+//		double sum = 0.0;
+//		
+//		for(int i = 0; i < vect.length; i++) {				
+//			sum += vect[i].getPrice();
+//		}
+//		
+//		double avg = sum / vect.length;
+//		
+//		System.out.printf("AVERAGE PRICE: %.2f", avg);
 		
 		
-		sc.close();
+		//Exercicios de fixação vetores
 		
+		Rent[] vect = new Rent[10];
 		
+		System.out.print("How many rooms will be rented? ");
+		int r = sc.nextInt();
 		
+		//Rent[] rent = new Rent[r];
+		//int rooms = 0;
+		//System.out.println();
+
+		//for(int i = 0; i < vect.length; i++) {
+		for(int i = 1; i <= r; i++) {
+			System.out.println();
+			//rooms = i + 1;
+			System.out.println("Rent #" + i + ":");
+			System.out.print("Name: ");
+			sc.nextLine();
+			String name = sc.nextLine();
+			System.out.print("Email: ");
+			String email = sc.nextLine();
+			System.out.print("Room: ");
+			int room = sc.nextInt();
+			vect[room] = new Rent(name, email);			
+		}		
 		
+		System.out.println();
+		System.out.println("Busy rooms:");
+		for(int i = 0; i < 10; i++) {
+			if(vect[i] != null) {
+				System.out.println(i + ": " + vect[i]);
+			}
+		}
+		
+		sc.close();	
 		
 	}
 	
