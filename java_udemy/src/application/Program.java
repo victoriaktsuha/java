@@ -1,7 +1,7 @@
 package application;
 import java.util.Scanner;
 
-import entities.Rent;
+import entities.Pessoa;
 
 public class Program {
 
@@ -725,37 +725,224 @@ public class Program {
 		
 		//Exercicios de fixação vetores
 		
-		Rent[] vect = new Rent[10];
+		/* A correção foi primeiro criar um vetor de 10 indices, indicar pelo scanner
+		 * número de quartos a serem alugados, depois dentro do for iniciar o contador
+		 * com 1 para que exclua o 0 como 'quarto', e então imprimir o número de quartos
+		 * alugados indicados. Depois digitar o nome, email e o nº do quarto alugado
+		 * pelo inquilino, e no fim do laço armazenar nome e email no vetor, sendo
+		 * o número do quarto alugado representante do índice a armazenar cada inquilino.
+		 * Depois foi feito outro laço for para passar por todos os 10 índices e
+		 * imprimir somente os dados daquele que atender a condição de não ser nulo.
+		 * A analogia seria um hotel de 10 quartos (vetor) onde 3 foram alugados
+		 * e o restante está vazio (índices).
+		 * Esse solução só foi possível pois sabia-se previamente o número mais alto
+		 * dentre os 3 'quartos' a serem alugados.
+		 */
 		
-		System.out.print("How many rooms will be rented? ");
-		int r = sc.nextInt();
+//		Rent[] vect = new Rent[10];
+//		
+//		System.out.print("How many rooms will be rented? ");
+//		int r = sc.nextInt();
+//		
+//		for(int i = 1; i <= r; i++) {
+//			System.out.println();
+//			System.out.println("Rent #" + i + ":");
+//			System.out.print("Name: ");
+//			sc.nextLine();
+//			String name = sc.nextLine();
+//			System.out.print("Email: ");
+//			String email = sc.nextLine();
+//			System.out.print("Room: ");
+//			int room = sc.nextInt();
+//			vect[room] = new Rent(name, email);			
+//		}		
+//		
+//		System.out.println();
+//		System.out.println("Busy rooms:");
+//		for(int i = 0; i < 10; i++) {
+//			if(vect[i] != null) {
+//				System.out.println(i + ": " + vect[i]);
+//			}
+//		}
 		
-		//Rent[] rent = new Rent[r];
-		//int rooms = 0;
-		//System.out.println();
-
-		//for(int i = 0; i < vect.length; i++) {
-		for(int i = 1; i <= r; i++) {
-			System.out.println();
-			//rooms = i + 1;
-			System.out.println("Rent #" + i + ":");
-			System.out.print("Name: ");
-			sc.nextLine();
-			String name = sc.nextLine();
-			System.out.print("Email: ");
-			String email = sc.nextLine();
-			System.out.print("Room: ");
-			int room = sc.nextInt();
-			vect[room] = new Rent(name, email);			
-		}		
 		
-		System.out.println();
-		System.out.println("Busy rooms:");
-		for(int i = 0; i < 10; i++) {
-			if(vect[i] != null) {
-				System.out.println(i + ": " + vect[i]);
+		/*
+		 * Faça um programa que leia um número inteiro positivo N (máximo = 10) 
+		 * e depois N números inteiros e armazene-os em um vetor. 
+		 * Em seguida, mostrar na tela todos os números negativos lidos.
+		 */
+		
+		
+//		System.out.println("Quants numero voce vai digitar? ");
+//		int n = sc.nextInt();
+//		
+//		int[] vect = new int[n];
+//		
+//		for(int i = 0; i < n; i++) {
+//			System.out.print("Digite um número: ");
+//			vect[i] = sc.nextInt();
+//		}
+//		
+//		System.out.println("NUMEROS NEGATIVOS:");
+//		for(int i = 0; i < vect.length; i++) {
+//			if(vect[i] < 0) {				
+//				System.out.println(vect[i]);
+//			}
+//		}
+		
+		/*
+		 * Faça um programa que leia N números reais e armazene-os em um vetor. 
+		 * Em seguida: 
+		 * - Imprimir todos os elementos do vetor 
+		 * - Mostrar na tela a soma e a média dos elementos do vetor
+		 */
+		
+//		System.out.print("Quants numero voce vai digitar? ");
+//		int n = sc.nextInt();	
+//		
+//		double[] vect = new double[n];
+//		
+//				
+//		for(int i = 0; i < n; i++) {
+//			System.out.print("Digite um número: ");
+//			vect[i] = sc.nextDouble();		
+//		}
+//		
+//		double soma, media;
+//		
+//		soma = 0;
+//		
+//		for(int i = 0; i < vect.length; i++) {
+//			soma += vect[i];
+//		}
+//		
+//		media = soma / vect.length;
+//		
+//		System.out.print("VALORES = ");
+//		for(int i = 0; i < vect.length; i++) {
+//			System.out.printf("%.1f ", vect[i]);			
+//		}	
+//		System.out.printf("\nSOMA = %.2f\n", soma);
+//		System.out.printf("MEDIA = %.2f\n", media);
+		
+		/*
+		 * Fazer um programa para ler nome, idade e altura de N pessoas, 
+		 * conforme exemplo. Depois, mostrar na tela a altura média das pessoas, 
+		 * e mostrar também a porcentagem de pessoas com menos de 16 anos, 
+		 * bem como os nomes dessas pessoas caso houver.
+		 */
+		
+//		System.out.print("Quantas pessoas serão registradas? ");
+//		int n = sc.nextInt();
+//		
+//		Pessoa[] pessoas = new Pessoa[n];
+//		
+//		for(int i = 1; i <= n; i++) {
+//			System.out.println();
+//			System.out.printf("Dados da %sa pessoa:%n", i);
+//			System.out.print("Nome: ");
+//			sc.nextLine();
+//			String name = sc.next();
+//			System.out.print("Idade: ");
+//			int age = sc.nextInt();
+//			System.out.print("Altura: ");
+//			double height = sc.nextDouble();
+//			pessoas[i-1] = new Pessoa(name, age, height);	
+//			System.out.println();
+//		}
+//		
+//		double alturaMedia = 0;
+//				
+//		for(int i = 0; i < pessoas.length; i++) {
+//			alturaMedia += pessoas[i].getHeight(); 
+//		}
+//		
+//		alturaMedia /= (double) pessoas.length; 
+//		
+//		System.out.printf("Altura média: %.2f%n", alturaMedia);
+//		
+//		double menorDe16 = 0;
+//		
+//		for(int i = 0; i < pessoas.length; i++) {
+//			if(pessoas[i].getAge() < 16) {	
+//				menorDe16++;
+//			}
+//		}						
+//		
+//		menorDe16 = ((double) menorDe16 / pessoas.length) * 100.0;
+//		
+//		System.out.println("Pessoas com menos de 16 anos: " + menorDe16 + "%");
+//
+//		for(int i = 0; i < pessoas.length; i++) {
+//			if(pessoas[i].getAge() < 16) {				
+//				System.out.println(pessoas[i].getName());
+//			}
+//		}
+		
+		/*
+		 * Faça um programa que leia N números inteiros e armazene-os em um vetor. 
+		 * Em seguida, mostre na tela todos os números pares, e também a quantidade de
+		 * números pares.
+		 */
+		
+//		int n, qntdPares;  
+//		
+//		System.out.print("Quantos numeros você vai digitar? ");
+//		n = sc.nextInt();
+//		
+//		int[] numeros = new int[n];
+//		
+//		for(int i = 0; i < n; i++) {
+//			System.out.print("Digite um numero: ");
+//			numeros[i] = sc.nextInt();			
+//		}
+//		
+//		System.out.println("\nNUMEROS PARES:");
+//		
+//		qntdPares = 0;		
+//		for(int i = 0; i < numeros.length; i++) {
+//			if(numeros[i] % 2 == 0) {
+//				System.out.printf("%d ", numeros[i]);
+//				qntdPares++;
+//			}
+//		}
+//		
+//		System.out.printf("\n\nQUANTIDADE DE PARES = %d\n", qntdPares);	
+		
+		/*
+		 * Faça um programa que leia N números reais e armazene-os em um vetor. Em
+		 * seguida, mostrar na tela o maior número do vetor (supor não haver empates).
+		 * Mostrar também a posição do maior elemento, considerando a primeira posição
+		 * como 0 (zero). - corrigido
+		 */
+			
+		
+		int n, posmaior;
+		double maior;
+		
+		System.out.print("Quantos numeros você vai digitar? ");
+		n = sc.nextInt();
+		
+		double[] vetor = new double[n];
+		
+		for(int i = 0; i < n; i++) {
+			System.out.print("Digite um número: ");
+			vetor[i] = sc.nextDouble();
+		}
+		
+		maior = vetor[0];
+		posmaior = 0;
+				
+		for(int i = 0; i < vetor.length; i++) {
+			if(vetor[i] > maior) {
+				maior = vetor[i];
+				posmaior = i;
 			}
 		}
+		
+		System.out.println();
+		System.out.printf("MAIOR VALOR = %.1f\n", maior);
+		System.out.printf("POSICAO DO MAIOR VALOR = %d\n", posmaior);
 		
 		sc.close();	
 		
