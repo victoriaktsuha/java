@@ -773,7 +773,7 @@ public class Program {
 		 */
 		
 		
-//		System.out.println("Quants numero voce vai digitar? ");
+//		System.out.println("QuantOs numero voce vai digitar? ");
 //		int n = sc.nextInt();
 //		
 //		int[] vect = new int[n];
@@ -795,9 +795,10 @@ public class Program {
 		 * Em seguida: 
 		 * - Imprimir todos os elementos do vetor 
 		 * - Mostrar na tela a soma e a média dos elementos do vetor
+		 * corrigido
 		 */
 		
-//		System.out.print("Quants numero voce vai digitar? ");
+//		System.out.print("QuantOs numero voce vai digitar? ");
 //		int n = sc.nextInt();	
 //		
 //		double[] vect = new double[n];
@@ -829,7 +830,7 @@ public class Program {
 		 * Fazer um programa para ler nome, idade e altura de N pessoas, 
 		 * conforme exemplo. Depois, mostrar na tela a altura média das pessoas, 
 		 * e mostrar também a porcentagem de pessoas com menos de 16 anos, 
-		 * bem como os nomes dessas pessoas caso houver.
+		 * bem como os nomes dessas pessoas caso houver. - corrigido
 		 */
 		
 //		System.out.print("Quantas pessoas serão registradas? ");
@@ -839,7 +840,7 @@ public class Program {
 //		
 //		for(int i = 1; i <= n; i++) {
 //			System.out.println();
-//			System.out.printf("Dados da %sa pessoa:%n", i);
+//			System.out.printf("Dados da %da pessoa:\n", i);
 //			System.out.print("Nome: ");
 //			sc.nextLine();
 //			String name = sc.next();
@@ -882,7 +883,7 @@ public class Program {
 		/*
 		 * Faça um programa que leia N números inteiros e armazene-os em um vetor. 
 		 * Em seguida, mostre na tela todos os números pares, e também a quantidade de
-		 * números pares.
+		 * números pares. - corrigido
 		 */
 		
 //		int n, qntdPares;  
@@ -917,32 +918,264 @@ public class Program {
 		 */
 			
 		
-		int n, posmaior;
-		double maior;
+//		int n, posmaior;
+//		double maior;
+//		
+//		System.out.print("Quantos numeros você vai digitar? ");
+//		n = sc.nextInt();
+//		
+//		double[] vetor = new double[n];
+//		
+//		for(int i = 0; i < n; i++) {
+//			System.out.print("Digite um número: ");
+//			vetor[i] = sc.nextDouble();
+//		}
+//		
+//		maior = vetor[0];
+//		posmaior = 0;
+//				
+//		for(int i = 0; i < vetor.length; i++) {
+//			if(vetor[i] > maior) {
+//				maior = vetor[i];
+//				posmaior = i;
+//			}
+//		}
+//		
+//		System.out.println();
+//		System.out.printf("MAIOR VALOR = %.1f\n", maior);
+//		System.out.printf("POSICAO DO MAIOR VALOR = %d\n", posmaior);
+
 		
-		System.out.print("Quantos numeros você vai digitar? ");
-		n = sc.nextInt();
+		/*
+		 * Faça um programa para ler dois vetores A e B, contendo N elementos cada. Em
+		 * seguida, gere um terceiro vetor C onde cada elemento de C é a soma dos
+		 * elementos correspondentes de A e B. Imprima o vetor C gerado. - ok
+		 */
+			
+//		System.out.print("Quantos valores vai ter cada vetor? ");
+//		int n = sc.nextInt();
+//		
+//		int[] vetorA = new int[n];
+//		int[] vetorB = new int[n];
+//		int[] vetorC = new int[n];
+//		
+//		System.out.println("Digite os valores do vetor A:");
+//		for(int i = 0; i < n; i++) {
+//			vetorA[i] = sc.nextInt();
+//		}
+//		
+//		System.out.println("Digite os valores do vetor B:");
+//		for(int i = 0; i < n; i++) {
+//			vetorB[i] = sc.nextInt();
+//		}
+//				
+//		System.out.println("VETOR RESULTANTE:");
+//		for(int i = 0; i < n; i++) {
+//			vetorC[i] = vetorA[i] + vetorB[i];
+//			System.out.println(vetorC[i]);
+//		}
 		
-		double[] vetor = new double[n];
+		/*
+		 * Fazer um programa para ler um número inteiro N e depois um vetor de N números
+		 * reais. Em seguida, mostrar na tela a média aritmética de todos elementos com
+		 * três casas decimais. Depois mostrar todos os elementos do vetor que estejam
+		 * abaixo da média, com uma casa decimal cada. - ok
+		 */
 		
-		for(int i = 0; i < n; i++) {
-			System.out.print("Digite um número: ");
-			vetor[i] = sc.nextDouble();
-		}
+//		System.out.print("Quantos elementos vai ter o vetor? ");
+//		int n = sc.nextInt();
+//		
+//		double[] vetor = new double[n];
+//		
+//		double media, soma;
+//		
+//		for(int i = 0; i < n; i++) {
+//			System.out.print("Digite um número: ");
+//			vetor[i] = sc.nextDouble();
+//		}
+//			
+//		soma = 0.0;
+//		for(int i = 0; i < vetor.length; i++) {			
+//			soma += vetor[i];
+//		}
+//		
+//		media = (double) soma / vetor.length;
+//		
+//		System.out.println();
+//		System.out.printf("MEDIA DO VETOR = %.3f%n", media);
+//		
+//		System.out.println("ELEMENTOS ABAIXO DA MEDIA:");
+//		for(int i = 0; i < vetor.length; i++) {
+//			if(vetor[i] < media) {
+//				System.out.printf("%.1f%n", vetor[i]);
+//			}
+//		}
 		
-		maior = vetor[0];
-		posmaior = 0;
-				
-		for(int i = 0; i < vetor.length; i++) {
-			if(vetor[i] > maior) {
-				maior = vetor[i];
-				posmaior = i;
-			}
-		}
+		/*
+		 * Fazer um programa para ler um vetor de N números inteiros. Em seguida,
+		 * mostrar na tela a média aritmética somente dos números pares lidos, com uma
+		 * casa decimal. Se nenhum número par for digitado, mostrar a mensagem
+		 * "NENHUM NUMERO PAR" - ok
+		 */
 		
-		System.out.println();
-		System.out.printf("MAIOR VALOR = %.1f\n", maior);
-		System.out.printf("POSICAO DO MAIOR VALOR = %d\n", posmaior);
+//		double media;
+//		int n, soma, qtdPares;
+//		
+//		System.out.print("Quantos elementos vai ter o vetor? ");
+//		n = sc.nextInt();
+//		
+//		int[] vetor = new int[n];
+//				
+//		for(int i = 0; i < n; i++) {
+//			vetor[i] = sc.nextInt();			
+//		}
+//		
+//		soma = 0;
+//		qtdPares = 0;
+//		for(int i = 0; i < vetor.length; i++) {
+//			if(vetor[i] % 2 == 0) {
+//				soma += vetor[i];
+//				qtdPares++;
+//			}
+//		}		
+//		
+//		if(soma > 0) {
+//			media = soma / qtdPares;
+//			System.out.printf("MEDIA DOS PARES = %.1f%n", media);
+//		}else {
+//			System.out.println("NENHUM NUMERO PAR");
+//		}
+		
+		
+		/*
+		 * Fazer um programa para ler um conjunto de nomes de pessoas e suas respectivas
+		 * idades. Os nomes devem ser armazenados em um vetor, e as idades em um outro
+		 * vetor. Depois, mostrar na tela o nome da pessoa mais velha. - corrigido
+		 */
+			
+//		int n, idadeMaior;
+//		String posMaior;
+//		
+//		System.out.print("Quantas pessoas voce vai digitar? ");
+//		n = sc.nextInt();
+//		
+//		String[] nomes = new String[n];		
+//		int[] idades = new int[n];
+//		
+//		for(int i = 0; i < n; i++) {
+//			System.out.printf("Dados da %da pessoa: %n", i + 1);
+//			System.out.print("Nome: ");
+//			nomes[i] = sc.next();
+//			System.out.print("Idade: ");
+//			idades[i] = sc.nextInt();			
+//		}
+//		
+//		idadeMaior = 0;
+//		posMaior = nomes[0];
+//		
+//		for(int i = 0; i < n; i++) {
+//			if(idadeMaior < idades[i]) {
+//				idadeMaior = idades[i];
+//				posMaior = nomes[i];
+//			}
+//		}
+//				
+//		System.out.println("PESSOA MAIS VELHAS: " + posMaior);
+		
+		
+		/*
+		 * Fazer um programa para ler um conjunto de N nomes de alunos, bem como as
+		 * notas que eles tiraram no 1º e 2º semestres. Cada uma dessas informações deve
+		 * ser armazenada em um vetor. Depois, imprimir os nomes dos alunos aprovados,
+		 * considerando aprovados aqueles cuja média das notas seja maior ou igual a 6.0
+		 * (seis). - corrigido
+		 */
+		
+//		int n;
+//		double media;
+//		
+//		System.out.print("Quantos alunos serao digitados? ");
+//		n = sc.nextInt();
+//		
+//		String[] alunos = new String[n];
+//		double[] notas1 = new double[n];
+//		double[] notas2 = new double[n];
+//		
+//		for(int i = 0; i < n; i++) {
+//			System.out.printf("Digite nome, primeira e segunda nota do %do aluno:\n", i + 1);
+//			sc.nextLine();
+//			alunos[i] = sc.nextLine();
+//			notas1[i] = sc.nextDouble();
+//			notas2[i] = sc.nextDouble();
+//		}
+//		
+//				
+//		for(int i = 0; i < n; i++) {
+//			media = (notas1[i] + notas2[i]) / 2;
+//			if(media >= 6.0) {
+//				System.out.println(alunos[i]);
+//			}
+//		}
+//							
+		
+		/*
+		 * Tem-se um conjunto de dados contendo a altura e o gênero (M, F) de N pessoas.
+		 * Fazer um programa que calcule e escreva a maior e a menor altura do grupo, a
+		 * média de altura das mulheres, e o número de homens. - corrigido
+		 */
+		
+//		int n, homens, mulheres;
+//		double menorAltura, maiorAltura, alturaMulheres, mediaAlturaMulheres;
+//		
+//		System.out.print("Quantas pessoas serao digitadas? ");
+//		n = sc.nextInt();
+//		
+//		double[] altura = new double[n];
+//		char[] genero = new char[n];
+//		
+//		for(int i = 0; i < n; i++) {
+//			System.out.printf("Altura da %da pessoa: ", i + 1);
+//			altura[i] = sc.nextDouble();
+//			System.out.printf("Genero da %da pessoa: ", i + 1);
+//			genero[i] = sc.next().charAt(0);
+//		}
+//		
+//		
+//		maiorAltura = altura[0];
+//		for(int i = 0; i < altura.length; i++) {
+//			if(altura[i] > maiorAltura) {
+//				maiorAltura = altura[i];
+//			}
+//		}
+//		
+//		menorAltura = maiorAltura;
+//		for(int i = 0; i < altura.length; i++) {
+//			if(altura[i] < menorAltura) {
+//				menorAltura = altura[i];
+//			}
+//		}
+//			
+//		
+//		alturaMulheres = 0.0;
+//		mulheres = 0;
+//		homens = 0;
+//		for(int i = 0; i < n; i++) {
+//			if(genero[i] == 'F') {
+//				alturaMulheres += altura[i];
+//				mulheres++;
+//			}else{
+//				homens++;
+//			}
+//		}
+//		
+//		mediaAlturaMulheres = alturaMulheres / mulheres;
+//		
+//		
+//		System.out.printf("Menor altura = %.2f\n", menorAltura);
+//		System.out.printf("Maior altura = %.2f\n", maiorAltura);
+//		System.out.printf("Media das alturas das mulheres = %.2f\n", mediaAlturaMulheres);
+//		System.out.printf("Numero de homens = %d\n", homens);
+		
 		
 		sc.close();	
 		
