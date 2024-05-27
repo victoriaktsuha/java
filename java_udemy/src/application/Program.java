@@ -1,7 +1,9 @@
 package application;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-import entities.Pessoa;
+import entities.EmployeeList;
 
 public class Program {
 
@@ -1176,6 +1178,204 @@ public class Program {
 //		System.out.printf("Media das alturas das mulheres = %.2f\n", mediaAlturaMulheres);
 //		System.out.printf("Numero de homens = %d\n", homens);
 		
+		/*
+		 * Boxing, unboxing, wrapper classes
+		 * 
+		 * - Boxing é o processo de conversão de um objeto tipo valor para um objeto
+		 * tipo referência compatível
+		 * 
+		 * int x = 20; 
+		 * Object obj = x;
+		 * 
+		 * Object é a classe mais genérica do Java, todas as classes por padrão são
+		 * 'filhas' dessa classe object. No caso acima, x passa a ser do tipo object e
+		 * será alocado um objeto no heap contendo o valor 20 e a variável obj será
+		 * ponteiro para essa alocação.
+		 * 
+		 * - Unboxing é o processo de conversão de um objeto tipo referência para um
+		 * objeto tipo valor compatível
+		 * 
+		 * int y = (int) obj;
+		 * 
+		 * Será criada no stack uma alocação y tipo valor com valor 20
+		 * 
+		 * - Wrapper classes 
+		 * São classes equivalentes aos tipos primitivos, para que
+		 * boxing e unboxing seja feito de forma natural na linguagem. Para cada tipo
+		 * primitivo, ele tem um tipo classe compatível com o mesmo tipo - 
+		 * Exemplo:
+		 * int(primitivo) = Integer(classe), 
+		 * boolean(primitivo) = Boolean(classe),
+		 * char(primitivo) = Character(classe), 
+		 * byte(primitivo) = Byte(classe). 
+		 * Elas tem o objetivo de tratar os tipos primitivos como classes, de forma transparente
+		 * ao compilador, evitando conversões e castings. Uso comum de wrapper classes:
+		 * campos de entidade em sistemas de informação (IMPORTANTE!) - pois tipos
+		 * referência (classes) aceitam valor null e usufruem dos recursos OO
+		 * 
+		 * Sem wrapper 
+		 * class int x = 20; 
+		 * Object obj = x; 
+		 * int y = (int) obj;
+		 * 
+		 * Com wrapper 
+		 * class int x = 20; 
+		 * Integer obj = x; 
+		 * int y = obj;
+		 * 
+		 * Utilizar em atributos de classes e declaração de variáveis
+		 */
+		
+		/* Laço "for each" 
+		 * Sintaxe opcional e simplificada para percorrer coleções
+		 * 
+		 * Sintaxe:
+		 * for (Tipo apelido : coleção){
+		 *		<comando 1>
+		 *		<comando 2>
+		 * }
+		 */
+
+//		String[] vect = new String[]{"Maria", "Bob", "Joao"};
+//		
+//		System.out.println("laço for");
+//		
+//		//laço for
+//		for(int i = 0; i < vect.length; i++) {
+//			System.out.println(vect[i]);
+//		}
+//		
+//		System.out.println("---------------------------");
+//		
+//		System.out.println("laço for each");
+//		
+//		//laço for each
+//		for(String obj : vect) {
+//			System.out.println(obj);
+//		}
+		
+		/*
+		 * Listas 
+		 * - Conceito de lista: é uma estrutura de dados homogênea (dados do
+		 * mesmo tipo), ordenada (elementos acessados por meio de posições), inicia
+		 * vazia, e seus elementos sãoa locados sob demanda, cada elemento ocupa um "nó"
+		 * (ou nodo) da lista 
+		 * - Tipo (interface): List (! não é classe, é interface) ->
+		 * interface é um tipo que define apenas as especificações das operações. 
+		 * - Classes que implementam: ArrayList(mistura de vetor e lista), LinkedList,
+		 * etc. -> utilizadas para implementar a interface List, pois ela sozinha não
+		 * pode ser implementada pois não é classe. 
+		 * - Vantagens: tamanho variável,facilidade para se realizar inserções e deleções 
+		 * - Desvantagens: acesso sequencial aos elementos* -> dependendo da implementação da lista, a navegação
+		 * é otimizada, como é o caso de ArrayList 
+		 * Demo: 
+		 * - Tamanho da lista: size() 
+		 * - Inserir elemento na lista: add(obj), add(int, obj) 
+		 * - Remover elementos da lista: remove(obj), remove(int), removeIf(Predicate) 
+		 * - Encontrar posição de elemento: indexOf(obj), lastIndexOf(obj) 
+		 * - Filtrar lista com base em predicado: 
+		 * List<Integer> result = list.stream().filter(x -> x > 4).collect(Collectors.toList()); 
+		 * - Encontrar primeira ocorrência com base em predicado: 
+		 * Integer result = list.stream().filter(x -> x > 4).findFirst().orElse(null);
+		 * - Assuntos pendentes: interfaces, generics, predicados (lambda)
+		 */
+		
+		//List não aceita tipos primitivos, como int, char, etc
+		//<Integer> é o generics, quando pode parametrizar a definição de um tipo informando um outro tipo específico
+		//= new ArrayList<>(); é a classe que implementa a interface List
+//		List<String> list = new ArrayList<>();
+		
+		//adicionando itens a lista
+//		list.add("Maria");
+//		list.add("Ana");
+//		list.add("Bob");
+//		list.add("Joao");
+//		//adiciona elemento em uma posição específica
+//		list.add(2, "Marco");
+		
+		//consultar tamanho da lista
+//		System.out.println("Tamanho da lista: " + list.size());
+		
+		//percorrendo e imprimindo a lista
+//		for(String x : list) {
+//			System.out.println(x);
+//		}
+		
+		//removendo da lista
+			//list.remove("Ana");
+			//list.remove(3);
+//		System.out.println("--------------------");
+		//removendo da lista por predicado atráves de função lambda (que retorna true or false)
+		//remove todos os itens que o primeiro caractere é M - "x -> x.charAt(0) == 'M'" é uma função lambda
+//		list.removeIf(x -> x.charAt(0) == 'M');
+//		
+//		for(String x : list) {
+//			System.out.println(x);
+//		}
+//		System.out.println("--------------------");
+		//encontrando a posição de um elemento
+//		System.out.println("index of Bob: " + list.indexOf("Bob"));
+		//encontrando a posição de um elemento que não existe
+//		System.out.println("index of Felix: " + list.indexOf("Felix"));
+//		System.out.println("--------------------");
+		//filtrar a lista por predicado
+		//Uma nova lista irá receber os resultados filtrados de list; list por sua vez deve ser convertido em stream para poder filtrar pela operação lambda e depois o stream é convertido em lista novamente através do collect e retorna o resultado para a nova lista 
+//		List<String> result = list.stream().filter(x -> x.charAt(0) == 'A').collect(Collectors.toList());
+		
+//		for(String x : result) {
+//			System.out.println(x);
+//		}
+//		System.out.println("--------------------");
+		//encontrar elemento da lista que atenda a um certo predicado
+		//a lista será filtrada para encontrar o primeiro elemento que tenha a letra 'A' e será armzenada na variável name, se o elemento não exisitr, ele retorna nulo
+//		String name = list.stream().filter(x -> x.charAt(0) == 'A').findFirst().orElse(null);
+//		System.out.println(name);
+//		System.out.println("--------------------");
+//		
+//		String name2 = list.stream().filter(x -> x.charAt(0) == 'L').findFirst().orElse(null);
+//		System.out.println(name2);
+		
+		/*
+		 * Fazer um programa para ler um número inteiro N e depois os dados (id, nome e salario)
+		 * de N funcionários. Não deve haver repetição de id.
+		 * Em seguida, efetuar o aumento de x por ceno no salário de um determinado funcionário.
+		 * Para isso, o programa deve ler um id e o valor X. Se o id informado não existir,
+		 * mostrar uma mensagem e abortar a operação. Ao final, mostrar a listagem atualizada
+		 * dos funcionários, conforme exemplos.
+		 * Lembre-se de aplicar a técnica de encapsulamento para não permitr que o salário possa
+		 * ser mudado livremente. Um salário só pode ser aumentado com base em uma operação
+		 * de aumento por porcentagem dada.
+		 */
+		
+		int n;
+		Integer id;
+		String name;
+		double salary;
+		
+		System.out.print("How many employees will be registered? ");
+		n = sc.nextInt();
+		
+		List<EmployeeList> list = new ArrayList<EmployeeList>();
+		
+		for (int i = 0; i < n; i++) {
+			System.out.println();
+			System.out.printf("Employee #%d:\n", i + 1);
+			System.out.print("Id:");
+			id = sc.nextInt();
+			System.out.print("Name:");
+			sc.nextLine();
+			name = sc.nextLine();
+			System.out.print("Salary:");
+			salary = sc.nextDouble();
+			System.out.println();			
+			EmployeeList funcionario = new EmployeeList(id, name, salary);
+			funcionario.setId(id);
+			funcionario.setName(name);
+		}
+		
+		for(EmployeeList x : list) {
+			System.out.println(x);
+		}
 		
 		sc.close();	
 		

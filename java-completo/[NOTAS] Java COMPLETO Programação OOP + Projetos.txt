@@ -1041,3 +1041,60 @@ Fazer um programa para ler um número inteiro N e os dados (nome e preço) de N 
 		
 	for(int i = 0; i < vect.length; i++) {}
 
+*Boxing, unboxing, wrapper classes
+
+- Boxing é o processo de conversão de um objeto tipo valor para um objeto tipo referência compatível
+
+int x = 20;
+Object obj = x;
+
+Object é a classe mais genérica do Java, todas as classes por padrão são 'filhas' dessa classe object. No caso acima, x passa a ser do tipo object e será alocado um objeto no heap contendo o valor 20 e a varável obj será ponteiro para essa alocação.
+
+- Unboxing é o processo de conversão de um objeto tipo referência para um objeto tipo valor compatível
+
+int y = (int) obj;
+
+Será criada no stack uma alocação y tipo valor com valor 20
+
+- Wrapper classes
+São classes equivalentes aos tipos primitivos, para que boxing e unboxing seja feito de forma natural na linguagem. Para cada tipo primitivo, ele tem um tipo classe compatível com o mesmo tipo - Exemplo: 
+int(primitivo) = Integer(classe), boolean(primitivo) = Boolean(classe), char(primitivo) = Character(classe), byte(primitivo) = Byte(classe). 
+Elas tem o objetivo de tratar os tipos primitivos como classes, de forma transparente ao compilador, evitando conversões e castings.
+Uso comum de wrapper classes: campos de entidade em sistemas de informação (IMPORTANTE!) - pois tipos referência (classes) aceitam valor null e usufruem dos recursos OO
+
+Sem wrapper class
+int x = 20;
+Object obj = x;
+int y = (int) obj;
+
+Com wrapper class
+int x = 20;
+Integer obj = x;
+int y = obj;
+
+Utilizar em atributos de classes e declaração de variáveis
+
+*Laço "for each"
+Sintaxe opcional e simplificada para percorrer coleções
+
+Sintaxe:
+for (Tipo apelido : coleção){
+	<comando 1>
+	<comando 2>
+}
+
+*Listas
+- Conceito de lista: é uma estrutura de dados homogênea (dados do mesmo tipo), ordenada (elementos acessados por meio de posições), inicia vazia, e seus elementos sãoa locados sob demanda, cada elemento ocupa um "nó" (ou nodo) da lista
+- Tipo (interface): List (! não é classe, é interface) - interface é um tipo que define apenas as especificações das operações.
+- Classes que implementam: ArrayList(mistura de vetor e lista), LinkedList, etc. - utilizadas para implementar a interface List, pois ela sozinha não pode ser implementada pois não é classe.
+- Vantagens: tamanho variável, facilidade para se realizar inserções e deleções
+- Desvantagens: acesso sequencial aos elementos* - dependendo da implementação da lista, a navegação é otimizada, como é o caso de ArrayList
+Demo:
+- Tamanho da lista: size()
+- Inserir elemento na lista: add(obj), add(int, obj)
+- Remover elementos da lista: remove(obj), remove(int), removeIf(Predicate)
+- Encontrar posição de elemento: indexOf(obj), lastIndexOf(obj)
+- Filtrar lista com base em predicado: List<Integer> result = list.stream().filter(x -> x > 4).collect(Collectors.toList());
+- Encontrar primeira ocorrência com base em predicado: Integer result = list.stream().filter(x -> x > 4).findFirst().orElse(null);
+
+- Assuntos pendentes: interfaces, generics, predicados (lambda)
