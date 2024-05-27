@@ -1347,34 +1347,46 @@ public class Program {
 		 * de aumento por porcentagem dada.
 		 */
 		
-		int n;
-		Integer id;
-		String name;
-		double salary;
-		
-		System.out.print("How many employees will be registered? ");
-		n = sc.nextInt();
-		
+
 		List<EmployeeList> list = new ArrayList<EmployeeList>();
 		
+		System.out.print("How many employees will be registered? ");
+		int n = sc.nextInt();
+				
 		for (int i = 0; i < n; i++) {
 			System.out.println();
 			System.out.printf("Employee #%d:\n", i + 1);
 			System.out.print("Id:");
-			id = sc.nextInt();
+			Integer id = sc.nextInt();
 			System.out.print("Name:");
 			sc.nextLine();
-			name = sc.nextLine();
+			String name = sc.nextLine();
 			System.out.print("Salary:");
-			salary = sc.nextDouble();
-			System.out.println();			
+			Double salary = sc.nextDouble();
+			
 			EmployeeList funcionario = new EmployeeList(id, name, salary);
-			funcionario.setId(id);
-			funcionario.setName(name);
+			
+			list.add(funcionario);
 		}
 		
-		for(EmployeeList x : list) {
-			System.out.println(x);
+		System.out.println();
+		System.out.print("Enter the employee id that will have salary increase: ");
+		int idSalary = sc.nextInt();
+		
+		Integer pos = position(list, idSalary);
+		if(pos == null) {
+			System.out.println("This id does not exist!");
+		}else {
+			System.out.print("Enter the percentage: ");
+			double percent = sc.nextDouble();
+			list.get(pos).increaseSalary(percent);
+		}
+		
+		System.out.println();
+		System.out.println("List of employees: ");
+		
+		for(EmployeeList emp : list) {
+			System.out.println(emp);
 		}
 		
 		sc.close();	
@@ -1390,5 +1402,13 @@ public class Program {
 	//		return 4.0 * PI * Math.pow(radius, 3) / 3.0;
 	//	}
 	
-
+	public static Integer position(List<EmployeeList> list, int id) {
+		for(int i = 0; i < list.size(); i++) {
+			if(list.get(i).getId() == id) {
+				return i;
+			}
+		}
+		//se esgotar o for, o método retorna nulo
+		return null;
+	}
 }

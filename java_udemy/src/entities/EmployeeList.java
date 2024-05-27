@@ -30,17 +30,11 @@ public class EmployeeList {
 		return salary;
 	}
 	
-	public void increaseSalary(double percent) {
-		salary *= percent + salary;
+	public void increaseSalary(double percentage) {
+		salary += salary * percentage / 100.;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "EmployeeList [id=" + id + ", name=" + name + ", salary=" + salary + ", getId()=" + getId()
-//				+ ", getName()=" + getName() + ", getSalary()=" + getSalary() + ", getClass()=" + getClass()
-//				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
-//	}
-	
-	
-
+	public String toString() {
+		return id + ", " + name + ", " + String.format("%.2f", salary);
+	}
 }
