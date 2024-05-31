@@ -1,9 +1,9 @@
 package application;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
-
-import entities.EmployeeList;
 
 public class Program {
 
@@ -1348,67 +1348,261 @@ public class Program {
 		 */
 		
 
-		List<EmployeeList> list = new ArrayList<EmployeeList>();
+//		List<EmployeeList> list = new ArrayList<EmployeeList>();
+//		
+//		System.out.print("How many employees will be registered? ");
+//		int n = sc.nextInt();
+//				
+//		for (int i = 0; i < n; i++) {
+//			System.out.println();
+//			System.out.printf("Employee #%d:\n", i + 1);
+//			System.out.print("Id:");
+//			Integer id = sc.nextInt();
+//			System.out.print("Name:");
+//			sc.nextLine();
+//			String name = sc.nextLine();
+//			System.out.print("Salary:");
+//			Double salary = sc.nextDouble();
+//			
+//			EmployeeList funcionario = new EmployeeList(id, name, salary);
+//			
+//			list.add(funcionario);
+//		}
+//		
+//		System.out.println();
+//		System.out.print("Enter the employee id that will have salary increase: ");
+//		int idSalary = sc.nextInt();
+//		
+//		Integer pos = position(list, idSalary);
+//		if(pos == null) {
+//			System.out.println("This id does not exist!");
+//		}else {
+//			System.out.print("Enter the percentage: ");
+//			double percent = sc.nextDouble();
+//			list.get(pos).increaseSalary(percent);
+//		}
+//		
+//		System.out.println();
+//		System.out.println("List of employees: ");
+//		
+//		for(EmployeeList emp : list) {
+//			System.out.println(emp);
+//		}
 		
-		System.out.print("How many employees will be registered? ");
-		int n = sc.nextInt();
-				
-		for (int i = 0; i < n; i++) {
-			System.out.println();
-			System.out.printf("Employee #%d:\n", i + 1);
-			System.out.print("Id:");
-			Integer id = sc.nextInt();
-			System.out.print("Name:");
-			sc.nextLine();
-			String name = sc.nextLine();
-			System.out.print("Salary:");
-			Double salary = sc.nextDouble();
-			
-			EmployeeList funcionario = new EmployeeList(id, name, salary);
-			
-			list.add(funcionario);
-		}
+		// Matrizes
 		
-		System.out.println();
-		System.out.print("Enter the employee id that will have salary increase: ");
-		int idSalary = sc.nextInt();
+		/*- Conceito de matriz: nome dado a arranjos (array) bidimensionais - linhas (1º indice) e colunas (2º indice) - 
+		 * (ao contrário do vetor, que seria um arranjo unidimensional) - "vetor de vetores"; 
+		 * Assim como todo array, ele é uma estrutura de dados homogênea, ordenada e é alocada de uma vez só, em um bloco contíguo de memória.
+		 * - Vantagens: acesso imediato aos elementos pela sua posição.
+		 * - Desvantagens: tamanho fixo e dificuldade para se realizar inserções e deleções
+		 */
 		
-		Integer pos = position(list, idSalary);
-		if(pos == null) {
-			System.out.println("This id does not exist!");
-		}else {
-			System.out.print("Enter the percentage: ");
-			double percent = sc.nextDouble();
-			list.get(pos).increaseSalary(percent);
-		}
+		/*
+		 * Fazer um programa para ler um número inteiro N e uma matriz de ordem N
+		 * contendo números inteiros. Em seguida, mostrar a diagonal principal e a
+		 * quantidade de valores negativos da matriz.
+		 * ------------
+		 * ENTRADA:
+		 * 3
+		 * 5 -3 10
+		 * 15 8 2
+		 * 7 9 -4
+		 * ------------
+		 * SAÍDA:
+		 * Main diagonal:
+		 * 5 8 -4
+		 * Negative numbers = 2 
+		 * -------------
+		 */
 		
-		System.out.println();
-		System.out.println("List of employees: ");
+//		int n = sc.nextInt();
+		//numero de colchetes de acordo com a dimensão (uni, bi, tri..)
+//		int[][] mat = new int[n][n];
+//		
+//		for(int i = 0; i < mat.length; i++) {
+//			for(int j = 0; j < mat[i].length; j++) {
+//				mat[i][j] = sc.nextInt();
+//			}
+//		}
+//		
+//		System.out.println("Main diagonal:");
+//		for(int i = 0; i < n; i++) {
+//			System.out.print(mat[i][i] + " ");
+//		}
+//		System.out.println();
+//		
+//		int count = 0;
+//		for(int i = 0; i < n; i++) {
+//			for(int j = 0; j < n; j++) {
+//				if(mat[i][j] < 0) {
+//					count++;
+//				}
+//			}
+//		}
+//		System.out.println("Negative numbers = " + count);
 		
-		for(EmployeeList emp : list) {
-			System.out.println(emp);
-		}
+		/*
+		 * Fazer um programa para ler dois números inteiros M e N, e depois ler
+		 * uma matriz M linhas por N colunas contendo números inteiros, podendo haver
+		 * repetições. Em seguida, ler um número inteiro X que pertence à matriz.
+		 * Para casa ocorrência de X, mostrar os valores à esquerda, acima, à direita e 
+		 * abaixo de X, quando houver, conforme exemplo. - corrigido
+		 * ---------------
+		 * ENTRADA
+		 * 3 4 
+		 * 10 8 15 12
+		 * 21 11 23 8
+		 * 14 5 13 19
+		 * 8
+		 * ---------------
+		 * SAÍDA
+		 * Position 0,1:
+		 * Left: 10
+		 * Right: 15
+		 * Down: 11
+		 * Position 1,3:
+		 * Left: 23
+		 * Up: 12
+		 * Down: 19
+		 */
+		
+//		int m = sc.nextInt();
+//		int n = sc.nextInt();
+//		
+//		int[][] mat = new int[m][n];
+//		
+//		for(int i = 0; i < mat.length; i++) {
+//			for(int j = 0; j < mat[i].length; j++) {
+//				mat[i][j] = sc.nextInt();
+//			}
+//		}
+//		
+//		int x = sc.nextInt();
+//		//int posX = 0;
+//		//int posY = 0;
+//		for(int i = 0; i < mat.length; i++) {
+//			for(int j = 0; j < mat[i].length; j++) {
+//				if(mat[i][j] == x) {
+//					//posX = i;
+//					//posY = j;
+//					System.out.println("Position " + i + "," + j + ":");
+					//if(i == 0 && j > 0 && j < mat[i].length) {						
+						//System.out.println("Left: " + mat[posX][posY - 1]);
+						//System.out.println("Right: " + mat[posX][posY + 1]);
+						//System.out.println("Down: " + mat[posX + 1][posY]);
+					//}else if(i == 0 && j == 0) {
+						//System.out.println("Right: " + mat[posX][posY + 1]);
+						//System.out.println("Down: " + mat[posX + 1][posY]);						
+					//}else if(i > 0 && j == mat[i].length ) {
+						//System.out.println("Left: " + mat[posX][posY - 1]);
+						//System.out.println("Down: " + mat[posX + 1][posY]);						
+					//}else if(i > 0 && i < mat.length && j > 0 && j < mat[i].length) {
+						//System.out.println("Up: " + mat[posX - 1][posY]);
+						//System.out.println("Left: " + mat[posX][posY - 1]);
+						//System.out.println("Right: " + mat[posX][posY + 1]);
+						//System.out.println("Down: " + mat[posX + 1][posY]);
+					//}else if(i > 0 && i < mat.length && j == mat[i].length) {
+						//System.out.println("Up: " + mat[posX - 1][posY]);
+						//System.out.println("Left: " + mat[posX][posY - 1]);
+						//System.out.println("Down: " + mat[posX + 1][posY]);
+					//}else if(i > 0 && i < mat.length && j == 0) {
+						//System.out.println("Up: " + mat[posX - 1][posY]);
+						//System.out.println("Right: " + mat[posX][posY + 1]);
+						//System.out.println("Down: " + mat[posX + 1][posY]);
+					//}else if(i == mat.length && j == mat[i].length){
+						//System.out.println("Up: " + mat[posX - 1][posY]);
+						//System.out.println("Left: " + mat[posX][posY - 1]);
+					//}	
+//					if(j > 0) {
+//						System.out.println("Left: " + mat[i][j - 1]);
+//					}
+//					if(i > 0) {
+//						System.out.println("Up: " + mat[i - 1][j]);
+//					}
+//					if(j < mat[i].length-1) {
+//						System.out.println("Right: " + mat[i][j + 1]);
+//					}
+//					if(i < mat.length-1) {
+//						System.out.println("Down: " + mat[i+1][j]);
+//					}
+//				}
+//			}
+//		}
+		
+		// Operações data-hora
+		
+		//cria objeto modelo para formatar data
+		DateTimeFormatter fmt1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		DateTimeFormatter fmt2 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+		
+		//Instanciação - agora
+		
+		//data local
+		LocalDate d01 = LocalDate.now();
+		System.out.println(d01.toString());
+		
+		//data-hora local
+		LocalDateTime d02 = LocalDateTime.now();
+		System.out.println(d02.toString());
+		
+		//data-hora global (GMT/Z/UTC - Londres)
+		Instant d03 = Instant.now();
+		System.out.println(d03.toString());
+		
+		//Instanciação - ISO 8601
+		
+		LocalDate d04 = LocalDate.parse("2021-08-15");
+		System.out.println(d04.toString());
+		
+		LocalDateTime d05 = LocalDateTime.parse("2021-08-15T01:30:26");
+		System.out.println(d05.toString());
+		
+		Instant d06 = Instant.parse("2021-08-15T01:30:26Z");
+		System.out.println(d06.toString());
+
+		// ERRO - Exception "could not be parsed"
+		//Instant d07 = Instant.parse("2021-08-15T01:30:26-03:00");
+		//System.out.println(d07.toString());
+		
+		//Instanciação - Texto customizado (DateTimeFormatter)
+		
+		LocalDate d08 = LocalDate.parse("15/08/2021", fmt1);
+		System.out.println(d08.toString());
+
+		// ERRO - não aparece horário
+		LocalDate d09 = LocalDate.parse("15/08/2021 01:30", fmt2);
+		System.out.println(d09.toString());
+		
+		LocalDate d10 = LocalDate.parse("25/01/2019", DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+		System.out.println(d10.toString());
+		
+		LocalDate d11 = LocalDate.of(2022, 7, 20);
+		System.out.println(d11.toString());
+		
+		LocalDateTime d12 = LocalDateTime.of(2022, 7 , 20, 1, 30);
+		System.out.println(d12.toString());
 		
 		sc.close();	
 		
 	}
 	
 	// funções versão 1 de métodos estáticos
-	//	public static double circumference(double radius) {
-	//		return 2.0 * PI * radius;
-	//	}
-	//
-	//	public static double volume(double radius) {
-	//		return 4.0 * PI * Math.pow(radius, 3) / 3.0;
-	//	}
-	
-	public static Integer position(List<EmployeeList> list, int id) {
-		for(int i = 0; i < list.size(); i++) {
-			if(list.get(i).getId() == id) {
-				return i;
-			}
-		}
-		//se esgotar o for, o método retorna nulo
-		return null;
-	}
+//	public static double circumference(double radius) {
+//		return 2.0 * PI * radius;
+//	}
+//
+//	public static double volume(double radius) {
+//		return 4.0 * PI * Math.pow(radius, 3) / 3.0;
+//	}
+//
+//	public static Integer position(List<EmployeeList> list, int id) {
+//		for (int i = 0; i < list.size(); i++) {
+//			if (list.get(i).getId() == id) {
+//				return i;
+//			}
+//		}
+//		// se esgotar o for, o método retorna nulo
+//		return null;
+//	}
 }

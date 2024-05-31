@@ -55,6 +55,8 @@ Estrutura de um aplicação Java
 Java é uma linguagem orientada a objetos e a unidade lógica básica de um programa orientado a objetos é a classe. Todo código Java tem que estar dentro de classes. Após a classe, existe o contexto de package, sendo um agrupamento lógico de classes relacionadas. Exemplo de packages são entities (produto, cliente, pedido), services (email, pedido, log) e repositories(banco de dados)). Após o package, existe o conceito de módulo, introduzido a partir do Java 9, sendo um agrupamento lógico de pacotes relacionados. Exemplo de módulo seria um 'financeiro' contendo entidades, serviços e repositórios relacionados a pagamentos, contabilidade, etc. O 'runtime' ou 'build' representa um agrupamento físico de arquivos, sendo uma unidade que pode ser instalado para rodar em demais dispositivos. Após o modulo, tem a aplicação, sendo um agrupamento de módulos relacionados. Um exemplo seria um sistema de comercio eletronico, composto por vários módulos, que por sua vez, é composto por packages, que é composto por classes.
 Aplicação > modules > packages > classes
 
+
+----------------------------------------------
 -- Estrutura Sequencial --
 
 *Expressões Aritméticas
@@ -265,7 +267,7 @@ x = 5;
 
 !(x <= 20 && x == 10) (V)
 
-
+-----------------------------------------
 -- Estrutura condicional --
 
 É uma estrutura de controle que permite definir que um certo bloco de comandos somente será executado dependendo de uma condição - if-else pode ser encadeado se necessário
@@ -374,6 +376,7 @@ System.out.println(discount);
 => apresentaria ERRO pois a variavel discount foi declarada e iniciada apenas dentro da estrutura condicional 'if', estando fora do escopo do método 'main' 
 Qualquer estrutura condicional tem seu próprio escopo, e as variaveis declaradas dentro delas só existirão enquanto essa estrutura está sendo executada
 
+---------------------------------------------
 -- Estruturas Repetitivas--
 
 *Estrutura repetitiva 'enquanto' (while)
@@ -442,7 +445,7 @@ do{
 
 Primeiro é executao o bloco de comandos, então depois a condição é verificada e enquanto for verdadeira, o bloco continuará a ser executado. Caso contrario, encerra o processo.
 
-
+----------------------------------------------
 -- Outros tópicos básicos Java --
 
 *Restrições e convenções para nomes
@@ -527,6 +530,7 @@ Representam um processamento que possui um significado
 	- Funções podem ou não retornar uma saída
 - Em orientação a objetos, funções em classes recebem o nome de "métodos"
 
+---------------------------------------------------
 -- Introdução à Programação Orientada a Objetos --
 
 *Resolvendo um problema sem orientação a objetos
@@ -832,6 +836,8 @@ Amount to be paid in reais = 657.20
 ?? Quando classes são consideradas utilitárias e quando são consideradas entidades ?
 Classes são consideradas utilitárias quando seus membros são estáticos ?
 
+
+-------------------------------------------------------------
 --Construtores, palavra this, sobrecarga, encapsulamento --
 
 *Construtores
@@ -953,6 +959,8 @@ public void setPrice(double price){
 - public: o membro é acessado por todas as classes (ao menos que ele resida em um módulo diferente que não exporte o pacote onde ele está)
 https://i.sstatic.net/SVk2a.png
 
+
+------------------------------------------------
 -- Comportamento de memória, arrays, listas --
 
 *Tipos referência vs. tipos valor
@@ -1098,3 +1106,88 @@ Demo:
 - Encontrar primeira ocorrência com base em predicado: Integer result = list.stream().filter(x -> x > 4).findFirst().orElse(null);
 
 - Assuntos pendentes: interfaces, generics, predicados (lambda)
+
+*Matrizes
+
+- Conceito de matriz: nome dado a arranjos (array) bidimensionais - linhas (1º indice) e colunas (2º indice) - (ao contrário do vetor, que seria um arranjo unidimensional) - "vetor de vetores"; Assim como todo array, ele é uma estrutura de dados homogênea, ordenada e é alocada de uma vez só, em um bloco contíguo de memória.
+- Vantagens: acesso imediato aos elementos pela sua posição.
+- Desvantagens: tamanho fixo e dificuldade para se realizar inserções e deleções
+- Declaração e instanciação
+- Acesso aos elementos / como percorrer uma matriz
+- Propriedade length
+
+
+--------------------------------------------------------
+-- Tópicos essenciais em Java--
+
+*Introdução a data-hora e duração
+
+Conceitos importantes:
+- Data-[hora] local:ano-mês-dia-[hora] sem fuso horário; [hora] opcional
+- Data-hora global: ano-mês-dia-hora com fuso horário
+- Duração: tempo decorrido entre duas data-horas
+
+* Timezone (fuso horário)
+- GMT - Greenwich Mean Time
+• Horário de Londres
+• Horário do padrão UTC - Coordinated Universal Time
+• Também chamado de "Z" time, ou Zulu time
+
+- Outros fuso horários são relativos ao GMT/UTC:
+• São Paulo: GMT-3
+• Manaus: GMT-4
+• Portugal: GMT+1
+
+- Muitas linguagens/tecnologias usam nomes para as timezones:
+• "US/Pacific"
+• "America/Sao_Paulo"
+
+*Padrão ISO 8601
+
+Data-[hora] local:
+	2022-07-21
+	2022-07-21T14:52
+	2022-07-22T14:52:09
+	2022-07-22T14:52:09.4073
+
+Data-hora global:
+	2022-07-23T14:52:09Z
+	2022-07-23T14:52:09.254935Z
+	2022-07-23T14:52:09-03:00
+
+
+*Operações importantes com data-hora
+
+- Instanciação
+	• (agora) ➞ Data-hora
+	• Texto ISO 8601 ➞ Data-hora
+	• Texto formato customizado ➞ Data-hora
+	• dia, mês, ano, [horário] ➞ Data-hora local
+
+- Formatação
+	• Data-hora ➞ Texto ISO 8601
+	• Data-hora ➞ Texto formato customizado
+
+- Converter data-hora global para local
+	• Data-hora global, timezone (sistema local) ➞ Data-hora local
+
+- Obter dados de uma data-hora local
+	• Data-hora local ➞ dia, mês, ano, horário
+
+- Cálculos com data-hora
+	• Data-hora +/- tempo ➞ Data-hora
+	• Data-hora 1, Data-hora 2 ➞ Duração
+
+
+*Principais tipos Java (versão 8+)
+
+- Data-hora local
+	• LocalDate
+	• LocalDateTime
+- Data-hora global
+	• Instant
+- Duração
+	• Duration
+- Outros
+	• Zoneld
+	• ChronoUnit
