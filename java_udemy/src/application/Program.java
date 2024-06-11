@@ -1,9 +1,15 @@
 package application;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
+
+import entities.ImportedProduct;
+import entities.Product2;
+import entities.UsedProduct;
 
 public class Program {
 
@@ -14,10 +20,11 @@ public class Program {
 	//versão 1 de métodos estáticos
 	//public final double PI = 3.14159; // 'final' para constantes, e o padrão de nomes para constante é letra maiúscula
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		
-		//Locale.setDefault(Locale.US);
+		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
+		
 		
 		// Resolvendo problemas sem orientação a objetos
 
@@ -1533,61 +1540,595 @@ public class Program {
 		// Operações data-hora
 		
 		//cria objeto modelo para formatar data
-		DateTimeFormatter fmt1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		DateTimeFormatter fmt2 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+//		DateTimeFormatter fmt1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//		DateTimeFormatter fmt2 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+		//withZone(ZoneId.systemDefault())recupera o fuso horário do computador do usuário e o horario argumento será convertido para 
+//		DateTimeFormatter fmt3 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").withZone(ZoneId.systemDefault());
+		//formato ISO
+//		DateTimeFormatter fmt4 = DateTimeFormatter.ISO_DATE_TIME;
+//		DateTimeFormatter fmt5 = DateTimeFormatter.ISO_INSTANT;
 		
 		//Instanciação - agora
 		
 		//data local
-		LocalDate d01 = LocalDate.now();
-		System.out.println(d01.toString());
+//		LocalDate d01 = LocalDate.now();
+//		System.out.println("d01 = " + d01);
 		
 		//data-hora local
-		LocalDateTime d02 = LocalDateTime.now();
-		System.out.println(d02.toString());
+//		LocalDateTime d02 = LocalDateTime.now();
+//		System.out.println("d02 = " + d02);
 		
 		//data-hora global (GMT/Z/UTC - Londres)
-		Instant d03 = Instant.now();
-		System.out.println(d03.toString());
+//		Instant d03 = Instant.now();
+//		System.out.println("d03 = " + d03);
 		
 		//Instanciação - ISO 8601
 		
-		LocalDate d04 = LocalDate.parse("2021-08-15");
-		System.out.println(d04.toString());
+//		LocalDate d04 = LocalDate.parse("2021-08-15");
+//		System.out.println("d04 = " + d04);
+		//exemplos de formatação
+//		System.out.println("d04 = " + d04.format(fmt1));
+//		System.out.println("d04 = " + fmt1.format(d04));
+//		System.out.println("d04 = " + d04.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 		
-		LocalDateTime d05 = LocalDateTime.parse("2021-08-15T01:30:26");
-		System.out.println(d05.toString());
+//		LocalDateTime d05 = LocalDateTime.parse("2021-08-15T01:30:26");
+//		System.out.println("d05 = " + d05);
+		//exemplos de formatação
+//		System.out.println("d05 = " + d05.format(fmt1));
+//		System.out.println("d05 = " + d05.format(fmt2));
+//		System.out.println("d05 = " + d05.format(fmt4));
 		
-		Instant d06 = Instant.parse("2021-08-15T01:30:26Z");
-		System.out.println(d06.toString());
+//		Instant d06 = Instant.parse("2021-08-15T01:30:26Z");
+//		System.out.println("d06 = " + d06);
+		//exemplos de formatação
+		//Instant não aceita .format direto
+//		System.out.println("d06 = " + fmt3.format(d06));
+//		System.out.println("d06 = " + fmt5.format(d06));
 
 		// ERRO - Exception "could not be parsed"
 		//Instant d07 = Instant.parse("2021-08-15T01:30:26-03:00");
-		//System.out.println(d07.toString());
+		//System.out.println("d07 = " + d07);
 		
 		//Instanciação - Texto customizado (DateTimeFormatter)
 		
-		LocalDate d08 = LocalDate.parse("15/08/2021", fmt1);
-		System.out.println(d08.toString());
+//		LocalDate d08 = LocalDate.parse("15/08/2021", fmt1);
+//		System.out.println("d08 = " + d08);
 
 		// ERRO - não aparece horário
-		LocalDate d09 = LocalDate.parse("15/08/2021 01:30", fmt2);
-		System.out.println(d09.toString());
+//		LocalDate d09 = LocalDate.parse("15/08/2021 01:30", fmt2);
+//		System.out.println("d09 = " + d09);
+//		
+//		LocalDate d10 = LocalDate.parse("15/08/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+//		System.out.println("d10 = " + d10);
+//		
+//		LocalDate d11 = LocalDate.of(2022, 7, 20);
+//		System.out.println("d11 = " + d11);
+//		
+//		LocalDateTime d12 = LocalDateTime.of(2021, 8 , 15, 1, 30);
+//		System.out.println("d12 = " + d12);
 		
-		LocalDate d10 = LocalDate.parse("25/01/2019", DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-		System.out.println(d10.toString());
 		
-		LocalDate d11 = LocalDate.of(2022, 7, 20);
-		System.out.println(d11.toString());
+		//laço mostra todos os fusos horários disponíveis
+//		System.out.println("\n---------- FUSO HORÁRIOS: ----------");
+//		for(String s : ZoneId.getAvailableZoneIds()) {			
+//			System.out.println(s);
+//		}
 		
-		LocalDateTime d12 = LocalDateTime.of(2022, 7 , 20, 1, 30);
-		System.out.println(d12.toString());
+		//converter data-hora global para local		
+		//converte o obj d06 para uma data-hora local considerando o fuso horário da maquina atual
+//		LocalDate r1 = LocalDate.ofInstant(d06, ZoneId.systemDefault());		
+//		System.out.println(r1);
+		//converte o obj d06 para uma data-hora local considerando o fuso horário como argumento
+//		LocalDate r2 = LocalDate.ofInstant(d06, ZoneId.of("Portugal"));		
+//		System.out.println(r2);
 		
+//		LocalDateTime r3 = LocalDateTime.ofInstant(d06, ZoneId.systemDefault());
+//		System.out.println(r3);
+//		LocalDateTime r4 = LocalDateTime.ofInstant(d06, ZoneId.of("Portugal"));
+//		System.out.println(r4);
+		
+		//obter dados de uma data-hora local
+//		System.out.println("d04 dia = " + d04.getDayOfMonth());
+//		System.out.println("d04 mes = " + d04.getMonthValue());
+//		System.out.println("d04 ano = " + d04.getYear());
+//		System.out.println("d04 dia do ano = " + d04.getDayOfYear());
+//		
+//		System.out.println("d05 hora = " + d05.getHour());
+//		System.out.println("d05 minuto = " + d05.getMinute());
+		
+		//calculos com data-hora
+		
+//		LocalDate d13 = LocalDate.parse("2024-06-03");
+//		LocalDateTime d14 = LocalDateTime.parse("2024-06-03T16:27:15");
+//		Instant d15 = Instant.parse("2024-06-03T16:27:15Z");
+//		
+//		LocalDate pastWeekLocalDate = d13.minusDays(7);
+//		LocalDate nextWeekLocalDate = d13.plusDays(7);
+//		LocalDate yearsLocalDate = d13.plusYears(7);
+//		
+//		System.out.println("a week ago = " + pastWeekLocalDate);
+//		System.out.println("next week = " + nextWeekLocalDate);
+//		System.out.println("in 7 years = " + yearsLocalDate);
+//		
+//		LocalDateTime pastWeekLocalDateTime = d14.minusDays(7);
+//		LocalDateTime nextWeekLocalDateTime = d14.plusDays(7);
+//		LocalDateTime yearsLocalDateTime = d14.plusYears(7);
+//		
+//		System.out.println("a week ago = " + pastWeekLocalDateTime);
+//		System.out.println("next week = " + nextWeekLocalDateTime);
+//		System.out.println("in 7 years = " + yearsLocalDateTime);
+//		
+//		Instant pastWeekInstant  = d15.minus(7, ChronoUnit.DAYS);
+//		Instant nextWeekInstant = d15.plus(7, ChronoUnit.DAYS);
+//		
+//		System.out.println("a week ago = " + pastWeekInstant);
+//		System.out.println("next week = " + nextWeekInstant);
+		
+		//duração - deve ser calculada entre mesmos tipos (! obrigatorio ser LocalDateTime - não LocalDate, ou, converter por para horas (atTime() ou similar))
+//		Duration t1 = Duration.between(pastWeekLocalDate.atTime(0, 0), d13.atTime(0, 0));
+//		System.out.println("t1 days = " + t1.toDays());
+//		
+//		Duration t2 = Duration.between(pastWeekLocalDateTime, d14);
+//		System.out.println("t2 days = " + t2.toDays());
+//		
+//		Duration t3 = Duration.between(pastWeekInstant, d15);
+//		System.out.println("t3 days = " + t3.toDays());
+		
+		//quando a primeira dara é maior que a segunda, o resultado é negativo
+//		Duration t4 = Duration.between(d15, pastWeekInstant);
+//		System.out.println("t4 days = " + t4.toDays());
+		
+		//enumerações, composição
+		
+		//utilizando classe que utiliza enum como atributo
+//		Order order = new Order(1080, new Date(), OrderStatus.PENDING_PAYMENT);		
+//		System.out.println(order);
+		
+		//conversão de string para enum - ambos serão o mesmo valor enum caso a escrita esteja correta
+		
+//		OrderStatus os1 = OrderStatus.DELIVERED;		
+//		OrderStatus os2 = OrderStatus.valueOf("DELIVERED");
+//		
+//		System.out.println(os1);
+//		System.out.println(os2);
+		
+		//Notação UML para enum
+		
+		/*
+		-----------------------
+		<<enum>>
+		OrderStatus
+		-----------------------
+		PENDING_PAYMENT: int = 0
+		PROCESSING: int = 1
+		SHIPPED: int = 2
+		DELIVERED: int = 3
+		-----------------------
+		*/
+		
+		//design
+		
+		/* - Categoria de classes: em um sistema orientado a objetos, 
+		 * de modo geral "tudo" é objeto.
+		 * - Por questões de design tais como organização, flexibilidade, reuso, 
+		 * delegação, etc. há várias categorias de classes: 
+		 * Views - telas/front
+		 * Controllers - mediador entre view e sistema
+		 * Entities - classes entidades do negócio
+		 * Services - classes serviços do negócio
+		 * Repositories - objetos responsáveis por acessar DB
+		 */
+		
+		//composição
+		
+		/* - É um tipo de associação que permite que um objeto contenha outro
+		 * - Relação "tem-um" ou "tem-vários"
+		 * - Vantagens: Organização (divisão de responsabilidades), coesão, 
+		 * flexibilidade, reuso
+		 * - Nota: embora o símbolo UML para composição (todo-parte) seja o diamante preto, 
+		 * neste contexto estamos chamando de composição qualquer associação tipo "tem-um" e 
+		 * "tem-vários"
+		 */
+		
+		//Exercicio 1 - resolvido (https://github.com/acenelio/composition1-java)
+		
+		/* Ler os dados de um trabalhador com N contratos (N fornecido pelo usuário). 
+		 * Depois, solicitar do usuário um mês e mostrar qual foi o salário do funcionário
+		 * nesse mês, conforme exemplo
+		 */	
+		
+//		System.out.print("Enter department's name: ");
+//		String departmentName = sc.nextLine();
+//		System.out.print("Enter worker data: ");
+//		String workerName = sc.nextLine();
+//		System.out.print("Enter worker level: ");
+//		String workerLevel = sc.nextLine();
+//		System.out.print("Base salary: ");
+//		double baseSalary = sc.nextDouble();
+		
+		//WorkerLevel.valueOf(workerLevel) => para equiparar a string digitada a variavel da enumeração
+		//new Department(departmentName) => foi instanciada pois esse argumento trata-se de outro objeto, recebendo a string digitada
+		//na memória, criam-se 2 objetos relacionados: worker e department
+//		Worker worker = new Worker(workerName, WorkerLevel.valueOf(workerLevel), baseSalary, new Department(departmentName));
+		
+		
+//		System.out.print("How many contracts to this worker? ");
+//		int n = sc.nextInt();
+		
+		//mascara para data
+//		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+						
+//		for(int i = 1; i <= n; i++) {
+//			System.out.println("Enter contract #" + i + " data: ");
+//			System.out.print("Date (DD/MM/YYYY): ");
+//			Date contractDate = sdf.parse(sc.next());
+//			System.out.print("Value per hour: ");
+//			double valuePerHour = sc.nextDouble();
+//			System.out.print("Duration (hours): ");
+//			int hours = sc.nextInt();
+//			HourContract contract = new HourContract(contractDate, valuePerHour, hours);
+//			worker.addContract(contract);
+//		}
+//		
+//		System.out.println();
+//		System.out.print("Enter month and year to calculate income (MM/YYYY): ");
+//		String monthAndYear = sc.next();
+		//recebe a data monthAndYear em string, depois recorta o que diz respeito ao mês e armazena convertendo para int; o mesmo se repete para o ano
+//		int month = Integer.parseInt(monthAndYear.substring(0, 2));
+//		int year = Integer.parseInt(monthAndYear.substring(3));
+//		
+//		System.out.println("Name: " + worker.getName());
+//		System.out.println("Department: " + worker.getDepartment().getName());
+//		System.out.println("Income for " + monthAndYear + ": " + String.format("%.2f", worker.income(year, month)));
+		
+		//Exercicio 2 - resolvido (https://github.com/acenelio/composition2-java)
+		
+		/*
+		 * Instancie manualmente (hard code) os objetos mostrados abaixo e mostre-os na tela do terminal, 
+		 * conforme exemplo
+		 */
+		
+//		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+//		
+//		Comment c1 = new Comment("Have a nice trip");
+//		Comment c2 = new Comment("Wow that's awesome!");
+//		Post p1 = new Post(sdf.parse("21/06/2018 13:05:44"), "Traveling to New Zealand", "I'm going to visit this wonderful country!", 12);
+//		
+//		p1.addComment(c1);
+//		p1.addComment(c2);
+//		
+//		System.out.println(p1);
+//		
+//		Comment c3 = new Comment("Good night");
+//		Comment c4 = new Comment("May the force be with you");
+//		Post p2 = new Post(sdf.parse("28/07/2018 23:14:19"), "Good night guys", "See you tomorrow", 5);
+//		
+//		p2.addComment(c3);
+//		p2.addComment(c4);
+//		
+//		System.out.println(p2);
+		
+		//Exercicio de fixação (https://github.com/acenelio/composition3-java)
+		
+		/*
+		 * Ler os dados de um pedido com N itens (N fornecido pelo usuário). Depois, mostrar um sumário 
+		 * do pedido conforme exemplo. Nota: o instante do pedido deve ser o instante do sistema: new Date();
+		 */
+		
+//		SimpleDateFormat maskDate = new SimpleDateFormat("dd/MM/yyyy");
+//		
+//		
+//		System.out.println("Enter client data:");
+//		System.out.print("Name: ");
+//		String name = sc.nextLine();
+//		System.out.print("Email: ");
+//		String email = sc.nextLine();
+//		System.out.print("Birth date (DD/MM/YYYY): ");
+//		Date birthDate = maskDate.parse(sc.next());
+//		
+//		Client client = new Client(name, email, birthDate);
+//		
+//		System.out.println("Enter order data: ");
+//		System.out.print("Status: ");
+//		sc.nextLine();
+//		OrderStatus status = OrderStatus.valueOf(sc.next());
+//		
+//		OrderShop order = new OrderShop(new Date(), status, client);
+//		
+//		System.out.print("How many items to this order ? ");	
+//		int n = sc.nextInt();
+//								
+//		for(int i = 1; i <= n; i++) {
+//			System.out.println("Enter #" + i + " item data:");
+//			System.out.print("Product name: ");
+//			sc.nextLine();
+//			String productName = sc.nextLine();
+//			System.out.print("Product price: ");
+//			double price = sc.nextDouble();
+//			
+//			ProductShop product = new ProductShop(productName, price);
+//			
+//			System.out.print("Quantity: ");
+//			int qtd = sc.nextInt();
+//			
+//			OrderItem item = new OrderItem(qtd, price, product);	
+//			
+//			order.addItem(item);
+//		}
+//	
+//		
+//		System.out.println();
+//		System.out.println("ORDER SUMMARY:");
+//		System.out.println(order);
+		
+		//Herança - class Account e class BusinessAccount
+		
+		/*
+		 * - É um tipo de associação que permite que uma classe herde todos dados e 
+		 * comportamento de outra
+		 * - Definições importantes
+		 * - Vantagens: reuso e polimorfismo
+		 * - Sintaxe: class A extends B
+		 * - Relação "é-um" - no exemplo, a conta empresarial também é uma conta comum 
+		 * quando extende a super classe
+		 * - Generalização/especialização - no exemplo, a conta comum é uma generalização 
+		 * e a conta empresarial é uma especialização
+		 * - superclasse (classe base) / subclasse (classe derivada)
+		 * - Herança/extensão
+		 * - Herança é uma associação entre classes (e não entre objetos)
+		 * herança é associação entre classes e composição é associação entre objetos 
+		 * - na memória, a herança teria apenas um objeto com todos os atributos de ambas 
+		 * as classes e na composição criam-se objetos distintos
+		 * Herança permite o reuso de atributos e métodos (dados e comportamento)
+		 * 
+		 * Exemplo na classe Account e BusinessAccount:
+		 * suponha um negócio de banco que possui uma conta comum e uma conta para empresas,
+		 * sendo que a conta para empresa possui todos membros da conta comum, mais um limite 
+		 * de empréstimo e uma operação de realizar empréstimo.
+		 * A classe conta comum será a super classe, que será extendida pela agora 
+		 * subclasse conta para empresas e os atributos do construtor da super classe 
+		 * serão atribuidos no construtor da subclasse através do método super(); junto com
+		 * qualquer outra atribuição própria 
+
+		 */
+		
+		//Upcasting e Downcasting
+		
+		/*
+		 * Upcasting: casting da subclasse para a superclasse; 
+		 * Uso comum: polimorfismo
+		 * 
+		 * Downcasting: casting da superclasse para subclasse; 
+		 * Palavra instaceof; 
+		 * Uso comum: métodos que recebem parâmetros genéricos (ex: Equals)
+		 * 
+		 * Exemplo na classe Account, BusinessAccount e SavingsAccount:
+		 */
+		
+//		Account acc = new Account(1001, "Bob", 0.0);
+//		BusinessAccount bacc = new BusinessAccount(1002, "Maria", 0.0, 500.0);
+		
+		//UPCASTING	- objeto da subclasse (bacc) sendo atribuido a objeto da superclasse (acc)
+		//não é acusado erro nessa relação pois a herança é relação "é-um", tornando subclasse e superclasse um mesmo tipo
+//		Account acc1 = bacc;
+//		acc1.getBalance();	
+//		
+//		Account acc2 = new BusinessAccount(1003, "João", 0.0, 200.0);
+//		Account acc3 = new SavingsAccount(1004, "Ana", 0.0, 0.01);
+		
+		//DOWNCASTING - objeto da superclasse (acc2) sendo atribuido a objeto da subclasse (acc4)
+		//para evitar erro, é necessário o casting manual
+//		BusinessAccount acc4 = (BusinessAccount) acc2;
+//		acc4.loan(100.0);
+		
+		//SIMULAÇÃO DE ERRO
+		//SavingsAccount NÃO pode ser convertido para BusinessAccount
+		//BusinessAccount acc5 = (BusinessAccount) acc3;
+		
+		/* ! subclasses distintas que estendem a mesma superclasse não podem se instanciar uma a outra */
+		
+		//TESTE - se acc3 recebe um objeto que seja instancia do tipo BusinessAccount, ele então poderá realizar o casting
+//		if(acc3 instanceof BusinessAccount) {
+//			BusinessAccount acc5 = (BusinessAccount) acc3;
+//			acc5.loan(200.0);
+//			System.out.println("Loan");
+//		}
+//		
+//		if(acc3 instanceof SavingsAccount) {
+//			SavingsAccount acc5 = (SavingsAccount) acc3;
+//			acc5.updateBalance();
+//			System.out.println("Update");
+//		}
+		
+		//Sobreposição ou sobrescrita
+		
+		/*
+		 * É a implementação de um método de uma superclasse na subclasse; è fortemente recomendável usar 
+		 * a anotação @Override em um método sobrescrito - facilita a leitura e compreensão do código; 
+		 * Avisamos ao compilador (boa prática)
+		 */
+		
+		/* Suponha que a operação de saque possui uma taxa no valor de 5.0. Entretanto, se a conta for do tipo
+		 * poupança, esta taxa não deve ser cobrada.
+		 * Para resolver, sobreescrevemos o método withdraw na subclasse SavingsAccount
+		 * 
+		 */
+		
+		//método withdraw original
+//		Account acc1 = new Account(1001, "Bob", 1000.0);
+//		acc1.withdraw(200.0);
+//		System.out.println(acc1.getBalance());
+		
+		//Override do método withdraw
+//		Account acc2 = new SavingsAccount(1002, "Maria", 1000.0, 0.01);
+//		acc2.withdraw(200.0);
+//		System.out.println(acc2.getBalance());
+		
+		//Override do método withdraw original c/ super
+//		Account acc3 = new BusinessAccount(1003, "João", 1000.0, 500.0);
+//		acc3.withdraw(200.0);
+//		System.out.println(acc3.getBalance());
+		
+		//Polimorfismo
+		
+		/*
+		 * Pilares da OOP:
+		 * - Encapsulamento
+		 * - Herança 
+		 * - Polimorfismo
+		 * Em programação orientada a objetos, polimorfismo é recurso que permite que variáveis de um mesmo tipo mais 
+		 * genérico possam apontar para objetos de tipos específicos diferentes, tendo assim comportamentos diferentes 
+		 * conforme cada tipo específico.
+		 * 
+		 * No exemplo acima, haverão objetos de tipos diferentes na memória, mas as variaveis que apontam para esses 
+		 * objetos são de um mesmo tipo.
+		 */
+		
+//		Account x = new Account(1020, "Bob", 1000.0);
+//		Account y = new SavingsAccount(1023, "Maria", 1000.0, 0.01);
+//
+//		x.withdraw(50.0);
+//		y.withdraw(50.0);
+//		
+//		System.out.println(x.getBalance());
+//		System.out.println(y.getBalance());
+		
+		/* No exemplo acima, haverão objetos de tipos diferentes na memória, mas as variaveis que apontam para esses 
+		 * objetos são de um mesmo tipo.
+		 * 
+		 * IMPORTANTE ENTENDER:
+		 * - A associação do tipo específico com o tipo genérico é feita em tempo de execução (upcasting).
+		 * - O compilador não sabe para qual tipo específico a chamada do método Withdraw está sendo feita (ele só
+		 * sabe que são duas variáveis tipo Account);
+		 */
+		
+		//Exercício resolvido - polimorfismo (https://github.com/acenelio/inheritance4-java)
+		
+		/*
+		 * Uma empresa possui funcionparios próprios e terceirizados. Para cada funcionário, deseja-se registrar nome,
+		 * horas trabalhadas e valor por hora. Funcionários terceirizados possuem ainda uma despesa adicional.
+		 * O pagamento dos funcionários corresponde ao valor da hora multiplicado pelas horas trabalhadas, sendo que 
+		 * os funcionários terceirizados ainda recebem um bonus correspondente a 110% de sua despesa adicional.
+		 * Fazer um programa para ler os dados de N funcionários (N fornecido pelo usuário) e armazená-los em uma lista.
+		 * Depois de ler todos os dados, mostrar nome e pagamento de casa funcionário na mesma ordem em que foram 
+		 * digitados.
+		 * Construa o programa conforme projeto UML (pdf)
+		 * ----------------------
+		 * Employee
+		 * ----------------------
+		 * - name: String
+		 * - hours: Integer
+		 * - valuePerHour: Double
+		 * ----------------------
+		 * + payment(): Double
+		 * ----------------------
+		 *  ^
+		 * /_\
+		 *  |
+		 *  |
+		 * ----------------------
+		 * OutsourcedEmployee
+		 * ----------------------
+		 * - additionalCharge(): Double
+		 * ---------------------
+		 * 
+		 */
+		
+//		List<Employee2> list = new ArrayList<>();
+//		
+//		System.out.print("Enter the number of employees: ");
+//		int n = sc.nextInt();
+//		
+//		for(int i = 1; i <= n; i++) {
+//			System.out.println("Employee #" + i + " data:");
+//			System.out.print("Outsourced (y/n)? ");
+//			char ch = sc.next().charAt(0);
+//			System.out.print("Name: ");
+//			sc.nextLine();
+//			String name = sc.nextLine();
+//			System.out.print("Hours: ");
+//			int hours = sc.nextInt();
+//			System.out.print("Value per hour: ");
+//			double valuePerHour = sc.nextDouble();
+//			if(ch == 'y') {
+//				System.out.print("Additional charge: ");
+//				double additionalCharge = sc.nextDouble();
+//				//forma altenativa de adição a lista
+////				Employee2 emp = new OutsourcedEmployee(name, hours, valuePerHour, additionalCharge);
+////				list.add(emp);
+//				list.add(new OutsourcedEmployee(name, hours, valuePerHour, additionalCharge));
+//			}else {
+////				Employee2 emp = new Employee2(name, hours, valuePerHour);
+////				list.add(emp);
+//				list.add(new Employee2(name, hours, valuePerHour));
+//			}
+//			
+//		}
+//		
+//		System.out.println();
+//		System.out.println("PAYMENTS:");
+//		for(Employee2 emp : list) {
+//			System.out.println(emp.getName() + " - $ " + String.format("%.2f", emp.payment()));
+//		}
+		
+		/* No exercício acima foi criada uma lista do tipo Employee2, mas a instancia de cada objeto pode ser tanto do tipo Employee2 quanto 
+		 * do tipo OutsourcedEmployee; Quando é feita a chamada para imprimir o pagamento de cada objeto, o cálculo
+		 * vai se comporta de acordo com o tipo de cada objeto, tendo então o polimorfismo.
+		 *
+		 */
+		
+		//Exercício de fixação - polimorfismo (https://github.com/acenelio/inheritance5-java)
+		
+		/* Fazer um programa para ler os dados de N produtos (N fornecido pelo usuário). Ao final, mostar a etiqueta
+		 * de preço de cada produto na mesma ordem em que foram digitados.
+		 * Todo produto possui nome e preço. Produtos importados possuem uma taxa de alfândega, e produtos usados 
+		 * possuem data de fabricação.
+		 * Estes dados específicos devem ser acrescentados na etiqueta de preço conforme exemplo. Para produtos
+		 * importados, a taxa de alfândega deve ser acrescentada ao preço final do produto. Favor implementar programa
+		 * conforme projeto UML.
+		 * 
+		 */
+		
+		List<Product2> list = new ArrayList<>();
+		SimpleDateFormat maskDate = new SimpleDateFormat("dd/MM/yyyy");
+		
+		System.out.print("Enter the number of products: ");;
+		int n = sc.nextInt();
+		
+		for(int i = 1; i <= n; i++) {
+			System.out.printf("Product #%d data:\n", i);
+			System.out.print("Common, used or imported (c/u/i)? ");
+			char ch = sc.next().charAt(0);
+			System.out.print("Name: ");
+			sc.nextLine();
+			String name = sc.nextLine();
+			System.out.print("Price: ");
+			double price = sc.nextDouble();			
+			if(ch == 'i') {
+				System.out.print("Customs fee: ");
+				double customsFee = sc.nextDouble();
+				list.add(new ImportedProduct(name, price, customsFee));				
+			}else if(ch == 'u') {
+				System.out.print("Manufacture date (DD/MM/YYYY): ");
+				Date date = maskDate.parse(sc.next());
+				list.add(new UsedProduct(name, price, date));
+			}else {
+				list.add(new Product2(name, price));
+			}
+		}
+		
+		System.out.println();
+		System.out.println("PRICE TAGS:");
+		
+		for(Product2 product : list) {
+			System.out.println(product.priceTag());
+		}
+	
 		sc.close();	
 		
 	}
 	
-	// funções versão 1 de métodos estáticos
+	// funções versão 1 de métodos estáticos 
 //	public static double circumference(double radius) {
 //		return 2.0 * PI * radius;
 //	}
