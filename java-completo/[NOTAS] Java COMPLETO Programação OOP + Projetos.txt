@@ -1397,3 +1397,7 @@ Se a superclasse não pode ser instanciada, por que simplesmente não criar some
 
 Exemplo (linha 2130): totalizar o saldo de todas as contas e acrescentar 10.00 em todas as contas
 
+
+*Métodos abstratos
+
+São métodos que não possuem implementação. Métodos precisam ser abstratos quando a cl asse é genérica demais para conter sua implementação. Se uma classe possuir pelo menos um método abstrato, então esta classe também é abstrata. No UML, sua notação é em itálico.
