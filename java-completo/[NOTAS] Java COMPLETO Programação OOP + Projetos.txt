@@ -1312,6 +1312,12 @@ Downcasting: casting da superclasse para subclasse; Palavra instaceof; Uso comum
 
 A classe que estende não pode instanciar um objeto da classe que é estendida, mas a classe que é estendida pode instanciar um objeto da classe que a estende
 
+- isso pode:
+ClassePai classePai = new ClasseFilho()
+
+- isso pode só com casting:
+ClasseFilho classeFilho =  (ClassePai) classePai;
+
 *Sobreposição, palavra super, anotação @Override
 
 - Sobreposição ou sobrescrita
@@ -1401,3 +1407,159 @@ Exemplo (linha 2130): totalizar o saldo de todas as contas e acrescentar 10.00 e
 *Métodos abstratos
 
 São métodos que não possuem implementação. Métodos precisam ser abstratos quando a cl asse é genérica demais para conter sua implementação. Se uma classe possuir pelo menos um método abstrato, então esta classe também é abstrata. No UML, sua notação é em itálico.
+
+
+----------------------------------------------
+- Tratamento de exceções -
+
+*Discussão inicial sobre exceções
+
+Uma exceção é qualquer condição de erro ou comportamento inesperado enconrado por um programa em execução
+
+Em Java, uma exceção é um objeto herdado da classe:
+- java.lang.Exception - o compilador obriga a tratar ou propagar
+- java.lang.RuntimeException - o compilador não obriga a tratar ou propagar
+
+Quando lançada, uma exceção é propagada na pilha de chamadas de métodos em execução, até que seja capturada (tratada) ou o programa seja encerrado
+
+Hierarquia de exceções do Java - https://docs.oracle.com/javase/10/docs/api/java/lang/package-tree.html
+
+A classe Throwable é responsável pelas classes Error e Exception
+*Exceção também é classe
+"Errors" não são tratáveis, pois podem ser tratar de falta de memória do computador, erro na VM do Java e não são possíves de tratar no programa
+
+Já as Exceptions são possíveis de tratar através do programa e é até esperado que seja feito, exemplos:
+- IOException - erro de entrada e/ou saída
+- RuntimeException - são erros que não são obrigatórios a tratar
+Exemplos de RuntimeException:
+- IndexOutOfBoundsException - tenta acessar uma posição do array que não existe
+- NullPointerException - tenta acessar uma variável que vale nulo
+
+Por que exceções ?
+- O modelo de tratamento de exceções permite que erros sejam tratados de forma consistente e flexível, usando boas práticas
+- Vantagens: 
+	- Delega a lógica do erro para a classe responsável por conhecer as regras que podem ocasionar o erro
+	- Trata de forma organizada (inclusive hierárquica) exceções de tipos (classes) diferentes
+	- A exceção pode carregar dados quaisquer 
+
+
+*Estrutura try-catch
+
+- Bloco try: contpem o código que representa a execução normal do trecho de código que pode acarretar em um exceção
+- Bloco catch: contém o código a ser executado caso uma exceção ocorra; Deve ser especificado o tipo da exceção a ser tratada (upcasting é permitido)
+
+Sintaxe:
+
+	try{
+
+	}catch(ExceptionType e){
+
+	}catch(ExceptionType e){
+
+	}catch(ExceptionType e){
+
+	}
+
+
+Onde:
+- o bloco try{} tem o código que pode gerar uma ou mais exceções
+- 'ExceptionType' é o tipo da exceção que se quer capturar
+- 'e' é um apelido pra exceção
+- 'catch(){}' recebe alguma lógica a ser executada caso a exceção ocorra
+
+Exemplo: cria-se um vetor de 3 palavras, separadas por espaço; depois pede-de uma entrada ao usuário de um número e em seguida deverá ser impresso a palavra na posição corresponde a esse número
+
+	try {
+		String[] vect = sc.nextLine().split(" ");
+		int position = sc.nextInt();
+		System.out.println(vect[position]);
+	}
+	catch(ArrayIndexOutOfBoundsException e) {
+		System.out.println("Invalid position");
+	}
+	catch(InputMismatchException e) {
+		System.out.println("Input error");
+	}
+			
+	System.out.println("End of program");
+
+
+No bloco de try é adicionado esse trecho que código que pode vir a apresentar exceções como excesso do limite do vetor e tipo de input não correspondente e nos blocos catch a seguir são tratadas esas mesmas exceções, onde será exibida uma mensagem especifica caso ocorram
+Sem o tratamento das exceções, a linha "End of program" nem seria impressa pois o programa finalizaria antes em caso de exceção
+
+
+*Pilhas de chamadas de métodos (stack trace)
+
+O método printStackTrace() dentro do bloco catch() imprime o rastreamento do stack mostrando o tipo da exceção, a mensagem da exceção e a sequencia de chamadas que gerou a exceção, sem finalizar o programa
+
+
+	public class Program {
+	
+		public static void main(String[] args) throws ParseException {
+
+			method1();
+		
+			System.out.println("End of program");
+		
+		}
+		
+		public static void method1(){
+			System.out.println("***METHOD1 START***");
+			method2();
+			System.out.println("***METHOD1 END***");
+		}
+	
+		public static void method2(){
+			System.out.println("***METHOD2 START***");
+			Scanner sc = new Scanner(System.in);
+		
+			try {
+				String[] vect = sc.nextLine().split(" ");
+				int position = sc.nextInt();
+				System.out.println(vect[position]);
+			}
+			catch(ArrayIndexOutOfBoundsException e) {
+				System.out.println("Invalid position");
+				e.printStackTrace();
+			}
+			catch(InputMismatchException e) {
+				System.out.println("Input error");
+			}
+		
+			sc.close();	
+		
+			System.out.println("***METHOD2 END***");
+		}
+	}
+
+No console:
+
+***METHOD1 START***
+***METHOD2 START***
+Joao Maria Bob
+5
+Invalid position
+java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 3
+	at application.Program.method2(Program.java:2338)
+	at application.Program.method1(Program.java:2327)
+	at application.Program.main(Program.java:2313)
+***METHOD2 END***
+***METHOD1 END***
+End of program
+
+*Bloco finally
+
+É um bloco que contém código a ser executado independemente de ter corrido ou não uma execução.
+Exemplo clássico: fechar um arquivo, conexão de DB ou outro recurso específico ao final do processamento.
+
+Sintaxe:
+
+	try{
+
+	}
+	catch(ExceptionType e){
+
+	}
+	finally{
+
+	}

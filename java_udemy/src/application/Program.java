@@ -1,13 +1,9 @@
 package application;
+import java.io.File;
+import java.io.IOException;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
-
-import entities.Company;
-import entities.Individual;
-import entities.TaxPayer;
 
 public class Program {
 
@@ -21,7 +17,7 @@ public class Program {
 	public static void main(String[] args) throws ParseException {
 		
 		Locale.setDefault(Locale.US);
-		Scanner sc = new Scanner(System.in);
+		//Scanner sc = new Scanner(System.in);
 		
 		
 		// Resolvendo problemas sem orientação a objetos
@@ -2234,49 +2230,147 @@ public class Program {
 		 * 400000 * 14% = 56000.00
 		 */
 		
-		List<TaxPayer> list = new ArrayList<>();		
+//		List<TaxPayer> list = new ArrayList<>();		
+//		
+//		System.out.print("Enter the number of tax payers: ");
+//		int n = sc.nextInt();
+//		
+//		for(int i = 1; i <= n; i++) {
+//			System.out.println("Tax payer #" + i + " data:");
+//			System.out.print("Individual or company (i/c)? ");
+//			char ch = sc.next().charAt(0);
+//			System.out.print("Name: ");
+//			sc.nextLine();
+//			String name = sc.nextLine();
+//			System.out.print("Anual income: ");
+//			Double anualIncome = sc.nextDouble();
+//			if(ch == 'c') {				
+//				System.out.print("Number of employees: ");
+//				int numberOfEmployees = sc.nextInt();
+//				list.add(new Company(name, anualIncome, numberOfEmployees));
+//			}else {
+//				System.out.print("Health expenditures: ");
+//				Double healthExpenditures = sc.nextDouble();
+//				list.add(new Individual(name, anualIncome, healthExpenditures));
+//			}
+//		}
+//		
+//		System.out.println();		
+//		System.out.println("TAXES PAID:");
+//		
+//		double sum = 0.0;
+//		
+//		for(TaxPayer taxPayer : list) {
+//			System.out.println(taxPayer.getName() + ": $ " + String.format("%.2f", taxPayer.tax()));
+//			sum += taxPayer.tax();
+//		}
+//		
+//		System.out.printf("%nTOTAL TAXES: $ %.2f", sum);
 		
-		System.out.print("Enter the number of tax payers: ");
-		int n = sc.nextInt();
+		//Exceções - Try-catch
 		
-		for(int i = 1; i <= n; i++) {
-			System.out.println("Tax payer #" + i + " data:");
-			System.out.print("Individual or company (i/c)? ");
-			char ch = sc.next().charAt(0);
-			System.out.print("Name: ");
-			sc.nextLine();
-			String name = sc.nextLine();
-			System.out.print("Anual income: ");
-			Double anualIncome = sc.nextDouble();
-			if(ch == 'c') {				
-				System.out.print("Number of employees: ");
-				int numberOfEmployees = sc.nextInt();
-				list.add(new Company(name, anualIncome, numberOfEmployees));
-			}else {
-				System.out.print("Health expenditures: ");
-				Double healthExpenditures = sc.nextDouble();
-				list.add(new Individual(name, anualIncome, healthExpenditures));
+		/* - Bloco try: contem o código que representa a execução normal do trecho de código que 
+		 * pode acarretar em uma exceção
+		 * - Bloco catch: contém o código a ser executado caso uma exceção ocorra; Deve ser especificado o tipo da 
+		 * exceção a ser tratada (upcasting é permitido)
+		 * 
+		 * Onde:
+		 * - o bloco try{} tem o código que pode gerar uma ou mais exceções
+		 * - 'ExceptionType' é o tipo da exceção que se quer capturar
+		 * - 'e' é um apelido pra exceção
+		 * - 'catch(){}' recebe alguma lógica a ser executada caso a exceção ocorra
+		 */
+		
+		
+//		try {
+//			String[] vect = sc.nextLine().split(" ");
+//			int position = sc.nextInt();
+//			System.out.println(vect[position]);
+//		}
+//		catch(ArrayIndexOutOfBoundsException e) {
+//			System.out.println("Invalid position");
+//		}
+//		catch(InputMismatchException e) {
+//			System.out.println("Input error");
+//		}
+//			
+//		System.out.println("End of program");
+		
+		/* No bloco de try é adicionado esse trecho que código que pode vir a apresentar exceções como excesso do 
+		 * limite do vetor e tipo de input não correspondente e nos blocos catch a seguir são tratadas esas mesmas 
+		 * exceções, onde será exibida uma mensagem especifica caso ocorram
+		 * Sem o tratamento das exceções, a linha "End of program" nem seria impressa pois o programa 
+		 * finalizaria antes em caso de exceção
+		 */
+		
+		//Stack trace (pilha de chamadas de métodos)
+		
+//		method1();			
+//		System.out.println("End of program");
+		
+		
+		//Bloco finally
+		
+		/* É um bloco que contém código a ser executado independemente de ter corrido ou não uma execução com sucesso.
+		 * Exemplo clássico: fechar um arquivo, conexão de DB ou outro recurso específico ao final do processamento.
+		 * 
+		 * Para testar o try sem erro, criar arquivo in.txt com duas linhas de texto nas pasta temp
+		 */
+		
+		File file = new File("C:\\temp\\in.txt");
+		Scanner sc = null;
+		try {
+			sc = new Scanner(file);
+			while (sc.hasNextLine()) {
+				System.out.println(sc.nextLine());
 			}
+		} catch (IOException e) {
+			System.out.println("Error opening file: " + e.getMessage());
+		} finally {
+			if (sc != null) {
+				sc.close();
+			}
+			System.out.println("Finally block executed");
 		}
-		
-		System.out.println();		
-		System.out.println("TAXES PAID:");
-		
-		double sum = 0.0;
-		
-		for(TaxPayer taxPayer : list) {
-			System.out.println(taxPayer.getName() + ": $ " + String.format("%.2f", taxPayer.tax()));
-			sum += taxPayer.tax();
-		}
-		
-		System.out.printf("%nTOTAL TAXES: $ %.2f", sum);
 
 		
-		sc.close();	
+		//sc.close();	
 		
 	}
 	
-	// funções versão 1 de métodos estáticos 
+	// método p/stack trace
+	
+//	public static void method1(){
+//		System.out.println("***METHOD1 START***");
+//		method2();
+//		System.out.println("***METHOD1 END***");
+//	}
+//	
+//	public static void method2(){
+//		System.out.println("***METHOD2 START***");
+//		Scanner sc = new Scanner(System.in);
+//		
+//		try {
+//			String[] vect = sc.nextLine().split(" ");
+//			int position = sc.nextInt();
+//			System.out.println(vect[position]);
+//		}
+//		catch(ArrayIndexOutOfBoundsException e) {
+//			System.out.println("Invalid position");
+//			//imprime o rastreamento do stack mostrando o tipo da exceção, a mensagem da exceção e a sequencia de chamadas que gerou a exceção
+//			e.printStackTrace();
+//		}
+//		catch(InputMismatchException e) {
+//			System.out.println("Input error");
+//		}
+//		
+//		sc.close();	
+//		
+//		System.out.println("***METHOD2 END***");
+//	}
+	
+	
+	// métodos versão 1 de métodos estáticos 
 //	public static double circumference(double radius) {
 //		return 2.0 * PI * radius;
 //	}
