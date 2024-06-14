@@ -1,9 +1,11 @@
 package application;
-import java.io.File;
-import java.io.IOException;
 import java.text.ParseException;
 import java.util.Locale;
 import java.util.Scanner;
+
+import model.entities.NewAccount;
+import model.exceptions.DomainException;
+import model.exceptions.AccountException;
 
 public class Program {
 
@@ -15,9 +17,19 @@ public class Program {
 	//public final double PI = 3.14159; // 'final' para constantes, e o padrão de nomes para constante é letra maiúscula
 	
 	public static void main(String[] args) throws ParseException {
+	//public static void main(String[] args) throws ParseException {
+		
+		/* quando "throws ParseException" não é acrescentado ao método principal, estamos
+		 * informando ao programa que esse método não lança nenhuma exceção/erro. Mas se 
+		 * utilizarmos uma chamada dentro de Main que pode lançar uma exceção, como é o 
+		 * caso do .parse(), o compilador vai indicar erro para que essa exceção seja 
+		 * tratada ou propagada("jogada" para outro metodo resolver) no método que ela se encontra. Acrescentando esse termo, 
+		 * indicdos que essa exceção não precisa ser tratada pelo método que ela está 
+		 * inserida.
+		 */
 		
 		Locale.setDefault(Locale.US);
-		//Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		
 		
 		// Resolvendo problemas sem orientação a objetos
@@ -2317,25 +2329,228 @@ public class Program {
 		 * Para testar o try sem erro, criar arquivo in.txt com duas linhas de texto nas pasta temp
 		 */
 		
-		File file = new File("C:\\temp\\in.txt");
-		Scanner sc = null;
-		try {
-			sc = new Scanner(file);
-			while (sc.hasNextLine()) {
-				System.out.println(sc.nextLine());
-			}
-		} catch (IOException e) {
-			System.out.println("Error opening file: " + e.getMessage());
-		} finally {
-			if (sc != null) {
-				sc.close();
-			}
-			System.out.println("Finally block executed");
-		}
+//		File file = new File("C:\\temp\\in.txt");
+//		Scanner sc = null;
+//		try {
+//			sc = new Scanner(file);
+//			while (sc.hasNextLine()) {
+//				System.out.println(sc.nextLine());
+//			}
+//		} catch (IOException e) {
+//			System.out.println("Error opening file: " + e.getMessage());
+//		} finally {
+//			if (sc != null) {
+//				sc.close();
+//			}
+//			System.out.println("Finally block executed");
+//		}
+		
+		//Exceções personalizadas + Model package (https://github.com/acenelio/exceptions1-java)
+		
+		/* Fazer um programa para ler os dados de uma reserva de hotel (número do quarto, 
+		 * data de entrada e data de saída) e mostar os dados da reserva, inclusive sua
+		 * duração. Em seguida, ler novas datas de entrada e saída, atualizar a reserva,
+		 * e mostrar novamente a reserva com os dados atualizados. O programa não deve
+		 * aceitar dados inválidos para a reserva, conforme as seguintes regras:
+		 * - Alterações de reserva só podem ocorrer para datas futuras
+		 * - A data de saída deve ser maior que a data de entrada
+		 * 
+		 * Solução 1 (muito ruim): lógica de validação no programa principal
+		 * - Lógica de validação não delegada à reserva
+		 * 
+		 * Solução 2 (ruim): método retornando string
+		 * - A semântica da operação é prejudicada
+		 * 		- Retornar string não tem nada a ver com atualização de reserva
+		 * 		- E se a operação tivesse que retornar um string ?
+		 * - Ainda não é possível tratar exceções em construtores
+		 * - Ainda não há auxílio do compilador: o programador deve "lembrar" de verificar se houve erro
+		 * - A lógica fica estruturada em condicionais aninhadas
+		 * 
+		 * Solução 3 (boa): tratamento de exceções
+		 */
+		
+		//Solução 1
+		
+//		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+//		
+//		System.out.print("Room number: ");
+//		int number = sc.nextInt();
+//		System.out.print("Check-in date (dd/MM/yyyy): ");
+//		Date checkIn = sdf.parse(sc.next());
+//		System.out.print("Check-out date (dd/MM/yyyy): ");
+//		Date checkOut = sdf.parse(sc.next());
+//		
+//		if(!checkOut.after(checkIn)) {
+//			System.out.println("Error in reservation: Check-out date must be after check-in date");
+//		}
+//		else {
+//			Reservation reservation = new Reservation(number, checkIn, checkOut);
+//			System.out.println("Reservation: " + reservation);
+//			
+//			System.out.println();
+//			System.out.println("Enter data to update the reservation:");
+//			System.out.print("Check-in date (dd/MM/yyyy): ");
+//			checkIn = sdf.parse(sc.next());
+//			System.out.print("Check-out date (dd/MM/yyyy): ");
+//			checkOut = sdf.parse(sc.next());
+//			
+//			Date now = new Date();
+//
+//			//Date tem o método .after() que testa se uma data depois da outra
+//			if(checkIn.before(now) || checkOut.before(now)) {
+//				System.out.println("Error in reservation: Reservation dates for update must be future dates");
+//			}
+//			else if(!checkOut.after(checkIn)) {
+//				System.out.println("Error in reservation: Check-out date must be after check-in date");
+//			}
+//			else {
+//				reservation.updateDates(checkIn, checkOut);
+//				System.out.println("Reservation: " + reservation);
+//			}
+//			
+//		}
+		
+		
+		//Solução 2 
+		
+//		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+//		
+//		System.out.print("Room number: ");
+//		int number = sc.nextInt();
+//		System.out.print("Check-in date (dd/MM/yyyy): ");
+//		Date checkIn = sdf.parse(sc.next());
+//		System.out.print("Check-out date (dd/MM/yyyy): ");
+//		Date checkOut = sdf.parse(sc.next());
+//		
+//		if(!checkOut.after(checkIn)) {
+//			System.out.println("Error in reservation: Check-out date must be after check-in date");
+//		}
+//		else {
+//			Reservation reservation = new Reservation(number, checkIn, checkOut);
+//			System.out.println("Reservation: " + reservation);
+//			
+//			System.out.println();
+//			System.out.println("Enter data to update the reservation:");
+//			System.out.print("Check-in date (dd/MM/yyyy): ");
+//			checkIn = sdf.parse(sc.next());
+//			System.out.print("Check-out date (dd/MM/yyyy): ");
+//			checkOut = sdf.parse(sc.next());			
+//			
+//			String error = reservation.updateDates(checkIn, checkOut);			
+//			if(error != null) {
+//				System.out.println("Error in reservation: " + error);
+//			}
+//			else {
+//				System.out.println("Reservation: " + reservation);		
+//			}
+//		}
+		
+		//Solução 3
+		
+//		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+//		
+//		
+//		try {
+//			System.out.print("Room number: ");
+//			int number = sc.nextInt();
+//			System.out.print("Check-in date (dd/MM/yyyy): ");
+//			Date checkIn = sdf.parse(sc.next());
+//			System.out.print("Check-out date (dd/MM/yyyy): ");
+//			Date checkOut = sdf.parse(sc.next());
+//			
+//			Reservation reservation = new Reservation(number, checkIn, checkOut);
+//			System.out.println("Reservation: " + reservation);
+//	
+//			System.out.println();
+//			System.out.println("Enter data to update the reservation:");
+//			System.out.print("Check-in date (dd/MM/yyyy): ");
+//			checkIn = sdf.parse(sc.next());
+//			System.out.print("Check-out date (dd/MM/yyyy): ");
+//			checkOut = sdf.parse(sc.next());
+//	
+//			reservation.updateDates(checkIn, checkOut);
+//			System.out.println("Reservation: " + reservation);
+//		}
+//		//trata exceção de formato de data inválido
+//		catch(ParseException e) {
+//			System.out.println("Invalid date format");
+//		}
+//		//trata a exceção com uma mensagem personalizada
+//		catch(DomainException e) {
+//			System.out.println("Error in reservation: " + e.getMessage());
+//		}
+//		//trata exceção genérica - qualquer outra exceção não mapeada
+//		catch(RuntimeException e) {
+//			System.out.println("Unexpected error");
+//		}
+		
+		
+		//Exercício de fixação - (https://github.com/acenelio/exceptions2-java)
+		
+		/* fazer um porgrama para ler os dados de uma conta bancária e depois realizar um
+		 * saque nesta conta bancária, mostrando o novo saldo. Um saque não pode ocorrer
+		 * ou se não houver saldo na conta, ou se o valor do saque for superior ao limite
+		 * de saque da conta. Implemente a conta bancária conforme projeto.
+		 */
+		
+//		try {
+//			System.out.println("Enter account data");
+//			System.out.print("Number: ");
+//			int number = sc.nextInt();
+//			System.out.print("Holder: ");
+//			sc.next();
+//			String holder = sc.nextLine();
+//			System.out.print("Initial balance: ");
+//			double initialBalance = sc.nextDouble();
+//			System.out.print("Withdraw limit: ");
+//			double withdrawLimit = sc.nextDouble();
+//			
+//			NewAccount acc = new NewAccount(number, holder, initialBalance, withdrawLimit);	
+//			
+//			System.out.println();
+//			System.out.print("Enter amount for withdraw: ");
+//			double withdraw = sc.nextDouble();				
+//			acc.withdraw(withdraw);			
+//			System.out.println("New balance: " + String.format("%.2f", acc.getBalance()));
+//			
+//		}
+//		catch(AccountException e) {
+//			System.out.println("Withdraw error: " + e.getMessage());
+//		}
+//		catch(RuntimeException e) {
+//			System.out.println("Unexpected error");
+//		}
+		
+		
+		System.out.println("Enter account data");
+		System.out.print("Number: ");
+		int number = sc.nextInt();
+		System.out.print("Holder: ");
+		sc.next();
+		String holder = sc.nextLine();
+		System.out.print("Initial balance: ");
+		double initialBalance = sc.nextDouble();
+		System.out.print("Withdraw limit: ");
+		double withdrawLimit = sc.nextDouble();
 
+		NewAccount acc = new NewAccount(number, holder, initialBalance, withdrawLimit);
+
+		System.out.println();
+		System.out.print("Enter amount for withdraw: ");
+		double withdraw = sc.nextDouble();
+			
+		try {
+			acc.withdraw(withdraw);			
+			System.out.println("New balance: " + String.format("%.2f%n", acc.getBalance()));
+			
+		}
+		catch(AccountException e) {
+			System.out.println("Withdraw error: " + e.getMessage());
+		}
 		
-		//sc.close();	
 		
+		sc.close();	
+				
 	}
 	
 	// método p/stack trace
