@@ -9,7 +9,7 @@ public class Board {
 	private Piece[][] pieces;
 	
 	//a class não retornará a matriz inteira e sim uma peça por vez, por isso não há get e set para ela
-	public Board(int row, int column) {
+	public Board(int rows, int columns) {
 		this.rows = rows;
 		this.columns = columns;
 		pieces = new Piece[rows][columns];
@@ -39,5 +39,10 @@ public class Board {
 	//sobrecarga - retorna a peça pela posição
 	public Piece piece(Position position) {
 		return pieces[position.getRow()][position.getColumn()];
+	}
+	//atribui a peça na posição informada, não estando mais nula
+	public void placePiece(Piece piece, Position position) {
+		pieces[position.getRow()][position.getColumn()] = piece;
+		piece.position = position;
 	}
 }
