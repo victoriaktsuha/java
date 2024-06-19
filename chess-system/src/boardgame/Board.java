@@ -8,6 +8,7 @@ public class Board {
 	//matriz de peças
 	private Piece[][] pieces;
 	
+	//a class não retornará a matriz inteira e sim uma peça por vez, por isso não há get e set para ela
 	public Board(int row, int column) {
 		this.rows = rows;
 		this.columns = columns;
@@ -30,6 +31,13 @@ public class Board {
 		this.columns = columns;
 	}	
 	
-	//a class não retornará a matriz inteira e sim uma peça por vez, por isso não há get e set para ela
 	
+	public Piece piece(int row, int column) {
+		return pieces[row][column];
+	}
+	
+	//sobrecarga - retorna a peça pela posição
+	public Piece piece(Position position) {
+		return pieces[position.getRow()][position.getColumn()];
+	}
 }
