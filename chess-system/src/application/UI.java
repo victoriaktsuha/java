@@ -47,7 +47,6 @@ public class UI {
 		}
 	}
 	
-
 	public static void printBoard(ChessPiece[][] pieces) {
 		// imprime o tabuleiro
 		for (int i = 0; i < pieces.length; i++) {
