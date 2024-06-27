@@ -9,15 +9,27 @@ import chess.pieces.Rook;
 //nessa classe que terão as regras do jogo
 public class ChessMatch {
 	
+	private int turn;
+	private Color currentPlayer;
 	private Board board;
 	
 	public ChessMatch() {
 		//nessa classe que é declarada a dimensão do tabuleiro
 		board = new Board(8, 8);
+		turn = 1;
+		currentPlayer = Color.WHITE;
 		//inicia a partida
 		initialSetup();
 	}
-	
+		
+	public int getTurn() {
+		return turn;
+	}
+
+	public Color getCurrentPlayer() {
+		return currentPlayer;
+	}
+
 	//retorna matriz de peças correspondente a partida
 	//ChessPiece é a 'camada' de Piece que pode ser 'vista' - só a camada 'chess' deve ser vista pelo programa
 	public ChessPiece[][] getPieces(){
@@ -43,6 +55,7 @@ public class ChessMatch {
 		validateSourcePosition(source);
 		validateTargetPosition(source, target);
 		Piece capturedPiece = makeMove(source, target);
+		nextTurn();
 		return (ChessPiece)capturedPiece;
 	}
 	
@@ -57,6 +70,9 @@ public class ChessMatch {
 		if(!board.thereIsAPiece(position)){
 			throw new ChessException("There is no piece on source position");
 		}
+		if(currentPlayer != ((ChessPiece)board.piece(position)).getColor()) {
+			throw new ChessException("The chosen piece is not yours");
+		}
 		if(!board.piece(position).isThereAnyPossibleMove()) {
 			throw new ChessException("There is no possible moves for the chosen piece");
 		}
@@ -66,6 +82,11 @@ public class ChessMatch {
 		if(!board.piece(source).possibleMoves(target)){
 			throw new ChessException("The chosen piece can't move to target position");
 		}
+	}
+	
+	private void nextTurn() {
+		turn++;
+		currentPlayer = (currentPlayer == Color.WHITE) ? Color.BLACK : Color.WHITE;
 	}
 	
 	private void placeNewPiece(char column, int row, ChessPiece piece) {
