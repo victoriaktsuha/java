@@ -1,10 +1,8 @@
 package application;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
 
 public class FilesAndScanner {
 
@@ -79,21 +77,46 @@ public class FilesAndScanner {
 		 * fechados ao final do bloco - Disponível no Java 7 em diante
 		 */
 		
-		String path = "c:\\tmp\\in.txt";
+//		String path = "c:\\tmp\\in.txt";
+//		
+//		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+//
+//			String line = br.readLine();
+//			
+//			while (line != null){
+//				System.out.println(line);
+//				line = br.readLine();
+//			}
+//		}
+//		catch(IOException e) {
+//			System.out.println("Error: " + e.getMessage());
+//		}
 		
-		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-
-			String line = br.readLine();
-			
-			while (line != null){
-				System.out.println(line);
-				line = br.readLine();
+		//218. FileWriter e BufferedWriter (classes)
+		
+		/* File Writer (stream de escrita de caracteres de arquivos)
+		 * - Cria/recria o arquivo: new FileWriter(path)
+		 * - Acrescenta ao arquivo existente: new FileWriter(path, true)
+		 * 
+		 * BufferedWriter (mais rápido)
+		 * 
+		 */
+		
+		String[] lines = new String[] {"Good Morning", "Good Evening", "Good Night"};
+		//vetor com conteudo que será inseridos no arquivo
+		
+		String path = "c:\\tmp\\out.txt"; //arquivo que será criado e caminho
+		
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
+			//parametro 'true' acrescenta o conteudo no arquivo sem recriá-lo
+			for(String line : lines) {
+				bw.write(line);
+				bw.newLine();//quebra de linha
 			}
 		}
 		catch(IOException e) {
-			System.out.println("Error: " + e.getMessage());
+			e.printStackTrace();
 		}
-		
 
 	}
 	
