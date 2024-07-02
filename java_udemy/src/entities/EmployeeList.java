@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.List;
+
 public class EmployeeList {
 	private Integer id;
 	private String name;
@@ -32,6 +34,10 @@ public class EmployeeList {
 	
 	public void increaseSalary(double percentage) {
 		salary += salary * percentage / 100.;
+	}
+	
+	public void position(List<EmployeeList> list, int idSalary) {
+		
 	}
 
 	public String toString() {

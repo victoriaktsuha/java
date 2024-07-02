@@ -16,7 +16,7 @@ import model.exceptions.DomainException;
 public class Exceptions {
 
 	
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) throws ParseException, DomainException {
 	//public static void main(String[] args) throws ParseException {
 		
 		/* quando "throws ParseException" não é acrescentado ao método principal, estamos
@@ -221,7 +221,7 @@ public class Exceptions {
 			System.out.print("Check-out date (dd/MM/yyyy): ");
 			checkOut3 = sdf3.parse(sc.next());
 	
-			reservation.updateDates(checkIn3, checkOut3);
+			reservation.updateDatesException(checkIn3, checkOut3);
 			System.out.println("Reservation: " + reservation);
 		}
 		//trata exceção de formato de data inválido

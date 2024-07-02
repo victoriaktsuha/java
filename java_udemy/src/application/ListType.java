@@ -164,6 +164,16 @@ public class ListType {
 			System.out.println(emp);
 		}
 		
-
+		sc.close();
 	}
+	
+	public static Integer position(List<EmployeeList> list, int id) {
+		for(int i = 0; i < list.size(); i++) {
+			if(list.get(i).getId() == id) {
+				return i;
+			}
+		}
+		return null;
+	}
+
 }

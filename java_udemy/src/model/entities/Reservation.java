@@ -182,9 +182,27 @@ public class Reservation {
 		return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
 	}
 	
+	public String updateDates(Date checkIn, Date checkOut) {
+		
+		Date now = new Date();
+		if(checkIn.before(now) || checkOut.before(now)) {
+			return "Error in reservation: Reservation dates for update must be future dates";
+		}
+		if(!checkOut.after(checkIn)) {
+			return "Error in reservation: Check-out date must be after check-in date";
+		}
+		
+		
+		this.checkIn = checkIn;
+		this.checkOut = checkOut;
+		
+		return null;
+
+	}
+	
 	//como DomainException é uma classe que estende Exception, então é necessário ou propagar a exceção ou tratá-la
 	//nesse caso, ela será propagada aqui e tratada no try-catch do programa
-	public void updateDates(Date checkIn, Date checkOut) throws DomainException {
+	public void updateDatesException(Date checkIn, Date checkOut) throws DomainException {
 		
 		Date now = new Date();
 		if(checkIn.before(now) || checkOut.before(now)) {
@@ -197,6 +215,8 @@ public class Reservation {
 		
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
+		
+
 
 	}
 	
