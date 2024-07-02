@@ -1,12 +1,21 @@
 package application;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
-import java.time.format.DateTimeFormatter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+import entities.Product;
 
 public class FilesAndScanner {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException{
 		
 		//215. Lendo arquivos de etxtos com as classes File e Scanner
 		
@@ -151,34 +160,141 @@ public class FilesAndScanner {
 		
 		//220. Informações do caminho do arquivo
 		
+//		Scanner sc = new Scanner(System.in);
+//		
+//		System.out.println("Enter a file path: "); // c:\tmp\nome_arquivo.ext
+//		String strPath = sc.nextLine();
+//		
+//		File path = new File(strPath);
+//		
+//		//recuperar nome do arquivo
+//		System.out.println("getName: " + path.getName());
+//		
+//		//recuperar caminho do arquivo (sem o nome)
+//		System.out.println("getParent: " + path.getParent());
+//		
+//		//recuperar caminho do arquivo + o nome do arquivo
+//		System.out.println("getPath: " + path.getPath());
+//		
+//		//recuperar caminho do arquivo + o nome do arquivo
+//		System.out.println("getAbsolutePath: " + path.getAbsolutePath());
+//			
+//		System.out.println("getTotalSpace: " + path.getTotalSpace());
+//		
+//		System.out.println("lastModified: " + path.lastModified());		
+//		
+//		sc.close();
+		
+		
+		//221. Exercicio (https://github.com/acenelio/files1-java)
+		
+		/* Fazer um programa para ler o caminho de um arquivo .csv contendo os dados de itens vendidos.
+		 * Cada item possui um nome, preço unitario e quantidade, separados por vírgula.
+		 * Você deve gerar um novo aquivo chamado "summary.csv", localizado em uma subpasta chamada "out"
+		 * a partir da pasta original do arquivo de origem, contendo apenas o nome e o valor total para
+		 * aquele item (preço unitário multiplicado pela quantidade).
+		 * 
+		 */
+		
+		//minha solução (criei um .csv do zero)
+		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Enter a file path: "); // c:\tmp\nome_arquivo.ext
-		String strPath = sc.nextLine();
+		System.out.print("Enter how many product will be registered: ");
+		int n = sc.nextInt();
 		
-		File path = new File(strPath);
+		Product[] products = new Product[n];
+				
+		for(int i = 0; i < products.length; i++) {
+			sc.nextLine();
+			String productName = sc.nextLine();
+			double productPrice = sc.nextDouble();
+			int productAmount = sc.nextInt();			
+			products[i] = new Product(productName, productPrice, productAmount);
+		}						
 		
-		//recuperar nome do arquivo
-		System.out.println("getName: " + path.getName());
+		String[] productsFile = new String[products.length];
 		
-		//recuperar caminho do arquivo (sem o nome)
-		System.out.println("getParent: " + path.getParent());
-		
-		//recuperar caminho do arquivo + o nome do arquivo
-		System.out.println("getPath: " + path.getPath());
-		
-		//recuperar caminho do arquivo + o nome do arquivo
-		System.out.println("getAbsolutePath: " + path.getAbsolutePath());
-		
-	
-		System.out.println("getTotalSpace: " + path.getTotalSpace());
-		
-
-		System.out.println("lastModified: " + path.lastModified());
+		for(int i = 0; i < products.length; i++) {
+			productsFile[i] = products[i].getName() + ", " +String.format("%.2f",products[i].totalValueInStock());
+		}
 		
 		
+		File path = new File("c:\\tmp");
+		
+		boolean sub = new File(path + "\\out").mkdir();
+		System.out.println("Directory created successfully: " + sub);
+		
+		if(sub == true) {
+			String pathFile = "c:\\tmp\\out\\summary.csv"; //arquivo que será criado e caminho
+			
+			try (BufferedWriter bw = new BufferedWriter(new FileWriter(pathFile))) {
+				//parametro 'true' acrescenta o conteudo no arquivo sem recriá-lo
+				for(String productFile : productsFile) {
+					bw.write(productFile);
+					bw.newLine();//quebra de linha
+				}
+			}
+			catch(IOException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		System.out.println("File created successfully");
 		
 		sc.close();
+		
+		
+		//solução do instrutor (lê um arquivo csv)
+		
+//		Scanner sc = new Scanner(System.in);
+//
+//		List<Product> list = new ArrayList<>();
+//
+//		System.out.println("Enter file path: ");
+//		String sourceFileStr = sc.nextLine();
+//
+//		File sourceFile = new File(sourceFileStr);
+//		String sourceFolderStr = sourceFile.getParent();
+//		
+//		boolean success = new File(sourceFolderStr + "\\out").mkdir();
+//		
+//		String targetFileStr = sourceFolderStr + "\\out\\summary.csv";
+//
+//		try (BufferedReader br = new BufferedReader(new FileReader(sourceFileStr))) {
+//
+//			String itemCsv = br.readLine();
+//			while (itemCsv != null) {
+//
+//				String[] fields = itemCsv.split(",");
+//				String name = fields[0];
+//				double price = Double.parseDouble(fields[1]);
+//				int quantity = Integer.parseInt(fields[2]);
+//
+//				list.add(new Product(name, price, quantity));
+//
+//				itemCsv = br.readLine();
+//			}
+//
+//			try (BufferedWriter bw = new BufferedWriter(new FileWriter(targetFileStr))) {
+//
+//				for (Product item : list) {
+//					bw.write(item.getName() + "," + String.format("%.2f", item.total()));
+//					bw.newLine();
+//				}
+//
+//				System.out.println(targetFileStr + " CREATED!");
+//				
+//			} catch (IOException e) {
+//				System.out.println("Error writing file: " + e.getMessage());
+//			}
+//
+//		} catch (IOException e) {
+//			System.out.println("Error reading file: " + e.getMessage());
+//		}
+//
+//		sc.close();
+		
 
 	}
 	
