@@ -1,6 +1,7 @@
 package application;
 
 import java.io.File;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class FilesAndScanner {
@@ -119,31 +120,63 @@ public class FilesAndScanner {
 		
 		//219. Manipulando pastas com File
 		
+//		Scanner sc = new Scanner(System.in);
+//		
+//		System.out.println("Enter a folder path: ");
+//		String strPath = sc.nextLine();
+//		
+//		File path = new File(strPath);
+//		
+//		//vetor contendo endereço das pastas dentro do caminho indicado
+//		File[] folders = path.listFiles(File::isDirectory);
+//		System.out.println("FOLDERS:");
+//		for(File folder : folders) {
+//			System.out.println(folder);
+//		}
+//		
+//		
+//		//vetor contendo endereço dos arquivos dentro do caminho indicado
+//		File[] files = path.listFiles(File::isFile);
+//		System.out.println("FILES:");
+//		for(File file : files) {
+//			System.out.println(file);
+//		}
+//		
+//		//criando subpasta
+//		boolean success = new File(strPath + "\\subdir").mkdir();
+//		System.out.println("Directory created successfully: " + success);
+//		
+//		sc.close();
+		
+		
+		//220. Informações do caminho do arquivo
+		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Enter a folder path: ");
+		System.out.println("Enter a file path: "); // c:\tmp\nome_arquivo.ext
 		String strPath = sc.nextLine();
 		
 		File path = new File(strPath);
 		
-		//vetor contendo endereço das pastas dentro do caminho indicado
-		File[] folders = path.listFiles(File::isDirectory);
-		System.out.println("FOLDERS:");
-		for(File folder : folders) {
-			System.out.println(folder);
-		}
+		//recuperar nome do arquivo
+		System.out.println("getName: " + path.getName());
+		
+		//recuperar caminho do arquivo (sem o nome)
+		System.out.println("getParent: " + path.getParent());
+		
+		//recuperar caminho do arquivo + o nome do arquivo
+		System.out.println("getPath: " + path.getPath());
+		
+		//recuperar caminho do arquivo + o nome do arquivo
+		System.out.println("getAbsolutePath: " + path.getAbsolutePath());
+		
+	
+		System.out.println("getTotalSpace: " + path.getTotalSpace());
+		
+
+		System.out.println("lastModified: " + path.lastModified());
 		
 		
-		//vetor contendo endereço dos arquivos dentro do caminho indicado
-		File[] files = path.listFiles(File::isFile);
-		System.out.println("FILES:");
-		for(File file : files) {
-			System.out.println(file);
-		}
-		
-		//criando subpasta
-		boolean success = new File(strPath + "\\subdir").mkdir();
-		System.out.println("Directory created successfully: " + success);
 		
 		sc.close();
 
