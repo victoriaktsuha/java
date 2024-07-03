@@ -22,7 +22,7 @@ public class Interfaces {
 		 * 
 		 */
 
-		// Problema exemplo
+		// Problema exemplo (https://github.com/acenelio/interfaces1-java)
 
 		/*
 		 * Uma locadorea brasileira de carros cobra um valor por hora para locações de
