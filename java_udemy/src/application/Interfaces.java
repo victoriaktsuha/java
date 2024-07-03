@@ -70,7 +70,34 @@ public class Interfaces {
 		System.out.println("Pagamento total: " +String.format("%.2f",  cr.getInvoice().totalPayment()));
 		
 		sc.close();
-
+		
+		
+		//229. Inversão de controle e injeção de dependência
+		
+		/* O problema solucionado sem a interface tem:
+		 * - acoplamento forte
+		 * - A classe rentalService conhece a dependência concreta
+		 * - Se a classe concreta mudar, é preciso mudar a classe RentalService
+		 * 
+		 * Já o problema solucionado com a interface tem:
+		 * - Acoplamento fraco
+		 * - A classe RentalService não conhece a dependência concreta
+		 * - Se a classe concreta mudar, a classe RentalService não muda nada
+		 */
+		
+		//injeção de dependência por meio de construtor - qualquer classe que implemente a TaxService poderia ser utilizada
+		//RentalService rentalService = new RentalService(pricePerHour, pricePerDay, new BrazilTaxService());
+		
+		
+		//Se a propria classe, no caso aqui, de serviço, ficar responsável por instanciar suas próprias dependencias, gera um forte acoplamento e maior manutenção
+		
+		/* Inversão de controle: padrão de desenvolvimento que consiste em retirar da classe a responsabilidade
+		 * de instanciar suas dependências
+		 * 
+		 * Injeção de dependência: é uma forma de realizar a inversão de controle: um componente externo instancia a dependência, que é então injetada no objeto "pai".
+		 * pode ser implementada de várias formas: construtor, classe de instanciação (builder/factory), container / framework
+		 * 
+		 */
 	}
 
 }
