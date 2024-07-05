@@ -1,14 +1,10 @@
 package application;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
 
-import entities.EmployeeInterfaces;
+import services.InterestService;
+import services.UsaInterestService;
 
 public class Interfaces {
 
@@ -278,26 +274,75 @@ public class Interfaces {
 		 * Depois, ordenar a lista por nome e mostrar o resultado na tela.
 		 */
 		
-		List<EmployeeInterfaces> list = new ArrayList<>();
-		String path = "C:\\tmp\\in.txt";
-		
-		try (BufferedReader br = new BufferedReader(new FileReader(path))){
-			String employeeCsv = br.readLine();
-			while (employeeCsv != null) {
-				String[] fields = employeeCsv.split(",");
- 				list.add(new EmployeeInterfaces(fields[0], Double.parseDouble(fields[1])));
- 				employeeCsv = br.readLine();
-			}
-			//aqui entre a implementação da classe comparable
-			Collections.sort(list);
-			for(EmployeeInterfaces emp : list) {
-				System.out.println(emp.getName() + ", " + emp.getSalary());
-			}
-		}
-		catch(IOException e) {
-			System.out.println("Error: " + e.getMessage());
-		}
+//		List<EmployeeInterfaces> list = new ArrayList<>();
+//		String path = "C:\\tmp\\in.txt";
+//		
+//		try (BufferedReader br = new BufferedReader(new FileReader(path))){
+//			String employeeCsv = br.readLine();
+//			while (employeeCsv != null) {
+//				String[] fields = employeeCsv.split(",");
+// 				list.add(new EmployeeInterfaces(fields[0], Double.parseDouble(fields[1])));
+// 				employeeCsv = br.readLine();
+//			}
+//			//aqui entre a implementação da classe comparable
+//			Collections.sort(list);
+//			for(EmployeeInterfaces emp : list) {
+//				System.out.println(emp.getName() + ", " + emp.getSalary());
+//			}
+//		}
+//		catch(IOException e) {
+//			System.out.println("Error: " + e.getMessage());
+//		}
 			
+		
+		//236. Default methods (defender methods)
+		
+		/* A partir do Java 8, interfaces podem conter métodos concretos.
+		 * A intenção básica é prover implementação padrão para métodos,
+		 * de modo a evitar:
+		 * - repetição de implementação em toda classe que implemente a interface
+		 * - a necessidade de se criar classes abstraras para prover
+		 * reuso de implementação
+		 * 
+		 * Outras vantagens:
+		 * - Manter a retrocompatibilidade com sistemas existentes
+		 * - Permitir que "interfaces funcionais" (que devem conter 
+		 * apenas um método) possam prover outras operações padrão
+		 * reutilizáveis
+		 * 
+		 */
+		
+		/* Fazer um programa para ler uma quantia e a duração em meses
+		 * de um empréstimo. Informar o valor a ser pago depois de
+		 * decorrido o prazo do empréstimo, conforme regras de juras do Brasil.
+		 * A regra de cálculo de juros do Brasil é juro composto padrão
+		 * de 2% ao mês.
+		 * (https://github.com/acenelio/interfaces5-java)
+		 */
+		
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Amount: ");
+		double amount = sc.nextDouble();
+		System.out.print("Months: ");
+		int months = sc.nextInt();
+		
+		//payment é um método default da interface, eliminando a necessidade de implementar o método na classe que implementa a interface
+		InterestService is = new UsaInterestService(1.0);
+		double payment = is.payment(amount, months);
+		
+		System.out.println("Payment after " + months + " months:");
+		System.out.println(String.format("%.2f", payment));
+		
+		/* Sim: agora as interfaces podem prover reuso
+		 * Sim: agora temos uma forma de herança múltipla, mas o compilador reclama se
+		 * houver mais de um método com a mesma assinatura, obrigando a sobrescreve-lo
+		 * Interfaces ainda são bem diferentes de classes abstratas.
+		 * Interfaces não possuam recursos tais como construtores e atributos.
+		 * 
+		 */
+		
 	}
 
 }
