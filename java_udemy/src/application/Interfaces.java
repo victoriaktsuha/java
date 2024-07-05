@@ -1,9 +1,10 @@
 package application;
 
-import model.entities.AbstractShape;
-import model.entities.Circle;
-import model.entities.Rectangle;
-import model.enums.Color;
+import devices.ComboDevice;
+import devices.ConcretePrinter;
+import devices.ConcreteScanner;
+import devices.Printer;
+import devices.Scanner;
 
 public class Interfaces {
 
@@ -183,13 +184,59 @@ public class Interfaces {
 		
 		//com interface + abstract
 		
-		AbstractShape s1 = new Circle(Color.BLACK, 2.0);
-		AbstractShape s2 = new Rectangle(Color.WHITE, 3.0, 4.0);
+//		AbstractShape s1 = new Circle(Color.BLACK, 2.0);
+//		AbstractShape s2 = new Rectangle(Color.WHITE, 3.0, 4.0);
+//		
+//		System.out.println("Circle color: " + s1.getColor());
+//		System.out.println("Circle area: " + String.format("%.3f", s1.area()));
+//		System.out.println("Rectangle color: " + s2.getColor());
+//		System.out.println("Rectangle area: " + String.format("%.3f", s2.area()));
 		
-		System.out.println("Circle color: " + s1.getColor());
-		System.out.println("Circle area: " + String.format("%.3f", s1.area()));
-		System.out.println("Rectangle color: " + s2.getColor());
-		System.out.println("Rectangle area: " + String.format("%.3f", s2.area()));
+		
+		//234. Herança múltipla e o problema do diamante (https://github.com/acenelio/interfaces3-java)
+		
+		/* A herança múltipla pode gerar o problema do diamante:
+		 * uma ambiguidade causada pela existência do mesmo método
+		 * em mais de uma superclasse.
+		 * Herança múltipla não é permitida na maioria das linguagens
+		 * 
+		 * Mas uma classe pode implementar mais de uma interface.
+		 */
+		
+		//sem resolução para problema do diamante 
+		
+//		Printer p = new Printer("1080");
+//		p.processDoc("My Letter");
+//		p.print("My Letter");
+//		
+//		Scanner s = new Scanner("2003");
+//		s.processDoc("My Email");
+//		System.out.println("Scan result: " + s.scan());
+		
+		
+		//com resolução para problema do diamante
+		
+		ConcretePrinter p = new ConcretePrinter("1080");
+		p.processDoc("My Letter");
+		p.print("My Letter");
+		
+		System.out.println();
+		ConcreteScanner s = new ConcreteScanner("2003");
+		s.processDoc("My Email");
+		System.out.println("Scan result: " + s.scan());
+		
+		System.out.println();
+		ComboDevice c = new ComboDevice("2081");
+		c.processDoc("My dissertation");
+		c.print("My dissertation");
+		System.out.println("Scan result: " + c.scan());
+		
+		/* Isso não é herança múltipla, pois não há reuso na relação
+		 * entre ComboDevice e as interfaces Scanner e Printer.
+		 * ComboDevice não herda, mas sim implementa as interface
+		 * (cumpre o contrato).
+		 * 
+		 */
 		
 	}
 
