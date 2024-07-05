@@ -1,19 +1,9 @@
 package application;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
-import java.util.Scanner;
-
-import entities.Contract;
-import entities.Installment;
-import model.entities.CarRental;
-import model.entities.Vehicle;
-import model.services.BrazilTaxService;
-import model.services.RentalService;
-import services.ContractService;
-import services.PaypalService;
+import model.entities.AbstractShape;
+import model.entities.Circle;
+import model.entities.Rectangle;
+import model.enums.Color;
 
 public class Interfaces {
 
@@ -130,34 +120,77 @@ public class Interfaces {
 		 * 
 		 */
 
-		Locale.setDefault(Locale.US);
-		Scanner sc = new Scanner(System.in);
+//		Locale.setDefault(Locale.US);
+//		Scanner sc = new Scanner(System.in);
+//
+//		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//
+//		System.out.println("Entre com os dados do contrato:");
+//		System.out.print("Numero: ");
+//		int number = sc.nextInt();
+//		System.out.print("Data (dd/MM/yyyy): ");
+//		LocalDate date = LocalDate.parse(sc.next(), fmt);
+//		System.out.print("Valor do contrato: ");
+//		double totalValue = sc.nextDouble();
+//		
+//		Contract ct = new Contract(number, date, totalValue);
+//		
+//		System.out.print("Entre com o numero de parcelas: ");
+//		int installments = sc.nextInt();
+//
+//		ContractService service = new ContractService(new PaypalService());
+//
+//		service.processContract(ct, installments);
+//
+//		System.out.println("Parcelas:");
+//		for(Installment installment : ct.getInstallments()) {
+//			System.out.println(installment);
+//		}
+//
+//		sc.close();
 
-		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-		System.out.println("Entre com os dados do contrato:");
-		System.out.print("Numero: ");
-		int number = sc.nextInt();
-		System.out.print("Data (dd/MM/yyyy): ");
-		LocalDate date = LocalDate.parse(sc.next(), fmt);
-		System.out.print("Valor do contrato: ");
-		double totalValue = sc.nextDouble();
 		
-		Contract ct = new Contract(number, date, totalValue);
+		//233. Herdar vs. cumprir contrato (https://github.com/acenelio/interfaces2-java)
 		
-		System.out.print("Entre com o numero de parcelas: ");
-		int installments = sc.nextInt();
-
-		ContractService service = new ContractService(new PaypalService());
-
-		service.processContract(ct, installments);
-
-		System.out.println("Parcelas:");
-		for(Installment installment : ct.getInstallments()) {
-			System.out.println(installment);
-		}
-
-		sc.close();
+		/* Aspectos em comum entre herança e interface:
+		 * - Relação é-um
+		 * - Generalização/especialização
+		 * - Polimorfismo
+		 * 
+		 * Diferença fundamental:
+		 * - herança => reuso
+		 * - interface => contrato a ser cumprido
+		 * 
+		 * E se quiser implementar a superclasse como interface, porém também quiser 
+		 * definir uma estrutura comum reutilizável para todas subclasses ?
+		 * - interface com classe abstrata: interface irá definir o contrato do método X,
+		 * então criar uma classe abstrata definindo o atributo, e depois as classes concretas
+		 * que implementarão o método do contrato => interface para definir o contrato e 
+		 * abstrata para reuso; No exemplo, nem toda classe concreta Retângulo e Círculo
+		 * tem uma classe abstrata Cor, mas toda classe concreta tem uma interface Forma, que
+		 * por sua vez, define um contrato de método Area
+		 */
+		
+		//Sem interface + abstract
+		
+//		Shape s1 = new Circle(Color.BLACK, 2.0);
+//		Shape s2 = new Rectangle(Color.WHITE, 3.0, 4.0);
+//		
+//		System.out.println("Circle color: " + s1.getColor());
+//		System.out.println("Circle area: " + String.format("%.3f", s1.area()));
+//		System.out.println("Rectangle color: " + s2.getColor());
+//		System.out.println("Rectangle area: " + String.format("%.3f", s2.area()));
+		
+		//com interface + abstract
+		
+		AbstractShape s1 = new Circle(Color.BLACK, 2.0);
+		AbstractShape s2 = new Rectangle(Color.WHITE, 3.0, 4.0);
+		
+		System.out.println("Circle color: " + s1.getColor());
+		System.out.println("Circle area: " + String.format("%.3f", s1.area()));
+		System.out.println("Rectangle color: " + s2.getColor());
+		System.out.println("Rectangle area: " + String.format("%.3f", s2.area()));
+		
 	}
 
 }
