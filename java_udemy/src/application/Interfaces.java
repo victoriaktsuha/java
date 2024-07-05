@@ -1,10 +1,14 @@
 package application;
 
-import devices.ComboDevice;
-import devices.ConcretePrinter;
-import devices.ConcreteScanner;
-import devices.Printer;
-import devices.Scanner;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
+import entities.EmployeeInterfaces;
 
 public class Interfaces {
 
@@ -216,20 +220,20 @@ public class Interfaces {
 		
 		//com resolução para problema do diamante
 		
-		ConcretePrinter p = new ConcretePrinter("1080");
-		p.processDoc("My Letter");
-		p.print("My Letter");
-		
-		System.out.println();
-		ConcreteScanner s = new ConcreteScanner("2003");
-		s.processDoc("My Email");
-		System.out.println("Scan result: " + s.scan());
-		
-		System.out.println();
-		ComboDevice c = new ComboDevice("2081");
-		c.processDoc("My dissertation");
-		c.print("My dissertation");
-		System.out.println("Scan result: " + c.scan());
+//		ConcretePrinter p = new ConcretePrinter("1080");
+//		p.processDoc("My Letter");
+//		p.print("My Letter");
+//		
+//		System.out.println();
+//		ConcreteScanner s = new ConcreteScanner("2003");
+//		s.processDoc("My Email");
+//		System.out.println("Scan result: " + s.scan());
+//		
+//		System.out.println();
+//		ComboDevice c = new ComboDevice("2081");
+//		c.processDoc("My dissertation");
+//		c.print("My dissertation");
+//		System.out.println("Scan result: " + c.scan());
 		
 		/* Isso não é herança múltipla, pois não há reuso na relação
 		 * entre ComboDevice e as interfaces Scanner e Printer.
@@ -238,6 +242,62 @@ public class Interfaces {
 		 * 
 		 */
 		
+		//235. Interface comparable
+		
+		/* Implementação:
+		 * public interface Comparable<T>{
+		 * 		int compareTo(T o);
+		 * }
+		 * 
+		 * Faça um programa para ler um arquivo contendo nomes de 
+		 * pessoas (um nome por linha), armazenando-os em uma lista.
+		 * Depois, ordenar os dados dessa lista e mostrá-los
+		 * ordenadamente na tela. O path pode ser harcoded
+		 */
+		
+//		List<String> list = new ArrayList<>();
+//		String path = "C:\\tmp\\in.txt";
+//		
+//		try (BufferedReader br = new BufferedReader(new FileReader(path))){
+//			String name = br.readLine();
+//			while (name != null) {
+//				list.add(name);
+//				name = br.readLine();
+//			}
+//			Collections.sort(list);
+//			for(String s : list) {
+//				System.out.println(s);
+//			}
+//		}
+//		catch(IOException e) {
+//			System.out.println("Error: " + e.getMessage());
+//		}
+		
+		/* Faça um programa para ler um arquivo contendo funcionários
+		 * (nome e salário) no formato .csv, armazenando-os em uma lista.
+		 * Depois, ordenar a lista por nome e mostrar o resultado na tela.
+		 */
+		
+		List<EmployeeInterfaces> list = new ArrayList<>();
+		String path = "C:\\tmp\\in.txt";
+		
+		try (BufferedReader br = new BufferedReader(new FileReader(path))){
+			String employeeCsv = br.readLine();
+			while (employeeCsv != null) {
+				String[] fields = employeeCsv.split(",");
+ 				list.add(new EmployeeInterfaces(fields[0], Double.parseDouble(fields[1])));
+ 				employeeCsv = br.readLine();
+			}
+			//aqui entre a implementação da classe comparable
+			Collections.sort(list);
+			for(EmployeeInterfaces emp : list) {
+				System.out.println(emp.getName() + ", " + emp.getSalary());
+			}
+		}
+		catch(IOException e) {
+			System.out.println("Error: " + e.getMessage());
+		}
+			
 	}
 
 }
