@@ -1,14 +1,12 @@
 package application;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import entities.ProductGenerics;
-import services.CalculationService;
+import entities.CircleGenerics;
+import entities.RectangleGenerics;
+import entities.ShapeGenerics;
 
 public class Generics {
 
@@ -137,8 +135,7 @@ public class Generics {
 //			System.out.println("Error: " + e.getMessage());
 //		}
 
-		// 241. Tipos curinga (wildcard types)
-
+		// 241. Tipos curinga (wildcard types) 
 		/*
 		 * Generics são invariantes
 		 * 
@@ -175,28 +172,133 @@ public class Generics {
 		 * Com tipos curinga podemos fazer métodos que recebem um genérico de "qualquer tipo":
 		 */
 
-		List<Integer> myInts = Arrays.asList(5, 2, 10);
-		printList(myInts);
-
-		List<String> myStrs = Arrays.asList("Maria", "Bob");
-		printList(myStrs);
+//		List<Integer> myInts = Arrays.asList(5, 2, 10);
+//		printList(myInts);
+//
+//		List<String> myStrs = Arrays.asList("Maria", "Bob");
+//		printList(myStrs);
 
 		/*
 		 * Porém não é possível adicionar dados a uma coleção de tipo curinga:
 		 */
 		
-		List<?> list = new ArrayList<Integer>();
-		list.add(3); // erro de compilação
+//		List<?> list = new ArrayList<Integer>();
+//		list.add(3); // erro de compilação
 		
 		//O compilador não sabe qual é o tipo específico do qual a lista foi instanciada.
+		
+		
+		
+		//242. Curingas delimitados (bounded wildcards) (https://github.com/acenelio/generics4-java)
+		
+		/* Vamos fazer um  método para retornar a soma das áreas de uma lista de figuras
+		 * 
+		 */
+		
+		//Problema 1 - soluções impróprias
+		
+//		List<ShapeGenerics> myShapes = new ArrayList<>();
+//		myShapes.add(new RectangleGenerics(3.0, 2.0));
+//		myShapes.add(new CircleGenerics(2.0));
+//		
+//		List<CircleGenerics> myCircles = new ArrayList<>();
+//		myCircles.add(new CircleGenerics(2.0));
+//		myCircles.add(new CircleGenerics(3.0));
+//		
+//		System.out.println("Total area: " + totalArea(myCircles));
+		
+		
+		/* Princípio get/put - covariância
+		 * get - OK
+		 * put (add) - ERROR			
+		 */
+		
+//		List<Integer> intList = new ArrayList<Integer>();
+//		intList.add(10);
+//		intList.add(5);
+//		
+//		//tipo Number ou qualquer subtipo (subclass - Integer, Double, Float, etc) de Number
+//		List<? extends Number> list = intList;
+//		
+//		Number x = list.get(0);
+//		
+//		list.add(20); // erro de compilacao - o compilador não permite pois não sabe qual tipo especifico será adicionado, já que 'Number' é um tipo mais generico, e pode ter qualquer subtipo como int, double, float, etc
+		
+		
+		/* Princípio get/put - contravariância
+		 * get - ERROR
+		 * put (add) - OK			
+		 */
+		
+//		List<Object> myObjs = new ArrayList<Object>();
+//		myObjs.add("Maria");
+//		myObjs.add("Alex");
+//		
+//		//tipo Number ou qualquer supertipo (superclass - Object(Char, Number, Boolean)) de Number
+//		List<? super Number> myNums = myObjs;
+//		
+//		myNums.add(10);
+//		myNums.add(3.14);
+//		
+//		Number y = myNums.get(0); // erro de compilacao - não é possivel acessar um elemento da lista e tentar atribui-lo a uma variável do tipo Number, pq o tipo da lista pode ser um tipo que seja um supertipo de Number. Adicionar em um variavel do tipo Object seria mais aceito, pois Object é a superclass de Number e último nível
+		
+		
+		//Problema 2 - princípio get/put
+		
+		/* Vamos fazer um método que copia os elementos de uma lista para uma outra lista que pode ser 
+		 * mais genérica que a primeira. 
+		 */
+		
+		List<Integer> myInts = Arrays.asList(1, 2, 3, 4);
+		List<Double> myDoubles = Arrays.asList(3.14, 6.28);
+		List<Object> myObjs = new ArrayList<Object>();
+		//copia de myInts/myDoubles para myObjs
+		copy(myInts, myObjs);
+		printList(myObjs);
+		copy(myDoubles, myObjs);
+		printList(myObjs);
 	}
 
 	/* END MAIN() */
 
 	// método para aula 241. Tipos curinga - imprime uma lista de qualquer tipo
-	public static void printList(List<?> list) {
-		for (Object obj : list) {
-			System.out.println(obj);
+//	public static void printList(List<?> list) {
+//		for (Object obj : list) {
+//			System.out.println(obj);
+//		}
+//	}
+	
+	// método para aula 242. Curingas delimitados - problema 1
+	//outdated - essa solução de método só funciona para uma lista<ShapeGenerics>; Caso a lista seja de um subtipo (que extende) de ShapeGeneics, não funciona
+//	public static double totalArea(List<ShapeGenerics> list) {
+//		double sum = 0.0;
+//		for(ShapeGenerics s : list) {
+//			sum += s.area();
+//		}
+//		return sum;
+//	}
+	
+	// método para aula 242. Curingas delimitados - problema 1
+	//refatorado - essa solução de método funciona caso a lista seja de tipo ShapeGenerics ou de um subtipo (que extende) de ShapeGeneics, mas ainda não é possivel adicionar elementos na lista
+//		public static double totalArea(List<? extends ShapeGenerics> list) {
+//			double sum = 0.0;
+//			for(ShapeGenerics s : list) {
+//				sum += s.area();
+//			}
+//			return sum;
+//		}
+	
+	// método para aula 242. Curingas delimitados - problema 2
+	public static void copy(List<? extends Number> source, List<? super Number> target){
+		for(Number n : source) {
+			target.add(n);
 		}
+	}
+	
+	public static void printList(List<?> list) {
+		for(Object obj : list) {
+			System.out.print(obj + " ");
+		}
+		System.out.println();
 	}
 }
