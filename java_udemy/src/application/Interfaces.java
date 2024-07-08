@@ -339,8 +339,7 @@ public class Interfaces {
 		 * Sim: agora temos uma forma de herança múltipla, mas o compilador reclama se
 		 * houver mais de um método com a mesma assinatura, obrigando a sobrescreve-lo
 		 * Interfaces ainda são bem diferentes de classes abstratas.
-		 * Interfaces não possuam recursos tais como construtores e atributos.
-		 * 
+		 * Interfaces não possuam recursos tais como construtores e atributos. 
 		 */
 		
 	}
