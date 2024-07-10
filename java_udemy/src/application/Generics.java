@@ -1,6 +1,8 @@
 package application;
 
-import entities.ClientGenerics;
+import java.util.Arrays;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Generics {
 
@@ -276,44 +278,115 @@ public class Generics {
 //		System.out.println(a.equals(b));
 
 		/*
-		 * HashCode 
+		 * HashCode
 		 * 
-		 * Método que retorna um número inteiro representando um código gerado a partir das informações do objeto
-		 * Colisão: Pode acontecer de gerar o mesmo hashCode para obj diferentes, mas nunca hasCode diferente 
-		 * para o mesmo obj
+		 * Método que retorna um número inteiro representando um código gerado a partir
+		 * das informações do objeto Colisão: Pode acontecer de gerar o mesmo hashCode
+		 * para obj diferentes, mas nunca hasCode diferente para o mesmo obj
 		 * 
-		 * Regra de ouro:
-		 * - Se o hashCode de dois objetos for diferente, então os dois objetos são diferentes
-		 * - Se o código de dois objetos for igual, muito provavelmente os objetos são iguais (pode haver colisão)
+		 * Regra de ouro: - Se o hashCode de dois objetos for diferente, então os dois
+		 * objetos são diferentes - Se o código de dois objetos for igual, muito
+		 * provavelmente os objetos são iguais (pode haver colisão)
 		 */
-		
+
 //		String c = "Maria";
 //		String d = "Alex";
 //		
 //		System.out.println(a.hashCode());
 //		System.out.println(b.hashCode());
+
+//		ClientGenerics c1 = new ClientGenerics("Maria", "maria@gmail.com");
+//		ClientGenerics c2 = new ClientGenerics("Alex", "alex@gmail.com");
+//		ClientGenerics c3 = new ClientGenerics("Maria", "alex@gmail.com");
+//		ClientGenerics c4 = new ClientGenerics("Maria", "maria@gmail.com");
+//		
+//		String s1 = "Test";
+//		String s2 = "Test";
+//		
+//		System.out.println(c1.hashCode());
+//		System.out.println(c4.hashCode());
+//		System.out.println(c2.hashCode());
+//		System.out.println(c3.hashCode());
+//		System.out.println(c1.equals(c4)); //true - compara o conteúdo
+//		
+//		System.out.println(c1 == c4); //false pois a referencia de memoria são 2 objetos diferentes
+//		 
+//		System.out.println(s1 == s2); /* true - pois apesar de ser objetos diferentes, 
+//		a expressão literal/string é tratada de outra forma. 
+//		Diferente de String s1 = new String("Test"), onde é forçada a criação 
+//		de um novo objeto*/
+
 		
-		ClientGenerics c1 = new ClientGenerics("Maria", "maria@gmail.com");
-		ClientGenerics c2 = new ClientGenerics("Alex", "alex@gmail.com");
-		ClientGenerics c3 = new ClientGenerics("Maria", "alex@gmail.com");
-		ClientGenerics c4 = new ClientGenerics("Maria", "maria@gmail.com");
 		
-		String s1 = "Test";
-		String s2 = "Test";
+		// 244. Set
+
+		/* Set<T>
+		 * É uma interface
+		 * Representa um conjunto de elementos (similar ao da Álgebra) 
+		 * • Não admite repetições 
+		 * • Elementos não possuem posição 
+		 * • Acesso, inserção e remoção de elementos são rápidos 
+		 * • Oferece operações eficientes de conjunto: interseção, união, diferença. 
+		 * 
+		 * Principais implementações: 
+		 * • HashSet - mais rápido(operações O(1) em tabela hash) e não ordenado 
+		 * • TreeSet - mais lento (operações O(log(n)) em árvore rubro-negra) e ordenado pelo compareTo do
+		 * objeto (ou Comparator) 
+		 * • LinkedHashSet - velocidade intermediária e elementos na ordem em que são adicionados
+		 * 
+		 * Alguns métodos importantes
+		 * • add(obj), remove(obj), contains(obj)
+		 * 		• Baseado em equals e hashCode
+		 * 		• Se equals e hashCode não existir, é usada comparação de ponteiros
+		 * • clear()
+		 * • size()
+		 * • removeIf(predicate)
+		 * • addAll(other) - união: adiciona no conjunto os elementos do outro conjunto, sem repetição
+		 * • retainAll(other) - interseção: remove do conjunto os elementos não contitos em other
+		 * • removeAll(other) - diferença: remove do conjunto os elementos contidos em other
+		 */
 		
-		System.out.println(c1.hashCode());
-		System.out.println(c4.hashCode());
-		System.out.println(c2.hashCode());
-		System.out.println(c3.hashCode());
-		System.out.println(c1.equals(c4)); //true - compara o conteúdo
+		//Demo 1
 		
-		System.out.println(c1 == c4); //false pois a referencia de memoria são 2 objetos diferentes
-		 
-		System.out.println(s1 == s2); /* true - pois apesar de ser objetos diferentes, 
-		a expressão literal/string é tratada de outra forma. 
-		Diferente de String s1 = new String("Test"), onde é forçada a criação 
-		de um novo objeto*/
-	
+		//Set<String> set = new HashSet<>(); //sem ordenação
+		//Set<String> set = new TreeSet<>(); //com ordenação - letras maiusculas pesa mais que a letra
+//		Set<String> set = new LinkedHashSet<>(); //mantém a ordem original dos elementos
+//		
+//		set.add("TV");
+//		set.add("Tablet");
+//		set.add("Notebook");
+//		
+//		//System.out.println(set.contains("Notebook")); //boolean, verifica se contém o item no set
+//		//set.remove("Tablet"); //remove
+//		/*set.removeIf(x -> x.length() >= 3);*/ /* remove com condição - remove todo elemntos x 
+//		tal que/desde que o tamanho de x seja maior igual a 3 */
+//		set.removeIf(x -> x.charAt(0) == 'T'); //remove todos que comecem com T
+//		
+//		
+//		for (String p : set) {
+//			System.out.println(p);
+//		}
+		
+		//Demo 2
+		
+		Set<Integer> a = new TreeSet<>(Arrays.asList(0,2,4,5,6,8,10));
+		Set<Integer> b = new TreeSet<>(Arrays.asList(5,6,7,8,9,10));
+		
+		//union
+		Set<Integer> c = new TreeSet<>(a);
+		c.addAll(b); //une todos os elementos de b, sem duplicar
+		System.out.println(c);
+		
+		//intersection
+		Set<Integer> d = new TreeSet<>(a);
+		d.retainAll(b); //registra apenas elementos em comum com b
+		System.out.println(d);
+		
+		//difference
+		Set<Integer> e = new TreeSet<>(a);
+		e.removeAll(b); //registra apenas elementos que não estão em b
+		System.out.println(e);
+
 	}
 
 	/* END MAIN() */
