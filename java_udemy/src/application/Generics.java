@@ -1,8 +1,10 @@
 package application;
 
-import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeSet;
+
+import entities.ProductSetGenerics;
+import entities.ProductTreeSetGenerics;
 
 public class Generics {
 
@@ -369,24 +371,63 @@ public class Generics {
 		
 		//Demo 2
 		
-		Set<Integer> a = new TreeSet<>(Arrays.asList(0,2,4,5,6,8,10));
-		Set<Integer> b = new TreeSet<>(Arrays.asList(5,6,7,8,9,10));
+//		Set<Integer> a = new TreeSet<>(Arrays.asList(0,2,4,5,6,8,10));
+//		Set<Integer> b = new TreeSet<>(Arrays.asList(5,6,7,8,9,10));
+//		
+//		//union
+//		Set<Integer> c = new TreeSet<>(a);
+//		c.addAll(b); //une todos os elementos de b, sem duplicar
+//		System.out.println(c);
+//		
+//		//intersection
+//		Set<Integer> d = new TreeSet<>(a);
+//		d.retainAll(b); //registra apenas elementos em comum com b
+//		System.out.println(d);
+//		
+//		//difference
+//		Set<Integer> e = new TreeSet<>(a);
+//		e.removeAll(b); //registra apenas elementos que não estão em b
+//		System.out.println(e);
 		
-		//union
-		Set<Integer> c = new TreeSet<>(a);
-		c.addAll(b); //une todos os elementos de b, sem duplicar
-		System.out.println(c);
 		
-		//intersection
-		Set<Integer> d = new TreeSet<>(a);
-		d.retainAll(b); //registra apenas elementos em comum com b
-		System.out.println(d);
+		//245.Como Set testa igualdade
 		
-		//difference
-		Set<Integer> e = new TreeSet<>(a);
-		e.removeAll(b); //registra apenas elementos que não estão em b
-		System.out.println(e);
-
+		/* Como as coleções Hash testam igualdade?
+		 * • Se hashCode e equals estiverem implementados:
+		 * • Primeiro hashCode. Se der igual, usa equals para confirmar.
+		 * • Lembre-se: String, Integer, Double, etc. já possuem equals e hashCode
+		 * • Se hashCode e equals NÃO estiverem implementados:
+		 * • Compara as referências (ponteiros) dos objetos.
+		 * 
+		 */
+		
+		
+//		Set<ProductSetGenerics> set = new HashSet<>();
+//		
+//		set.add(new ProductSetGenerics("TV", 900.0));
+//		set.add(new ProductSetGenerics("Notebook", 1200.0));
+//		set.add(new ProductSetGenerics("Tablet", 400.0));
+//		
+//		ProductSetGenerics prod = new ProductSetGenerics("Notebook", 1200.0);
+//		
+//		System.out.println(set.contains(prod)); 
+		/* 1º false - pois não contém a implementação do hashCode equals para comparar 
+		 * o conteúdo, então utiliza ponteiros para comparar um objeto ao outro 
+		 * 2º true - após a criação do hashCode() e equals() na classe ProductSetGenerics
+		 */
+		
+		
+		//246. Como TreeSet compara os elementos
+		
+		Set<ProductTreeSetGenerics> set = new TreeSet<>();
+		
+		set.add(new ProductTreeSetGenerics("TV", 900.0));
+		set.add(new ProductTreeSetGenerics("Notebook", 1200.0));
+		set.add(new ProductTreeSetGenerics("Tablet", 400.0));
+		
+		for (ProductTreeSetGenerics p : set) {
+			System.out.println(p);
+		}
 	}
 
 	/* END MAIN() */
