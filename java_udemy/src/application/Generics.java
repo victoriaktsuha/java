@@ -1,15 +1,9 @@
 package application;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.time.Instant;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
-import entities.LogEntry;
+import entities.ProductMapGenerics;
 
 public class Generics {
 
@@ -444,32 +438,114 @@ public class Generics {
 		 * um arquivo, e daí informe quantos usuários distintos acessaram o site.
 		 */
 		
-		Scanner sc = new Scanner(System.in);
+//		Scanner sc = new Scanner(System.in);
+//		
+//		System.out.print("Enter file full path: ");
+//		String path = sc.nextLine();
+//		
+//		try (BufferedReader br = new BufferedReader(new FileReader(path))){
+//			
+//			Set<LogEntry> set = new HashSet<>();
+//			
+//			String line = br.readLine();
+//			while (line != null) {
+//				
+//				String[] fields = line.split(" ");
+//				String username = fields[0];
+//				Date moment = Date.from(Instant.parse(fields[1]));
+//				
+//				set.add(new LogEntry(username, moment));
+//				
+//				line = br.readLine();
+//			}
+//			System.out.println("Total users: " + set.size());
+//		}
+//		catch(IOException e) {
+//			System.out.println("Error: " + e.getMessage());
+//		}
+//		sc.close();
 		
-		System.out.print("Enter file full path: ");
-		String path = sc.nextLine();
 		
-		try (BufferedReader br = new BufferedReader(new FileReader(path))){
-			
-			Set<LogEntry> set = new HashSet<>();
-			
-			String line = br.readLine();
-			while (line != null) {
-				
-				String[] fields = line.split(" ");
-				String username = fields[0];
-				Date moment = Date.from(Instant.parse(fields[1]));
-				
-				set.add(new LogEntry(username, moment));
-				
-				line = br.readLine();
-			}
-			System.out.println("Total users: " + set.size());
-		}
-		catch(IOException e) {
-			System.out.println("Error: " + e.getMessage());
-		}
-		sc.close();
+		//248. Exercício de fixação (Set) (https://github.com/acenelio/set2-java)
+		
+		/*
+		 * Em um portal de cursos online, cada usuário possui um código único,
+		 * representado por um número inteiro. Cada instrutor do portal pode ter vários
+		 * cursos, sendo que um mesmo aluno pode se matricular em quantos cursos quiser.
+		 * Assim, o número total de alunos de um instrutor não é simplesmente a soma dos
+		 * alunos de todos os cursos que ele possui, pois pode haver alunos repetidos em
+		 * mais de um curso. O instrutor Alex possui três cursos A, B e C, e deseja
+		 * saber seu número total de alunos. Seu programa deve ler os alunos dos cursos
+		 * A, B e C do instrutor Alex, depois mostrar a quantidade total e alunos dele,
+		 * conforme exemplo.
+		 * 
+		 */
+		
+		
+		//249.Map
+		
+		/* Map <K,V>
+		 * 
+		 * É uma coleção de pares chave/valor
+		 * - não admite repetições do objeto chave
+		 * - os elementos são indexados pelo objeto chave (não possuem posição)
+		 * - acesso, inserção e remoção de elementos são rápidos
+		 * 
+		 * uso comum: cookies, local storage, qualquer modelo chave-valor
+		 * 
+		 * principais implementações:
+		 * - hashmap: mais rápido e não ordenado
+		 * - treemap: mais lento e ordenado pelo compareTo do objeto
+		 * - linkedhashmap: velocidade intermediária e elementos na ordem em que são adicionados
+		 *  
+		 *  métodos importantes:
+		 *  - put(key, value), remove(key), containsKey(key), get(key)
+		 *  - baseado em equals e hashCode
+		 *  - se equals e hashcode não existir, é usada comparação de ponteiros
+		 *  - clear()
+		 *  - size()
+		 *  - keySet() - retorna um Set<K>
+		 *  - values() - retorna um Collection<V>
+		 */
+		
+		//Demo 1
+		
+//		Map<String, String> cookies = new TreeMap<>();
+//		
+//		cookies.put("username", "Maria");
+//		cookies.put("email", "maria@gmail.com");
+//		cookies.put("phone", "998236531");
+//		
+//		cookies.remove("email");
+//		cookies.put("phone", "89643121"); //será sobreescrito
+//		
+//		System.out.println("Contains 'phone' key: " + cookies.containsKey("phone"));
+//		System.out.println("Phone number: " + cookies.get("phone"));
+//		System.out.println("Email: " + cookies.get("email"));
+//		System.out.println("Size: " + cookies.size());
+//		
+//		System.out.println("ALL COOKIES:");
+//		for(String key : cookies.keySet()) {
+//			System.out.println(key + ": " + cookies.get(key));
+//		}
+		
+		//Demo 2
+		
+		Map<ProductMapGenerics, Double> stock = new HashMap<>();
+		
+		ProductMapGenerics p1 = new ProductMapGenerics("Tv", 900.0);
+		ProductMapGenerics p2 = new ProductMapGenerics("Notebook", 1200.0);
+		ProductMapGenerics p3 = new ProductMapGenerics("Tablet", 400.0);
+		
+		stock.put(p1, 10000.0);
+		stock.put(p2, 20000.0);
+		stock.put(p3, 15000.0);
+		
+		ProductMapGenerics ps = new ProductMapGenerics("Tv", 900.0);
+		
+		System.out.println("Contains 'ps' key: " + stock.containsKey(ps)); 
+		//false se a classe não tiver hashCode e equals; do contrário, true
+		
 	}
 
 	/* END MAIN() */
