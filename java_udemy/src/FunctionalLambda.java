@@ -141,15 +141,27 @@ public class FunctionalLambda {
 		 * Programação Imperativa x Programação Funcional (quadro comparativo no PDF)
 		 */
 		
-		int[] vect = new int[] {3, 4, 5};
-		changeOddValues(vect);
-		System.out.println(Arrays.toString(vect));
+//		int[] vect = new int[] {3, 4, 5};
+//		changeOddValues(vect);
+//		System.out.println(Arrays.toString(vect));
 		
 		//Passar uma função como argumento de outra função - onde a função seria objeto de primeira classe
 		
 		//Cálculo lambda = formalismo matemático base da programação funcional
 		//Expressão lambda = função anônima de primeira classe
-	
+		
+		
+		//255. Interface funcional
+		
+		/* É uma interface que possui um único método abstrato.
+		 * Suas implementações serão tratadas como expressões lambda
+		 * 
+		 * Algumas interfaces mais comuns:
+		 * - Predicate
+		 * - Function
+		 * - Consumer - ao contrário das demais interfaces funcionais, no caso do Consumer, é
+		 * esperado que ele possa gerar efeitos colaterais
+		 */
 	}
 	
 	
