@@ -1,11 +1,15 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
 import entities.ProductFunctionalLambda;
 
 public class FunctionalLambda {
-
+		
+	public static int globalValue = 3; //254. Programação funcional e cálculo lambda
+	
+	/*START MAIN*/
 	public static void main(String[] args) {
 
 		// 253. Uma experiência com Comparator
@@ -107,20 +111,58 @@ public class FunctionalLambda {
 //			System.out.println(p);
 //		}
 
-		//Comparator com expressão lambda direto como argumento
+		// Comparator com expressão lambda direto como argumento
 
-		List<ProductFunctionalLambda> list = new ArrayList<>();
+//		List<ProductFunctionalLambda> list = new ArrayList<>();
+//
+//		list.add(new ProductFunctionalLambda("TV", 900.00));
+//		list.add(new ProductFunctionalLambda("Notebook", 1200.00));
+//		list.add(new ProductFunctionalLambda("Tablet", 450.00));
+//
+//		list.sort((p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase()));
+//
+//		for (ProductFunctionalLambda p : list) {
+//			System.out.println(p);
+//		}
 
-		list.add(new ProductFunctionalLambda("TV", 900.00));
-		list.add(new ProductFunctionalLambda("Notebook", 1200.00));
-		list.add(new ProductFunctionalLambda("Tablet", 450.00));
+		// 254. Programação funcional e cálculo lambda
 
-		list.sort((p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase()));
-
-		for (ProductFunctionalLambda p : list) {
-			System.out.println(p);
+		/* Paradigmas de programação:
+		 * • Imperativo (C, Pascal, Fortran, Cobol) 
+		 * • Orientado a objetos (C++, Object, Pascal, Java (< 8), C# (< 3)) 
+		 * • Funcional (Haskell, Closure, Clean, Erlang) 
+		 * • Lógico (Prolog) 
+		 * • Multiparadigma (JavaScript, Java (8+), C# (3+), Ruby, Python, Go)
+		 * 
+		 */
+		
+		/* Paradigma funcional de programação
+		 * Baseado no formalismo matemático Cálculo Lambda (Church 1930)
+		 * Programação Imperativa x Programação Funcional (quadro comparativo no PDF)
+		 */
+		
+		int[] vect = new int[] {3, 4, 5};
+		changeOddValues(vect);
+		System.out.println(Arrays.toString(vect));
+		
+		//Passar uma função como argumento de outra função - onde a função seria objeto de primeira classe
+		
+		//Cálculo lambda = formalismo matemático base da programação funcional
+		//Expressão lambda = função anônima de primeira classe
+	
+	}
+	
+	
+	/*END MAIN*/
+	
+	//função para aula 254. Programação funcional e cálculo lambda
+	//essa função não tem TRANSPARÊNCIA REFERENCIAL pois ela está dependendo de um valor externo
+	public static void changeOddValues(int[] numbers) {
+		for(int i = 0; i < numbers.length; i++) {
+			if(numbers[i] % 2 != 0) {
+				numbers[i] += globalValue;
+			}
 		}
-
 	}
 
 }
