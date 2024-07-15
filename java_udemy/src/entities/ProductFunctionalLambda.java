@@ -27,6 +27,16 @@ public class ProductFunctionalLambda{
 		this.price = price;
 	}
 	
+	//para aula 258. Function - reference method com método estático
+	public static String staticUpperCaseName(ProductFunctionalLambda p) {
+		return p.getName().toUpperCase();
+	}
+	
+	//para aula 258. Function - reference method com método não estático
+	public String nonStaticUpperCaseName() {
+		return name.toUpperCase();
+	}
+	
 	//para aula 257. Consumer - reference method com método estático
 	public static void staticPriceUpdate(ProductFunctionalLambda p) {
 		p.setPrice(p.getPrice() * 1.1);

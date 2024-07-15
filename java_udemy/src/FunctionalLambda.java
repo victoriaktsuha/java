@@ -1,8 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import entities.ProductFunctionalLambda;
+import util.UpperCaseName;
 
 public class FunctionalLambda {
 		
@@ -236,6 +239,55 @@ public class FunctionalLambda {
 		 * 
 		 */
 		
+//		List<ProductFunctionalLambda> list = new ArrayList<>();
+//
+//		list.add(new ProductFunctionalLambda("TV", 900.00));
+//		list.add(new ProductFunctionalLambda("Mouse", 50.00));
+//		list.add(new ProductFunctionalLambda("Tablet", 350.50));
+//		list.add(new ProductFunctionalLambda("HD Case", 80.90));
+//		
+//		//implementação da interface
+//		
+//		//forEach de List recebe um consumer como argumento
+//		list.forEach(new PriceUpdate());
+//		
+//		//reference method com método estático
+//		list.forEach(ProductFunctionalLambda::staticPriceUpdate);
+//		
+//		//reference method com método não estático
+//		list.forEach(ProductFunctionalLambda::nonStaticPriceUpdate);
+//		
+//		//expressão lambda declarada		
+//		double factor = 1.1;
+//		
+//		Consumer<ProductFunctionalLambda> cons = p -> p.setPrice(p.getPrice() * factor);
+//		
+//		list.forEach(cons);
+//		
+//		
+//		//expressão lambda inline		
+//		double factor = 1.1;
+//		
+//		list.forEach(p -> p.setPrice(p.getPrice() * factor));
+//		
+//		
+//		//reference method para println
+//		list.forEach(System.out::println);
+		
+		
+		
+		//list. (https://github.com/acenelio/lambda4-java)
+		
+		/* interface funcional com 2 parametros <T, R>,
+		 * com apenas um método que recebe um objeto do tipo T e retorna um objeto do tipo R
+		 */
+		
+
+		/* Fazer um programa que a partir de uma lista de produtos, 
+		 * gere uma nova ista contendo os nomes dos produtos em
+		 * caixa alta
+		 */
+		
 		List<ProductFunctionalLambda> list = new ArrayList<>();
 
 		list.add(new ProductFunctionalLambda("TV", 900.00));
@@ -243,37 +295,39 @@ public class FunctionalLambda {
 		list.add(new ProductFunctionalLambda("Tablet", 350.50));
 		list.add(new ProductFunctionalLambda("HD Case", 80.90));
 		
+		/* Nota sobre a função map
+		 * A função "map" (não confunda com a estrutura de dados Map) é uma 
+		 * função que aplica uma função a todos elementos de uma stream.
+		 * Conversões:
+		 * • List para stream: .stream()
+		 * • Stream para List: .collect(Collectors.toList())
+		 */
+		
 		//implementação da interface
 		
-		//forEach de List recebe um consumer como argumento
-//		list.forEach(new PriceUpdate());
+		//a função map aplica uma função a cada elemento da stream, gerando uma nova
+		//stream com os elementos transformados
+//		List<String> names = list.stream().map(new UpperCaseName()).collect(Collectors.toList());
 		
-		//reference method com método estático
-//		list.forEach(ProductFunctionalLambda::staticPriceUpdate);
+		
+		//reference method com método estático		
+//		List<String> names = list.stream().map(ProductFunctionalLambda::staticUpperCaseName).collect(Collectors.toList());
+		
 		
 		//reference method com método não estático
-//		list.forEach(ProductFunctionalLambda::nonStaticPriceUpdate);
+//		List<String> names = list.stream().map(ProductFunctionalLambda::nonStaticUpperCaseName).collect(Collectors.toList());
 		
-		//expressão lambda declarada		
-//		double factor = 1.1;
+		
+		//expressão lambda declarada
+//		Function<ProductFunctionalLambda, String> function = p -> p.getName().toUpperCase();
 //		
-//		Consumer<ProductFunctionalLambda> cons = p -> p.setPrice(p.getPrice() * factor);
-//		
-//		list.forEach(cons);
+//		List<String> names = list.stream().map(function).collect(Collectors.toList());
 		
+		//expressão lambda inline
 		
-		//expressão lambda inline		
-		double factor = 1.1;
+		List<String> names = list.stream().map(p -> p.getName().toUpperCase()).collect(Collectors.toList());
 		
-		list.forEach(p -> p.setPrice(p.getPrice() * factor));
-		
-		
-		//reference method para println
-		list.forEach(System.out::println);
-		
-		
-		
-		
+		names.forEach(System.out::println);
 				
 	}
 	
