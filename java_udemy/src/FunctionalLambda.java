@@ -1,9 +1,9 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
+import java.util.function.Predicate;
 
 import entities.ProductFunctionalLambda;
+import util.ProductPredicate;
 
 public class FunctionalLambda {
 		
@@ -162,6 +162,68 @@ public class FunctionalLambda {
 		 * - Consumer - ao contrário das demais interfaces funcionais, no caso do Consumer, é
 		 * esperado que ele possa gerar efeitos colaterais
 		 */
+		
+		
+		//256. Predicate (exemplo com removeIf) (https://github.com/acenelio/lambda2-java)
+		
+		/* Fazer um programa que, a partir de uma lista de produtos, remova da lista somente 
+		 * aqueles cujo preço mínimo seja 100.
+		 * 
+		 */
+		
+		//implementação da interface
+		
+//		List<ProductFunctionalLambda> list = new ArrayList<>();
+//
+//		list.add(new ProductFunctionalLambda("TV", 900.00));
+//		list.add(new ProductFunctionalLambda("Mouse", 50.00));
+//		list.add(new ProductFunctionalLambda("Tablet", 350.50));
+//		list.add(new ProductFunctionalLambda("HD Case", 80.90));
+//		
+//		//expressão lambda = predicado
+//		//list.removeIf(p -> p.getPrice() >= 100);
+//		
+//		//com interface funcional implementada na classe ProductPredicate
+//		list.removeIf(new ProductPredicate());
+//		
+//		for(ProductFunctionalLambda p : list) {
+//			System.out.println(p);
+//		}
+		
+		
+		//reference method com método estático
+		
+		List<ProductFunctionalLambda> list = new ArrayList<>();
+
+		list.add(new ProductFunctionalLambda("TV", 900.00));
+		list.add(new ProductFunctionalLambda("Mouse", 50.00));
+		list.add(new ProductFunctionalLambda("Tablet", 350.50));
+		list.add(new ProductFunctionalLambda("HD Case", 80.90));
+		
+		//expressão lambda = predicado
+		//list.removeIf(p -> p.getPrice() >= 100);
+		
+		//com interface funcional implementada na classe ProductPredicate
+//		list.removeIf(new ProductPredicate());
+		
+		//reference method com método estático		
+//		list.removeIf(ProductFunctionalLambda::staticProductPredicate);
+		
+		//reference method com método não estático
+//		list.removeIf(ProductFunctionalLambda::nonStaticProductPredicate);
+		
+		//expressão lambda declarada
+//		Predicate<ProductFunctionalLambda> pred = p -> p.getPrice() >= 100.0;		
+//		list.removeIf(pred);
+		
+		//expressão lambda inline e não declarada
+		list.removeIf(p -> p.getPrice() >= 100.0);
+		
+		
+		for(ProductFunctionalLambda p : list) {
+			System.out.println(p);
+		}
+				
 	}
 	
 	
@@ -169,12 +231,12 @@ public class FunctionalLambda {
 	
 	//função para aula 254. Programação funcional e cálculo lambda
 	//essa função não tem TRANSPARÊNCIA REFERENCIAL pois ela está dependendo de um valor externo
-	public static void changeOddValues(int[] numbers) {
-		for(int i = 0; i < numbers.length; i++) {
-			if(numbers[i] % 2 != 0) {
-				numbers[i] += globalValue;
-			}
-		}
-	}
+//	public static void changeOddValues(int[] numbers) {
+//		for(int i = 0; i < numbers.length; i++) {
+//			if(numbers[i] % 2 != 0) {
+//				numbers[i] += globalValue;
+//			}
+//		}
+//	}
 
 }
