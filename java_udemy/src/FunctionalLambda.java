@@ -1,9 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
+import java.util.function.Consumer;
 
 import entities.ProductFunctionalLambda;
-import util.ProductPredicate;
 
 public class FunctionalLambda {
 		
@@ -193,13 +192,13 @@ public class FunctionalLambda {
 		
 		//reference method com método estático
 		
-		List<ProductFunctionalLambda> list = new ArrayList<>();
-
-		list.add(new ProductFunctionalLambda("TV", 900.00));
-		list.add(new ProductFunctionalLambda("Mouse", 50.00));
-		list.add(new ProductFunctionalLambda("Tablet", 350.50));
-		list.add(new ProductFunctionalLambda("HD Case", 80.90));
-		
+//		List<ProductFunctionalLambda> list = new ArrayList<>();
+//
+//		list.add(new ProductFunctionalLambda("TV", 900.00));
+//		list.add(new ProductFunctionalLambda("Mouse", 50.00));
+//		list.add(new ProductFunctionalLambda("Tablet", 350.50));
+//		list.add(new ProductFunctionalLambda("HD Case", 80.90));
+//		
 		//expressão lambda = predicado
 		//list.removeIf(p -> p.getPrice() >= 100);
 		
@@ -217,12 +216,64 @@ public class FunctionalLambda {
 //		list.removeIf(pred);
 		
 		//expressão lambda inline e não declarada
-		list.removeIf(p -> p.getPrice() >= 100.0);
+//		list.removeIf(p -> p.getPrice() >= 100.0);
+//		
+//		
+//		for(ProductFunctionalLambda p : list) {
+//			System.out.println(p);
+//		}
 		
 		
-		for(ProductFunctionalLambda p : list) {
-			System.out.println(p);
-		}
+		
+		//257. Consumer (com exemplo forEach) (https://github.com/acenelio/lambda3-java)
+		
+		/* interface funcional, parametrizada pelo tipo T e tem um único método abstrato 'accept',
+		 * que recebe um tipo T e é void
+		 */
+		
+		/* Fazer um programa que a apartir de uma lista de produtos, aumente o
+		 * preço dos produtos em 10%
+		 * 
+		 */
+		
+		List<ProductFunctionalLambda> list = new ArrayList<>();
+
+		list.add(new ProductFunctionalLambda("TV", 900.00));
+		list.add(new ProductFunctionalLambda("Mouse", 50.00));
+		list.add(new ProductFunctionalLambda("Tablet", 350.50));
+		list.add(new ProductFunctionalLambda("HD Case", 80.90));
+		
+		//implementação da interface
+		
+		//forEach de List recebe um consumer como argumento
+//		list.forEach(new PriceUpdate());
+		
+		//reference method com método estático
+//		list.forEach(ProductFunctionalLambda::staticPriceUpdate);
+		
+		//reference method com método não estático
+//		list.forEach(ProductFunctionalLambda::nonStaticPriceUpdate);
+		
+		//expressão lambda declarada		
+//		double factor = 1.1;
+//		
+//		Consumer<ProductFunctionalLambda> cons = p -> p.setPrice(p.getPrice() * factor);
+//		
+//		list.forEach(cons);
+		
+		
+		//expressão lambda inline		
+		double factor = 1.1;
+		
+		list.forEach(p -> p.setPrice(p.getPrice() * factor));
+		
+		
+		//reference method para println
+		list.forEach(System.out::println);
+		
+		
+		
+		
 				
 	}
 	

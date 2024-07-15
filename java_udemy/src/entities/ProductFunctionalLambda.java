@@ -27,18 +27,29 @@ public class ProductFunctionalLambda{
 		this.price = price;
 	}
 	
+	//para aula 257. Consumer - reference method com método estático
+	public static void staticPriceUpdate(ProductFunctionalLambda p) {
+		p.setPrice(p.getPrice() * 1.1);
+	}
+	
+	//para aula 257. Consumer - reference method com método não estático
+	public void nonStaticPriceUpdate() {
+		setPrice(getPrice() * 1.1);
+		//price = price * 1.1;
+	}
+	
 	//para aula 256. Predicate - reference method com método estático - trabalha com argumento
-	public static boolean staticProductPredicate(Product p) {
+	public static boolean staticProductPredicate(ProductFunctionalLambda p) {
 		return  p.getPrice() >= 100.0;
 	}
 	
-	//reference method com método não estático - trabalha com o proprio objeto onde se encontra, sem argumento
+	//para aula 256. Predicate - reference method com método não estático - trabalha com o proprio objeto onde se encontra, sem argumento
 	public boolean nonStaticProductPredicate() {
 		return  price >= 100.0;
 	}
 	
 	public String toString() {
-		return "Product [name=" + name + ", price=" + String.format("%.2f", price) + "]";
+		return name + ", " + String.format("%.2f", price);
 	}
 	
 	//para aula 253. Uma experiência com Comparator - com Collection.sort()
