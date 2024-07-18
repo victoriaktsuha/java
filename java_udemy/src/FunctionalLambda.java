@@ -1,7 +1,13 @@
-import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
+import entities.ProductFunctionalLambda;
 
 public class FunctionalLambda {
 
@@ -434,22 +440,69 @@ public class FunctionalLambda {
 		
 		//261. Pipeline
 		
-		List<Integer> list = Arrays.asList(3, 4, 5, 10, 7);
+//		List<Integer> list = Arrays.asList(3, 4, 5, 10, 7);
+//		
+//		//operação intermediaria (map())
+//		Stream<Integer> st1 = list.stream().map(x -> x * 10);	
+//		//operação terminal (toArray())
+//		System.out.println(Arrays.toString(st1.toArray()));
+//		
+//		//operação terminal (reduce())
+//		int sum = list.stream().reduce(0, (x , y) -> x + y);
+//		System.out.println("Sum = " + sum);
+//		
+//		List<Integer> newList = list.stream()
+//				.filter(x -> x % 2 == 0)
+//				.map(x -> x * 10)
+//				.collect(Collectors.toList());
+//		System.out.println(Arrays.toString(newList.toArray()));
 		
-		//operação intermediaria (map())
-		Stream<Integer> st1 = list.stream().map(x -> x * 10);	
-		//operação terminal (toArray())
-		System.out.println(Arrays.toString(st1.toArray()));
 		
-		//operação terminal (reduce())
-		int sum = list.stream().reduce(0, (x , y) -> x + y);
-		System.out.println("Sum = " + sum);
 		
-		List<Integer> newList = list.stream()
-				.filter(x -> x % 2 == 0)
-				.map(x -> x * 10)
-				.collect(Collectors.toList());
-		System.out.println(Arrays.toString(newList.toArray()));
+		//262. Exercicio resolvido (https://github.com/acenelio/lambda6-java)
+		
+		/* Fazer um programa para ler um conjunto de produtos a partir de um 
+		 * arquivo em formato .csv (suponha que exista pelo menos um produto).
+		 * Em seguida mostrar o preço médio dos produtos. Depois, mostrar os
+		 * nomes, em ordem decrescente, dos produtos que possuem preço
+		 * inferior ao preço médio.
+		 * 
+		 */
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Enter full file path: ");
+		String path = sc.nextLine();
+		
+		try(BufferedReader br = new BufferedReader(new FileReader(path))){
+			
+			List<ProductFunctionalLambda> list = new ArrayList<>();
+			
+			String line = br.readLine();
+			while(line != null){
+				String[] fields = line.split(",");
+				list.add(new ProductFunctionalLambda(fields[0], Double.parseDouble(fields[1])));
+				line = br.readLine();
+			}
+			
+			double avg = list.stream().map(p -> p.getPrice()).reduce(0.0 , (x, y) -> x + y) / list.size();
+			
+			System.out.println("Average price: " + String.format("%.2f", avg));
+			
+			Comparator<String> comp = (s1, s2) -> s1.toUpperCase().compareTo(s2.toUpperCase());
+			
+			List<String> names = list.stream()
+					.filter(p -> p.getPrice() < avg)
+					.map(p -> p.getName())
+					.sorted(comp.reversed())
+					.collect(Collectors.toList());
+			
+			names.forEach(System.out::println);
+			
+		} catch(IOException e) {
+			System.out.println("Error: " + e.getMessage());
+		}
+		sc.close();
 
 	}
 	/* END MAIN */
