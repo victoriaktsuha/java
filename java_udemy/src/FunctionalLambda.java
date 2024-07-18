@@ -5,6 +5,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import entities.ProductFunctionalLambda;
+import model.services.ProductService;
 import util.UpperCaseName;
 
 public class FunctionalLambda {
@@ -276,7 +277,7 @@ public class FunctionalLambda {
 		
 		
 		
-		//list. (https://github.com/acenelio/lambda4-java)
+		//258. Function (exemplo com map) (https://github.com/acenelio/lambda4-java)
 		
 		/* interface funcional com 2 parametros <T, R>,
 		 * com apenas um método que recebe um objeto do tipo T e retorna um objeto do tipo R
@@ -288,12 +289,12 @@ public class FunctionalLambda {
 		 * caixa alta
 		 */
 		
-		List<ProductFunctionalLambda> list = new ArrayList<>();
-
-		list.add(new ProductFunctionalLambda("TV", 900.00));
-		list.add(new ProductFunctionalLambda("Mouse", 50.00));
-		list.add(new ProductFunctionalLambda("Tablet", 350.50));
-		list.add(new ProductFunctionalLambda("HD Case", 80.90));
+//		List<ProductFunctionalLambda> list = new ArrayList<>();
+//
+//		list.add(new ProductFunctionalLambda("TV", 900.00));
+//		list.add(new ProductFunctionalLambda("Mouse", 50.00));
+//		list.add(new ProductFunctionalLambda("Tablet", 350.50));
+//		list.add(new ProductFunctionalLambda("HD Case", 80.90));
 		
 		/* Nota sobre a função map
 		 * A função "map" (não confunda com a estrutura de dados Map) é uma 
@@ -319,16 +320,41 @@ public class FunctionalLambda {
 		
 		
 		//expressão lambda declarada
-//		Function<ProductFunctionalLambda, String> function = p -> p.getName().toUpperCase();
-//		
+//		Function<ProductFunctionalLambda, String> function = p -> p.getName().toUpperCase();	
 //		List<String> names = list.stream().map(function).collect(Collectors.toList());
 		
 		//expressão lambda inline
 		
-		List<String> names = list.stream().map(p -> p.getName().toUpperCase()).collect(Collectors.toList());
+//		List<String> names = list.stream().map(p -> p.getName().toUpperCase()).collect(Collectors.toList());
+//		names.forEach(System.out::println);
 		
-		names.forEach(System.out::println);
+		
+		
+		//259. Criando funções que recebem funções como parâmetro (https://github.com/acenelio/lambda5-java)
+		
+		/* removeIf(Predicate)
+		 * forEach(Consumer)
+		 * map(Function)
+		 */
+		
+		/* Fazer um programa que, a partir de uma lista de produtos, calcule a soma dos preços somente dos produtos 
+		 * cujo nome começa com "T" 
+		 * 
+		 */
 				
+		List<ProductFunctionalLambda> list = new ArrayList<>();
+
+		list.add(new ProductFunctionalLambda("TV", 900.00));
+		list.add(new ProductFunctionalLambda("Mouse", 50.00));
+		list.add(new ProductFunctionalLambda("Tablet", 350.50));
+		list.add(new ProductFunctionalLambda("HD Case", 80.90));
+		
+		ProductService ps = new ProductService();
+		
+//		double sum = ps.filteredSum(list, p -> p.getName().charAt(0) == 'T');
+		double sum = ps.filteredSum(list, p -> p.getPrice() < 100.0);
+		
+		System.out.println("Sum = " + String.format("%.2f", sum));
 	}
 	
 	
