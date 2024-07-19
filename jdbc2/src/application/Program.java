@@ -17,13 +17,13 @@ public class Program {
 
 	public static void main(String[] args) {
 		
-		//Abre a conexão com o banco - configurado na classe DB.java
+		//Variavel para conexão com o banco
 		Connection conn = null;
 		
-		//Consulta o banco
+		//Variavel para consultar o banco
 		Statement st = null;
 		
-		//Armazena o resultado da consulta
+		//Variavel para armazenar o resultado da consulta
 		ResultSet rs = null;
 		
 		try {
