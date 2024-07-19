@@ -145,7 +145,27 @@ public class JDBC {
 		
 		//273. Demo - atualizar dados (https://github.com/acenelio/jdbc4)
 		
+		/* Não dar "UPDATE sem WHERE"
+		 * WHERE restringe/filtra quais items receberão a atualização
+		 * Sem restrição, toda a tabela selecionada será afetada
+		 * 
+		 */
+		
+		//274. Demo - deletar dados (https://github.com/acenelio/jdbc5)
 
+		/* Checklist:
+		 * - Criar DbIntegrityException
+		 * - Tratar a exceção de integridade referencial
+		 * 
+		 * PS.:! Chave estrangeira - valor atrelado a uma tabela que vem de outra tabela
+		 * 
+		 * Ao apagar um dado que ser de 'chave estrangeira' para outra tabela, 
+		 * o item da outra tabela ficará com uma referência errada ocorrendo uma
+		 * Falha de Integridade Referencial
+		 * Criar uma exceção só para identificar esse tipo de erro.
+		 * 
+		 * Também não dar "DELETE sem WHERE"
+		 */
 	}
 
 }
