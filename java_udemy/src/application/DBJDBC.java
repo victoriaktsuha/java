@@ -65,6 +65,16 @@ public class DBJDBC {
 		 * Resultará em uma tabela de acordo com a restrição especificada, mas apenas com o
 		 * nome da categoria, como especificado em SELECT
 		 */
+		
+		
+		//268. Instalação MySQL
+		
+		/* https://dev.mysql.com/downloads
+		 * MySQL Community Server -> Go To Download Page -> MSI Installer (full)
+		 */
+
+		
+		//269.
 
 	}
 
