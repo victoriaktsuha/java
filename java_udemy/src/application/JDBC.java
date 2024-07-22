@@ -241,6 +241,8 @@ public class JDBC {
 		//281. SellerDaoJDBC e DaoFactory
 		
 		//283. Reutilizando a instanciação
+		
+		//284. Implementando findByDepartment
 	}
 
 }
