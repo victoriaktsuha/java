@@ -219,6 +219,19 @@ public class JDBC {
 		 * -- git push -u origin master
 		 * 
 		 */
+
+		
+		//278. Classe Department
+		
+		/* Entity class checklist:
+		 * - Attributes
+		 * - Constructors
+		 * - Getters/Setters
+		 * - hashCode and equals
+		 * - toString
+		 * - implements Serializable
+		 * 
+		 */
 		
 	}
 
