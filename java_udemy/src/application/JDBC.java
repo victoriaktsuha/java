@@ -166,6 +166,27 @@ public class JDBC {
 		 * 
 		 * Também não dar "DELETE sem WHERE"
 		 */
+		
+		
+		//275. Demo - Transações (https://github.com/acenelio/jdbc6)
+		
+		/* É uma operação que deve manter a consistência do banco de dados
+		 * 
+		 * A transação deve ter 4 propriedades:
+		 * - Atomica: altera tudo ou altera nada
+		 * - Consistente: começa e termina
+		 * - Isolada
+		 * - Durável
+		 * (https://www.ibm.com/support/knowledgecenter/en/SSGMCP_5.4.0/product-overview/acid.html)
+		 * 
+		 * API:
+		 * - setAutoCommit(false)
+		 * - commit()
+		 * - rollback()
+		 * 
+		 */
+		
+		
 	}
 
 }
