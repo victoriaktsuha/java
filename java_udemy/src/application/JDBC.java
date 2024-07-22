@@ -237,6 +237,7 @@ public class JDBC {
 		//279. Classe Seller
 
 		
+		//280. Interfaces DepartmentDao e SellerDao
 	}
 
 }
