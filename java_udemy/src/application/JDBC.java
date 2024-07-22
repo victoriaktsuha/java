@@ -239,6 +239,8 @@ public class JDBC {
 		//280. Interfaces DepartmentDao e SellerDao
 		
 		//281. SellerDaoJDBC e DaoFactory
+		
+		//283. Reutilizando a instanciação
 	}
 
 }
