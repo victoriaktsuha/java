@@ -234,10 +234,11 @@ public class JDBC {
 		 */
 		
 		
-		//279. Classe Seller
-
+		//279. Classe Seller 
 		
 		//280. Interfaces DepartmentDao e SellerDao
+		
+		//281. SellerDaoJDBC e DaoFactory
 	}
 
 }
