@@ -243,6 +243,9 @@ public class JDBC {
 		//283. Reutilizando a instanciação
 		
 		//284. Implementando findByDepartment
+		
+		//285. Implementando findAll
+	
 	}
 
 }
