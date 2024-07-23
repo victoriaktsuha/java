@@ -245,6 +245,8 @@ public class JDBC {
 		//284. Implementando findByDepartment
 		
 		//285. Implementando findAll
+		
+		//286. Implementando insert
 	
 	}
 
