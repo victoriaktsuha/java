@@ -280,7 +280,11 @@ public class JDBC {
 		 * WHERE Id = ?
 		 */
 		
+		//288. Implementando delete
 		
+		/* DELETE FROM seller
+		 * WHERE Id = ?
+		 */
 	
 	}
 
