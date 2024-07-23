@@ -242,11 +242,45 @@ public class JDBC {
 		
 		//283. Reutilizando a instanciação
 		
+		/* SELECT seller.*,department.Name as DepName
+		 * FROM seller INNER JOIN department
+		 * ON seller.DepartmentId = department.Id
+		 * WHERE seller.Id = ? 
+		 */
+		
 		//284. Implementando findByDepartment
+		
+		/* SELECT seller.*,department.Name as DepName
+		 * FROM seller INNER JOIN department
+		 * ON seller.DepartmentId = department.Id
+		 * WHERE DepartmentId = ?
+		 * ORDER BY Name
+		 */
 		
 		//285. Implementando findAll
 		
+		/* SELECT seller.*,department.Name as DepName
+		 * FROM seller INNER JOIN department
+		 * ON seller.DepartmentId = department.Id
+		 * ORDER BY Name
+		 */
+		
 		//286. Implementando insert
+		
+		/* INSERT INTO seller
+		 * (Name, Email, BirthDate, BaseSalary, DepartmentId)
+		 * VALUES
+		 * (?, ?, ?, ?, ?)
+		 */
+		
+		//287. Implementando update
+		
+		/* UPDATE seller
+		 * SET Name = ?, Email = ?, BirthDate = ?, BaseSalary = ?, DepartmentId = ?
+		 * WHERE Id = ?
+		 */
+		
+		
 	
 	}
 
