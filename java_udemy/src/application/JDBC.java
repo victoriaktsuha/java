@@ -285,6 +285,14 @@ public class JDBC {
 		/* DELETE FROM seller
 		 * WHERE Id = ?
 		 */
+		
+		//289. Implementação e teste do DepartmentDao
+		
+		/* Checklist:
+		 * - DepartmentDaoJDBC
+		 * - DaoFactory
+		 * - Program2
+		 */
 	
 	}
 
