@@ -117,6 +117,8 @@ public class WebServicesSpringBootJPAHibernate {
 		//310. Entidade OrderItem. Associação muitos-para-muitos com dados extras - PARTE 1
 		
 		//311. Entidade OrderItem. Associação muitos-para-muitos com dados extras - PARTE 2
+		
+		//312. Associação muitos para muitos entre Product e OrderItem
 
 	}
 
