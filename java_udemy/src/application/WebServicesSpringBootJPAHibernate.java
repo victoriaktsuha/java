@@ -123,6 +123,8 @@ public class WebServicesSpringBootJPAHibernate {
 		//313. Entidade Payment, associação um para um
 		
 		//314. Métodos subtotal e total
+		
+		//315. Inserção de User
 
 	}
 
