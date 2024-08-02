@@ -76,6 +76,12 @@ public class WebServicesSpringBootJPAHibernate {
 		 * do framework
 		 * - Primeira instanciação do banco de dados - database seeding
 		 */
+		
+		//303. Camada de serviço, registro de componentes
+		
+		/*
+		 * 
+		 */
 
 	}
 
