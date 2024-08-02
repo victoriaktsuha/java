@@ -49,6 +49,21 @@ public class WebServicesSpringBootJPAHibernate {
 		 */
 		
 		
+		//301. H2 database, test profile, JPA
+		
+		/* - JPA & H2 dependencies -> H2 é um db de teste, muito utilizado em Java para 
+		 * testes, sem instalação pois é em memória e já vem integrado ao projeto
+		 * 
+		 * - test profile - perfil do projeto para testes; Há outros tipos de perfil, 
+		 * como perfil para desenvolvimento, com outro db especifico para não reiniciar
+		 * toda vez que o projeto execução; Tem tbm o perfil de produção, quaando o 
+		 * projeto está implantado no cliente que vai utilizar o sistema.
+		 * 
+		 * - application.properties
+		 * - application-test.properties
+		 * - Entity: JPA mapping
+		 * - Repository
+		 */
 
 	}
 
