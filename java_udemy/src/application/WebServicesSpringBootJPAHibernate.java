@@ -79,13 +79,14 @@ public class WebServicesSpringBootJPAHibernate {
 		
 		//303. Camada de serviço, registro de componentes
 		
-		/*
-		 * 
-		 */
 		
 		//304. Entidade Pedido. Datas com Instant e padrão ISO 8601 - PARTE 1
 		
-		/*
+		
+		//305. Entidade Pedido. Datas com Instant e padrão ISO 8601 - PARTE 2
+		
+		/* lazy loading - quando existe uma associação 'para muitos', o JPA não carrega
+		 * os objetos 'para muitos' a não ser que sejam acionados.
 		 * 
 		 */
 
