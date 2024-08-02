@@ -89,6 +89,8 @@ public class WebServicesSpringBootJPAHibernate {
 		 * os objetos 'para muitos' a não ser que sejam acionados.
 		 * 
 		 */
+		
+		//306. Enum OrderStatus
 
 	}
 
