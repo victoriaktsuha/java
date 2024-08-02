@@ -113,6 +113,10 @@ public class WebServicesSpringBootJPAHibernate {
 		 * Então as classes deveram ser mapeadas (Product e Category, no caso) para que
 		 * a tabela de associação apareça no db relacional
 		 */
+		
+		//310. Entidade OrderItem. Associação muitos-para-muitos com dados extras - PARTE 1
+		
+		//311. Entidade OrderItem. Associação muitos-para-muitos com dados extras - PARTE 2
 
 	}
 
