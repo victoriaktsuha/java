@@ -35,6 +35,7 @@ public class WebServicesSpringBootJPAHibernate {
 		
 		//300.Entidade User e seu resource
 		
+		
 		/* Resource Layer
 		 * Resource é um recurso web correspondente a uma entidade - nesse caso, 
 		 * disponibilizará 2 endpoints para recuperar
@@ -77,11 +78,12 @@ public class WebServicesSpringBootJPAHibernate {
 		 * - Primeira instanciação do banco de dados - database seeding
 		 */
 		
-		//303. Camada de serviço, registro de componentes
+		//303. Camada de serviço, registro de componentes		
 		
+		//304. Entidade Pedido. Datas com Instant e padrão ISO 8601 - PARTE 1	
 		
-		//304. Entidade Pedido. Datas com Instant e padrão ISO 8601 - PARTE 1
-		
+		/* Se relaciona/associa com User 
+		 */
 		
 		//305. Entidade Pedido. Datas com Instant e padrão ISO 8601 - PARTE 2
 		
@@ -94,7 +96,23 @@ public class WebServicesSpringBootJPAHibernate {
 		
 		//307. Entidade Category
 		
+		/* Se relaciona/associa com product
+		 */
+		
 		//308. Entidade Product
+		
+		/* Se relaciona/associa com category
+		 */
+		
+		//309. Associação muitos-para-muitos com JoinTable
+		
+		/* Uma categoria pode ter vários produtos
+		 * assim como um produto pode ter várias categorias
+		 * Isso da visão OO;
+		 * Em questão de db relacional, terá uma tabela de associação
+		 * Então as classes deveram ser mapeadas (Product e Category, no caso) para que
+		 * a tabela de associação apareça no db relacional
+		 */
 
 	}
 
