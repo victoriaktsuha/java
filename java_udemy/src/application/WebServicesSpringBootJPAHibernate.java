@@ -35,7 +35,8 @@ public class WebServicesSpringBootJPAHibernate {
 		
 		//300.Entidade User e seu resource
 		
-		/* Resource é um recurso web correspondente a uma entidade - nesse caso, 
+		/* Resource Layer
+		 * Resource é um recurso web correspondente a uma entidade - nesse caso, 
 		 * disponibilizará 2 endpoints para recuperar
 		 * os usuários cadastrados e um usuário informando seu id
 		 * 
@@ -63,6 +64,17 @@ public class WebServicesSpringBootJPAHibernate {
 		 * - application-test.properties
 		 * - Entity: JPA mapping
 		 * - Repository
+		 */
+		
+		//302. JPA repository, injeção de dependência, database seeding
+		
+		/* Data Access Layer
+		 * - Implementar o primeiro repository utilizando o JPA
+		 * repository, do Spring Data JPA, que é um sub-framework
+		 * do ecossistema Spring
+		 * - Injeção de dependência automatica feita pelo container
+		 * do framework
+		 * - Primeira instanciação do banco de dados - database seeding
 		 */
 
 	}
