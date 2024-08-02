@@ -125,6 +125,8 @@ public class WebServicesSpringBootJPAHibernate {
 		//314. Métodos subtotal e total
 		
 		//315. Inserção de User
+		
+		//316. Deleção de User
 
 	}
 
