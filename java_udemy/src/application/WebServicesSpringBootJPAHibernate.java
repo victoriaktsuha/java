@@ -93,6 +93,8 @@ public class WebServicesSpringBootJPAHibernate {
 		//306. Enum OrderStatus
 		
 		//307. Entidade Category
+		
+		//308. Entidade Product
 
 	}
 
