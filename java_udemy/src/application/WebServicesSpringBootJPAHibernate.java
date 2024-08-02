@@ -91,6 +91,8 @@ public class WebServicesSpringBootJPAHibernate {
 		 */
 		
 		//306. Enum OrderStatus
+		
+		//307. Entidade Category
 
 	}
 
