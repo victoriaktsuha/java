@@ -133,6 +133,8 @@ public class WebServicesSpringBootJPAHibernate {
 		//318. Tratamento de exceção - findById (Erro 500 => Erro 404)
 		
 		//319. Tratamento de exceção - delete
+		
+		//320. Tratamento de exceção - update
 
 	}
 
