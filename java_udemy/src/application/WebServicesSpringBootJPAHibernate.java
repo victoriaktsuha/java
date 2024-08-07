@@ -127,6 +127,10 @@ public class WebServicesSpringBootJPAHibernate {
 		//315. Inserção de User
 		
 		//316. Deleção de User
+		
+		//317. Atualização de User
+		
+		//318. Tratamento de exceção - findById (Erro 500 => Erro 404)
 
 	}
 
