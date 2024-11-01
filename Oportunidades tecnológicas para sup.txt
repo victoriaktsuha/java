@@ -1,0 +1,19 @@
+"Oportunidades tecnológicas para superar os desafios de digitalização, como usar essas ferramentas para automatizar e centralizar processos"
+
+Quanta a possível resistência a transformação digital:
+- Eleger responsáveis pela transformação digital que sejam claros sobre os benefícios e como ela ocorrerá;
+- Promoção de cultura de inovação por meio de palestras e encontros com demonstração de cases reais afim de mostrar suas vantagens e aplicações.
+
+Quanto a competência e recursos:
+- Capacitação da equipe junto com uma nova cultural organizacional, afim de aproveitar o know-how de mercado do time existente e promovendo seu desenvolvimento e capacitação através de workshops, cursos in company, etc.;
+- Integração de sistemas feita de forma cautelosa e assertiva, afim de minimizar possíveis impactos negativos do processo da implementação digital na empresa;
+- Investir em gestão de dados e segurança.
+
+Exemplo de solução tecnológica para automatização e centralização de processos: 
+- Integração de solução RPA (Automação Robótica de Processos) aos sistemas ERP (Enterprise Resource Planning) legados, evitando uma a substituição (temporária) dos mesmos, apresentando uma solução rápida e de baixo custo para a transformação digital da empresa, mas que idelamente deve ser temporária, dando janela de tempo para que empresa adapte todo seu sistema com ferramentas mais modernas. 
+-- Programar tarefas "humanas" repetitivas e superar a baixa velocidade de processamento de um sistema legado como ERPs.
+-- Automatização de vários setores como compras (criação de pedidos, informação de fornecedores e prestadores de serviços, preços e prazos de entrega), vendas (criação de orçamentos, processo de pedido de venda, informações de clientes, geração de faturas), financeiro (lançamento de despesa, conciliação bancária, fechamento contábil, reconciliação bancária), estoque (registro e gerenciamento de estoque), RH (folha de pagamento, informações de funcionários, relatório de horas trabalhdas), projetos (criação de projetos, alocação de recursos, atualização de status, relatório de acompanhamento), etc.
+
+"Reforçar valor da plataforma digital para os moradores e sindicos, como facilitar a comunicação e trazer transparência"
+
+- A partir da iniciativa de transformação de digital, a comunicação e transparência entre prestadores de serviços, moradores, síndicos e administradora poderá ser mais assertiva, devido a centralização de processos e informações; e mais rápida, com a automação de tarefas e melhoria do tempo de entrega de relatórios, atas, processo de pagamento, compra, etc.
